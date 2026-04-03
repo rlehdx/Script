@@ -33,6 +33,7 @@ function DashboardContent() {
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
+  const [retryAfter, setRetryAfter] = useState(0);
 
   const [usage, setUsage] = useState<UsageStatus>({ planType: "starter", scriptsUsed: 0, limit: 5 });
   const [scripts, setScripts] = useState<HistoryScript[]>([]);
@@ -67,6 +68,8 @@ function DashboardContent() {
       setError("Please describe your topic or product.");
       return;
     }
+    if (generating || retryAfter > 0) return;
+
     setGenerating(true);
     setError("");
     setOutput("");
@@ -80,7 +83,24 @@ function DashboardContent() {
     const data = await res.json();
 
     if (!res.ok) {
-      if (data.code === "LIMIT_REACHED") {
+      if (res.status === 429 && data.code !== "LIMIT_REACHED") {
+        // OpenAI RPM limit — show countdown
+        const wait = 20;
+        setError(`요청이 너무 많습니다. ${wait}초 후에 다시 시도해 주세요.`);
+        setRetryAfter(wait);
+        const interval = setInterval(() => {
+          setRetryAfter((prev) => {
+            if (prev <= 1) {
+              clearInterval(interval);
+              setError("");
+              return 0;
+            }
+            const next = prev - 1;
+            setError(`요청이 너무 많습니다. ${next}초 후에 다시 시도해 주세요.`);
+            return next;
+          });
+        }, 1000);
+      } else if (data.code === "LIMIT_REACHED") {
         setShowUpgradeModal(true);
       } else {
         setError(data.error ?? "Generation failed. Please try again.");
@@ -258,7 +278,7 @@ function DashboardContent() {
                 {error && <p className="text-xs text-red-400 mt-2">{error}</p>}
                 <button
                   onClick={handleGenerate}
-                  disabled={generating || !topic.trim()}
+                  disabled={generating || retryAfter > 0 || !topic.trim()}
                   className="btn-primary w-full justify-center mt-3 py-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none"
                 >
                   {generating ? (
@@ -269,6 +289,8 @@ function DashboardContent() {
                       </svg>
                       Generating script...
                     </>
+                  ) : retryAfter > 0 ? (
+                    `재시도까지 ${retryAfter}초...`
                   ) : (
                     <>
                       Generate Script
