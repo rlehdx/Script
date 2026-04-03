@@ -86,7 +86,7 @@ function DashboardContent() {
       if (res.status === 429 && data.code !== "LIMIT_REACHED") {
         // OpenAI RPM limit — show countdown
         const wait = 20;
-        setError(`요청이 너무 많습니다. ${wait}초 후에 다시 시도해 주세요.`);
+        setError(`Too many requests. Please try again in ${wait} seconds.`);
         setRetryAfter(wait);
         const interval = setInterval(() => {
           setRetryAfter((prev) => {
@@ -96,7 +96,7 @@ function DashboardContent() {
               return 0;
             }
             const next = prev - 1;
-            setError(`요청이 너무 많습니다. ${next}초 후에 다시 시도해 주세요.`);
+            setError(`Too many requests. Please try again in ${next} seconds.`);
             return next;
           });
         }, 1000);
@@ -290,7 +290,7 @@ function DashboardContent() {
                       Generating script...
                     </>
                   ) : retryAfter > 0 ? (
-                    `재시도까지 ${retryAfter}초...`
+                    `Retry in ${retryAfter}s...`
                   ) : (
                     <>
                       Generate Script
