@@ -9,7 +9,7 @@ export async function getOrCreateUser(clerkUserId: string, email: string) {
     .from("users")
     .select("*")
     .eq("clerk_user_id", clerkUserId)
-    .single();
+    .maybeSingle();
 
   if (existing) return existing;
 
@@ -46,7 +46,7 @@ export async function checkAndIncrementUsage(clerkUserId: string): Promise<{
     .from("users")
     .select("*")
     .eq("clerk_user_id", clerkUserId)
-    .single();
+    .maybeSingle();
 
   if (error || !user) {
     return {

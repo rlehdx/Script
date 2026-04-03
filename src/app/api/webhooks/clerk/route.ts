@@ -52,14 +52,16 @@ export async function POST(req: Request) {
 
     console.log('[clerk-webhook] Creating user:', { id, email });
 
-    const { error } = await supabase.from('users').insert({
-      id: crypto.randomUUID(),
-      clerk_user_id: id,
-      email,
-      plan_type: 'starter',
-      scripts_used_this_month: 0,
-      billing_cycle_start: new Date().toISOString(),
-    });
+    const { error } = await supabase.from('users').upsert(
+      {
+        clerk_user_id: id,
+        email,
+        plan_type: 'starter',
+        scripts_used_this_month: 0,
+        billing_cycle_start: new Date().toISOString(),
+      },
+      { onConflict: 'clerk_user_id', ignoreDuplicates: true }
+    );
 
     if (error) {
       console.error('[clerk-webhook] Supabase insert error:', JSON.stringify(error));
