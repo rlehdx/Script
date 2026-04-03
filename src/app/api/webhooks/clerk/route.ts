@@ -3,26 +3,29 @@ import { headers } from 'next/headers';
 import { WebhookEvent } from '@clerk/nextjs/server';
 import { createClient } from '@supabase/supabase-js';
 
-// Supabase 클라이언트 (Service Role Key 필수)
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
 export async function POST(req: Request) {
   const WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET;
-
   if (!WEBHOOK_SECRET) {
-    throw new Error('Please add CLERK_WEBHOOK_SECRET from Clerk Dashboard to .env.local');
+    console.error('[clerk-webhook] CLERK_WEBHOOK_SECRET is not set');
+    return new Response('CLERK_WEBHOOK_SECRET not configured', { status: 500 });
   }
 
+  const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
+    console.error('[clerk-webhook] Supabase env vars missing');
+    return new Response('Supabase not configured', { status: 500 });
+  }
+
+  const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+
   const headerPayload = await headers();
-  const svix_id = headerPayload.get("svix-id");
-  const svix_timestamp = headerPayload.get("svix-timestamp");
-  const svix_signature = headerPayload.get("svix-signature");
+  const svix_id = headerPayload.get('svix-id');
+  const svix_timestamp = headerPayload.get('svix-timestamp');
+  const svix_signature = headerPayload.get('svix-signature');
 
   if (!svix_id || !svix_timestamp || !svix_signature) {
-    return new Response('Error occured -- no svix headers', { status: 400 });
+    return new Response('Missing svix headers', { status: 400 });
   }
 
   const payload = await req.json();
@@ -32,31 +35,38 @@ export async function POST(req: Request) {
 
   try {
     evt = wh.verify(body, {
-      "svix-id": svix_id,
-      "svix-timestamp": svix_timestamp,
-      "svix-signature": svix_signature,
+      'svix-id': svix_id,
+      'svix-timestamp': svix_timestamp,
+      'svix-signature': svix_signature,
     }) as WebhookEvent;
   } catch (err) {
-    return new Response('Error occured', { status: 400 });
+    console.error('[clerk-webhook] Signature verification failed:', err);
+    return new Response('Invalid signature', { status: 400 });
   }
 
-  const eventType = evt.type;
-
-  // 유저 가입 시 Supabase 'users' 테이블에 데이터 생성
-  if (eventType === 'user.created') {
+  if (evt.type === 'user.created') {
     const { id, email_addresses } = evt.data;
-    const email = email_addresses[0].email_address;
+
+    // email_addresses may be empty in test webhooks — use fallback
+    const email = email_addresses?.[0]?.email_address ?? `${id}@unknown.local`;
+
+    console.log('[clerk-webhook] Creating user:', { id, email });
 
     const { error } = await supabase.from('users').insert({
       id: crypto.randomUUID(),
       clerk_user_id: id,
-      email: email,
+      email,
       plan_type: 'starter',
       scripts_used_this_month: 0,
       billing_cycle_start: new Date().toISOString(),
     });
 
-    if (error) return new Response('Database Error', { status: 500 });
+    if (error) {
+      console.error('[clerk-webhook] Supabase insert error:', JSON.stringify(error));
+      return new Response(`Database Error: ${error.message}`, { status: 500 });
+    }
+
+    console.log('[clerk-webhook] User created successfully:', id);
   }
 
   return new Response('Success', { status: 200 });
