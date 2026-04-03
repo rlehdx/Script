@@ -61,6 +61,9 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
+  verification: {
+    google: "4zc8hLWGKz7rSqKBZMR2IClZRNb_NS6TN1hU-0YnM2s",
+  },
 };
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
