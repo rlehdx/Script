@@ -68,10 +68,7 @@ export default function Footer() {
 
         <div className="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-600">
-            &copy; {new Date().getFullYear()} ScriptFlow AI. All rights reserved.
-          </p>
-          <p className="text-xs text-slate-600">
-            Stripe payments in TEST MODE — read README.md to go live.
+            &copy; {new Date().getFullYear()} Scriva. All rights reserved.
           </p>
         </div>
       </div>

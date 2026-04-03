@@ -102,7 +102,7 @@ export default function PricingPage() {
           >
             <div className="inline-flex items-center gap-2 glass border border-purple-500/20 rounded-full px-4 py-2 mb-6">
               <span className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse" />
-              <span className="text-xs text-purple-300 font-medium">Stripe TEST MODE — no real charges</span>
+              <span className="text-xs text-purple-300 font-medium">No contracts. Cancel anytime.</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-4">
               Simple, honest pricing
