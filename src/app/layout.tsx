@@ -9,24 +9,40 @@ const inter = Inter({
   display: "swap",
 });
 
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://scriva.app";
+
 export const metadata: Metadata = {
-  title: "ScriptFlow AI — Turn Any Idea Into a High-Converting Script in Seconds",
+  title: {
+    default: "Scriva — AI Script Generator for YouTube, TikTok & Ads",
+    template: "%s | Scriva",
+  },
   description:
-    "AI-powered script generator for YouTubers, TikTok creators, ad agencies, and solopreneurs. Generate YouTube scripts, ad copy, VSL scripts, and more.",
-  keywords: "AI script generator, YouTube script, TikTok script, ad copy, video script, AI copywriting",
-  authors: [{ name: "ScriptFlow AI" }],
+    "Generate high-converting YouTube scripts, TikTok hooks, VSL copy, and ad scripts in seconds. Powered by GPT-4.1 and o3. Used by 1,000+ creators and agencies.",
+  keywords: [
+    "AI script generator",
+    "YouTube script generator",
+    "TikTok script",
+    "VSL script",
+    "ad copy generator",
+    "video script AI",
+    "GPT-4 scriptwriter",
+    "Scriva",
+  ],
+  authors: [{ name: "Scriva" }],
+  metadataBase: new URL(APP_URL),
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "ScriptFlow AI — Turn Any Idea Into a Script in Seconds",
+    title: "Scriva — AI Script Generator for YouTube, TikTok & Ads",
     description:
-      "Generate high-converting scripts for YouTube, TikTok, ads, VSL, podcasts, and more with GPT-4o.",
-    url: process.env.NEXT_PUBLIC_APP_URL ?? "",
-    siteName: "ScriptFlow AI",
+      "Generate high-converting scripts for YouTube, TikTok, VSL, podcasts, and ads in seconds. Powered by GPT-4.1 and o3.",
+    url: APP_URL,
+    siteName: "Scriva",
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_APP_URL}/og-image.png`,
+        url: `${APP_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "ScriptFlow AI",
+        alt: "Scriva — AI Script Generator",
       },
     ],
     locale: "en_US",
@@ -34,35 +50,44 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ScriptFlow AI — Turn Any Idea Into a Script in Seconds",
-    description: "Generate high-converting scripts with GPT-4o.",
-    images: [`${process.env.NEXT_PUBLIC_APP_URL}/og-image.png`],
+    title: "Scriva — AI Script Generator for YouTube, TikTok & Ads",
+    description:
+      "Generate high-converting scripts in seconds. Powered by GPT-4.1 and o3.",
+    images: [`${APP_URL}/og-image.png`],
+    creator: "@scriva_app",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: { index: true, follow: true },
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <ClerkProvider>
       <html lang="en" className={inter.variable}>
         <head>
-          {/* Google Analytics — replace GA_MEASUREMENT_ID with your ID */}
-          {/*
-          <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-          <script dangerouslySetInnerHTML={{ __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'GA_MEASUREMENT_ID');
-          `}} />
-          */}
+          {GA_ID && (
+            <>
+              <script
+                async
+                src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              />
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${GA_ID}', { page_path: window.location.pathname });
+                  `,
+                }}
+              />
+            </>
+          )}
         </head>
         <body className="bg-bg-primary text-white antialiased font-sans">
           {children}

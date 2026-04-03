@@ -9,8 +9,29 @@ import DashboardLayout from "./layout-inner";
 import UpgradeModal from "@/components/UpgradeModal";
 import UsageBar from "@/components/UsageBar";
 import ScriptHistory, { type HistoryScript } from "@/components/ScriptHistory";
+import SceneViewer from "@/components/SceneViewer";
 import { SCRIPT_TYPES, TONES, DURATIONS, LANGUAGES } from "@/lib/openai";
 import type { PlanType } from "@/lib/stripe";
+
+const DURATION_PLAN_REQUIRED: Record<string, PlanType> = {
+  "30s": "starter", "60s": "starter",
+  "3min": "creator", "5min": "creator",
+  "10min": "agency",
+};
+
+function canUseDuration(planType: PlanType, duration: string): boolean {
+  const required = DURATION_PLAN_REQUIRED[duration] ?? "starter";
+  const order: PlanType[] = ["starter", "creator", "agency"];
+  return order.indexOf(planType) >= order.indexOf(required);
+}
+
+interface Scene {
+  id: number;
+  label: string;
+  narration: string;
+  visual: string;
+  duration_hint: string;
+}
 
 interface UsageStatus {
   planType: PlanType;
@@ -30,6 +51,8 @@ function DashboardContent() {
   const [language, setLanguage] = useState<string>(LANGUAGES[0]);
 
   const [output, setOutput] = useState("");
+  const [scriptTitle, setScriptTitle] = useState("");
+  const [scenes, setScenes] = useState<Scene[]>([]);
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
@@ -109,7 +132,9 @@ function DashboardContent() {
       return;
     }
 
-    setOutput(data.output);
+    setOutput(data.output ?? data.script ?? "");
+    setScriptTitle(data.title ?? "");
+    setScenes(data.scenes ?? []);
     setUsage({ planType: data.planType, scriptsUsed: data.scriptsUsed, limit: data.limit });
     fetchHistory();
     setGenerating(false);
@@ -221,19 +246,34 @@ function DashboardContent() {
                 <div>
                   <label className="block text-xs text-slate-500 mb-1.5">Duration</label>
                   <div className="flex flex-wrap gap-2">
-                    {DURATIONS.map((d) => (
-                      <button
-                        key={d}
-                        onClick={() => setDuration(d)}
-                        className={`py-1.5 px-3 rounded-lg text-xs font-medium transition-all duration-200 border ${
-                          duration === d
-                            ? "bg-purple-500/20 border-purple-500/40 text-purple-300"
-                            : "bg-bg-secondary border-white/5 text-slate-400 hover:border-white/15"
-                        }`}
-                      >
-                        {d}
-                      </button>
-                    ))}
+                    {DURATIONS.map((d) => {
+                      const allowed = canUseDuration(usage.planType, d);
+                      const required = DURATION_PLAN_REQUIRED[d];
+                      return (
+                        <button
+                          key={d}
+                          onClick={() => {
+                            if (!allowed) { setShowUpgradeModal(true); return; }
+                            setDuration(d);
+                          }}
+                          title={!allowed ? `Requires ${required} plan` : undefined}
+                          className={`py-1.5 px-3 rounded-lg text-xs font-medium transition-all duration-200 border relative ${
+                            !allowed
+                              ? "border-white/5 text-slate-600 cursor-pointer opacity-60"
+                              : duration === d
+                              ? "bg-purple-500/20 border-purple-500/40 text-purple-300"
+                              : "bg-bg-secondary border-white/5 text-slate-400 hover:border-white/15"
+                          }`}
+                        >
+                          {d}
+                          {!allowed && (
+                            <span className="ml-1 text-[9px] uppercase tracking-wide text-amber-500">
+                              {required === "agency" ? "Agency" : "Pro"}
+                            </span>
+                          )}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -333,11 +373,11 @@ function DashboardContent() {
                         </button>
                       </div>
                     </div>
-                    <div className="bezel-card-inner p-4 max-h-96 overflow-y-auto">
-                      <pre className="text-sm text-slate-300 leading-relaxed whitespace-pre-wrap font-mono">
-                        {output}
-                      </pre>
-                    </div>
+                    <SceneViewer
+                      title={scriptTitle}
+                      script={output}
+                      scenes={scenes}
+                    />
                   </motion.div>
                 )}
               </AnimatePresence>

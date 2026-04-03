@@ -29,12 +29,32 @@ export default function SettingsPage() {
   const [portalLoading, setPortalLoading] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState("");
   const [deleting, setDeleting] = useState(false);
+  const [brandVoice, setBrandVoice] = useState("");
+  const [brandVoiceSaving, setBrandVoiceSaving] = useState(false);
+  const [brandVoiceSaved, setBrandVoiceSaved] = useState(false);
 
   useEffect(() => {
     fetch("/api/subscription/status")
       .then((r) => r.json())
       .then((d) => setUsage(d));
+    fetch("/api/user/brand-voice")
+      .then((r) => r.json())
+      .then((d) => { if (d.brandVoice) setBrandVoice(d.brandVoice); });
   }, []);
+
+  async function handleSaveBrandVoice() {
+    setBrandVoiceSaving(true);
+    const res = await fetch("/api/user/brand-voice", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ brandVoice }),
+    });
+    setBrandVoiceSaving(false);
+    if (res.ok) {
+      setBrandVoiceSaved(true);
+      setTimeout(() => setBrandVoiceSaved(false), 2000);
+    }
+  }
 
   async function handleBillingPortal() {
     setPortalLoading(true);
@@ -165,11 +185,62 @@ export default function SettingsPage() {
           </div>
         </motion.div>
 
-        {/* API Usage */}
+        {/* Brand Voice — Agency only */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.14, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className={`bezel-card p-6 ${planType === "agency" ? "border-amber-500/20" : ""}`}
+        >
+          <div className="flex items-center justify-between mb-2">
+            <h2 className="text-base font-semibold">Brand Voice</h2>
+            <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border bg-amber-500/20 text-amber-300 border-amber-500/30">
+              Agency
+            </span>
+          </div>
+          <p className="text-sm text-slate-400 mb-4">
+            Define your brand's tone, style, and persona. This is automatically injected into every script you generate.
+          </p>
+          {planType === "agency" ? (
+            <div className="space-y-3">
+              <textarea
+                value={brandVoice}
+                onChange={(e) => setBrandVoice(e.target.value)}
+                placeholder="e.g. Speak like a confident Silicon Valley founder — direct, data-driven, and slightly irreverent. Avoid corporate jargon. Always end with an action-oriented CTA."
+                rows={4}
+                maxLength={500}
+                className="w-full bg-bg-secondary border border-white/8 rounded-lg px-3 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-amber-500/40 transition-colors resize-none"
+              />
+              <div className="flex items-center justify-between">
+                <span className="text-xs text-slate-600">{brandVoice.length} / 500</span>
+                <button
+                  onClick={handleSaveBrandVoice}
+                  disabled={brandVoiceSaving}
+                  className={`text-sm px-4 py-2 rounded-lg font-medium transition-all duration-200 border ${
+                    brandVoiceSaved
+                      ? "bg-green-500/20 border-green-500/40 text-green-300"
+                      : "bg-amber-500/20 border-amber-500/30 text-amber-300 hover:bg-amber-500/30"
+                  } disabled:opacity-50`}
+                >
+                  {brandVoiceSaving ? "Saving..." : brandVoiceSaved ? "Saved!" : "Save Brand Voice"}
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="bezel-card-inner p-4 flex items-center justify-between">
+              <p className="text-sm text-slate-500">Upgrade to Agency to unlock custom brand voice.</p>
+              <Link href="/pricing" className="text-sm text-amber-400 hover:text-amber-300 font-medium whitespace-nowrap ml-4">
+                Upgrade →
+              </Link>
+            </div>
+          )}
+        </motion.div>
+
+        {/* API Usage */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.21, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="bezel-card p-6"
         >
           <h2 className="text-base font-semibold mb-5">API Usage</h2>
@@ -192,7 +263,7 @@ export default function SettingsPage() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.21, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.28, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="bezel-card p-6 border-red-500/20"
         >
           <h2 className="text-base font-semibold text-red-400 mb-2">Danger Zone</h2>
