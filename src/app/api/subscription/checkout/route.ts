@@ -64,6 +64,9 @@ export async function POST(req: NextRequest) {
     success_url: `${appUrl}/dashboard?upgraded=true`,
     cancel_url: `${appUrl}/pricing?cancelled=true`,
     allow_promotion_codes: true,
+    // session.metadata is available on checkout.session.completed webhook
+    metadata: { clerkUserId: userId, plan: plan ?? "creator" },
+    // subscription_data.metadata is available on subscription.created/updated webhooks
     subscription_data: {
       metadata: { clerkUserId: userId, plan: plan ?? "creator" },
     },
