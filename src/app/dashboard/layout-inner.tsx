@@ -5,9 +5,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
 import { motion, AnimatePresence } from "framer-motion";
+import type { PlanType } from "@/lib/stripe";
 
 interface UsageStatus {
-  planType: "free" | "pro";
+  planType: PlanType;
   scriptsUsed: number;
   limit: number;
 }
@@ -86,7 +87,7 @@ export default function DashboardLayout({
             >
               <span className={active ? "text-purple-400" : ""}>{item.icon}</span>
               {item.label}
-              {item.href === "/pricing" && usage.planType === "free" && (
+              {item.href === "/pricing" && usage.planType === "starter" && (
                 <span className="ml-auto text-[10px] bg-purple-500/20 text-purple-300 border border-purple-500/20 rounded-full px-2 py-0.5">
                   Upgrade
                 </span>
@@ -98,7 +99,7 @@ export default function DashboardLayout({
 
       {/* Usage + User */}
       <div className="p-3 border-t border-white/5 space-y-3">
-        {usage.planType === "free" && (
+        {usage.planType === "starter" && (
           <div className="bezel-card-inner p-3">
             <div className="flex justify-between items-center mb-2">
               <span className="text-[11px] text-slate-500">Free scripts used</span>
