@@ -179,7 +179,11 @@ export default function SettingsPage() {
           <div className="bezel-card-inner p-4 flex items-center gap-3">
             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
             <span className="text-sm text-slate-300">
-              {planType === "starter" ? "OpenAI GPT-4o mini" : "OpenAI GPT-4o"} — operational
+              {planType === "starter"
+              ? "OpenAI gpt-4.1-mini"
+              : planType === "creator"
+              ? "OpenAI gpt-4.1"
+              : "OpenAI o3"} — operational
             </span>
           </div>
         </motion.div>

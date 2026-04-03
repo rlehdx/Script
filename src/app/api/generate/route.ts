@@ -63,11 +63,15 @@ export async function POST(req: NextRequest) {
   );
 
   try {
+    // o3 does not support temperature or max_tokens — use max_completion_tokens only
+    const isReasoningModel = usage.model === "o3" || usage.model.startsWith("o1") || usage.model.startsWith("o3");
     const completion = await openai.chat.completions.create({
       model: usage.model,
       messages: [{ role: "user", content: prompt }],
-      temperature: 0.75,
-      max_tokens: 3000,
+      ...(isReasoningModel
+        ? { max_completion_tokens: 4000 }
+        : { temperature: 0.75, max_tokens: 3000 }
+      ),
     });
 
     const output = completion.choices[0]?.message?.content;
