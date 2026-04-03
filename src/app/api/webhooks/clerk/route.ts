@@ -48,9 +48,12 @@ export async function POST(req: Request) {
     const email = email_addresses[0].email_address;
 
     const { error } = await supabase.from('users').insert({
+      id: crypto.randomUUID(),
       clerk_user_id: id,
       email: email,
-      plan_type: 'free' // 기본 무료 플랜
+      plan_type: 'starter',
+      scripts_used_this_month: 0,
+      billing_cycle_start: new Date().toISOString(),
     });
 
     if (error) return new Response('Database Error', { status: 500 });

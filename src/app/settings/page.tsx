@@ -5,13 +5,20 @@ import { useUser, useClerk } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import type { PlanType } from "@/lib/stripe";
 
 interface UsageStatus {
-  planType: "free" | "pro";
+  planType: PlanType;
   scriptsUsed: number;
-  limit: number;
+  limit: number; // -1 = unlimited
   hasSubscription: boolean;
 }
+
+const PLAN_BADGE: Record<PlanType, { label: string; className: string }> = {
+  starter: { label: "Starter", className: "bg-slate-700/50 text-slate-400 border-slate-600/50" },
+  creator: { label: "Creator", className: "bg-purple-500/20 text-purple-300 border-purple-500/30" },
+  agency:  { label: "Agency",  className: "bg-amber-500/20 text-amber-300 border-amber-500/30" },
+};
 
 export default function SettingsPage() {
   const { user } = useUser();
@@ -36,7 +43,7 @@ export default function SettingsPage() {
     if (data.url) {
       window.location.href = data.url;
     } else {
-      alert("No billing account found. Subscribe to Pro first.");
+      alert("No billing account found. Subscribe first.");
       setPortalLoading(false);
     }
   }
@@ -49,9 +56,14 @@ export default function SettingsPage() {
     router.push("/");
   }
 
+  const planType: PlanType = usage?.planType ?? "starter";
+  const badge = PLAN_BADGE[planType];
+  const isUnlimited = usage?.limit === -1;
+  const usagePct = isUnlimited ? 100 : usage ? Math.min((usage.scriptsUsed / usage.limit) * 100, 100) : 0;
+  const isPaid = planType === "creator" || planType === "agency";
+
   return (
     <div className="min-h-screen bg-bg-primary">
-      {/* Simple top nav for settings */}
       <div className="border-b border-white/5 px-6 py-4 flex items-center gap-4">
         <Link href="/dashboard" className="text-slate-500 hover:text-white transition-colors text-sm">
           ← Dashboard
@@ -82,12 +94,8 @@ export default function SettingsPage() {
               <p className="text-sm text-slate-500">{user?.emailAddresses[0]?.emailAddress}</p>
             </div>
             <div className="ml-auto">
-              <span className={`text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full border ${
-                usage?.planType === "pro"
-                  ? "bg-purple-500/20 text-purple-300 border-purple-500/30"
-                  : "bg-slate-700/50 text-slate-400 border-slate-600/50"
-              }`}>
-                {usage?.planType === "pro" ? "Pro" : "Free"}
+              <span className={`text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full border ${badge.className}`}>
+                {badge.label}
               </span>
             </div>
           </div>
@@ -105,27 +113,37 @@ export default function SettingsPage() {
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-sm text-slate-400">Current plan</span>
-              <span className="text-sm font-medium capitalize">{usage?.planType ?? "..."}</span>
+              <span className={`text-sm font-bold uppercase tracking-wide px-2.5 py-0.5 rounded-full border ${badge.className}`}>
+                {badge.label}
+              </span>
             </div>
 
             <div className="flex items-center justify-between">
               <span className="text-sm text-slate-400">Scripts used this month</span>
-              <span className="text-sm font-medium">{usage ? `${usage.scriptsUsed} / ${usage.limit}` : "..."}</span>
+              <span className="text-sm font-medium">
+                {usage
+                  ? isUnlimited
+                    ? `${usage.scriptsUsed} / ∞`
+                    : `${usage.scriptsUsed} / ${usage.limit}`
+                  : "..."}
+              </span>
             </div>
 
             {usage && (
-              <div>
-                <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-accent-gradient rounded-full transition-all duration-700"
-                    style={{ width: `${Math.min((usage.scriptsUsed / usage.limit) * 100, 100)}%` }}
-                  />
-                </div>
+              <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                <div
+                  className={`h-full rounded-full transition-all duration-700 ${
+                    isUnlimited
+                      ? "bg-gradient-to-r from-amber-500 to-orange-400 w-full"
+                      : "bg-accent-gradient"
+                  }`}
+                  style={isUnlimited ? undefined : { width: `${usagePct}%` }}
+                />
               </div>
             )}
 
             <div className="pt-2 flex flex-col sm:flex-row gap-3">
-              {usage?.planType === "pro" ? (
+              {isPaid ? (
                 <button
                   onClick={handleBillingPortal}
                   disabled={portalLoading}
@@ -135,7 +153,12 @@ export default function SettingsPage() {
                 </button>
               ) : (
                 <Link href="/pricing" className="btn-primary text-sm py-2.5 px-5">
-                  Upgrade to Pro
+                  Upgrade Plan
+                </Link>
+              )}
+              {planType === "creator" && (
+                <Link href="/pricing" className="btn-secondary text-sm py-2.5 px-5">
+                  Upgrade to Agency
                 </Link>
               )}
             </div>
@@ -151,11 +174,13 @@ export default function SettingsPage() {
         >
           <h2 className="text-base font-semibold mb-5">API Usage</h2>
           <p className="text-sm text-slate-400 mb-4">
-            ScriptFlow uses OpenAI's GPT-4o API. Usage is metered at the app level — you are not directly billed by OpenAI.
+            Scriva uses OpenAI's API. Usage is metered at the app level — you are not directly billed by OpenAI.
           </p>
           <div className="bezel-card-inner p-4 flex items-center gap-3">
             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-sm text-slate-300">OpenAI GPT-4o — operational</span>
+            <span className="text-sm text-slate-300">
+              {planType === "starter" ? "OpenAI GPT-4o mini" : "OpenAI GPT-4o"} — operational
+            </span>
           </div>
         </motion.div>
 
@@ -170,7 +195,6 @@ export default function SettingsPage() {
           <p className="text-sm text-slate-500 mb-5">
             Deleting your account is permanent. All scripts and data will be removed immediately.
           </p>
-
           <div className="space-y-3">
             <input
               type="text"
