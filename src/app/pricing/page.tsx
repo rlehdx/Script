@@ -82,7 +82,7 @@ export default function PricingPage() {
       window.location.href = data.url;
     } else {
       setLoading(null);
-      alert("Failed to open checkout. Please try again.");
+      alert(data.error ?? "Failed to open checkout. Please try again.");
     }
   }
 

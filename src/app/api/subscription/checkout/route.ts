@@ -9,6 +9,7 @@ const db = supabaseAdmin as any;
 
 export async function POST(req: NextRequest) {
   if (!STRIPE_ENABLED) {
+    console.error("[checkout] STRIPE_SECRET_KEY is not set");
     return NextResponse.json(
       { error: "Stripe is not configured. Set STRIPE_SECRET_KEY to enable payments." },
       { status: 503 }
@@ -27,17 +28,34 @@ export async function POST(req: NextRequest) {
 
   const body = await req.json();
   const { billingCycle, plan } = body as {
-    billingCycle: "monthly" | "annual";
-    plan: "creator" | "agency";
+    billingCycle?: "monthly" | "annual";
+    plan?: "creator" | "agency";
   };
 
-  const targetPlan = plan === "agency" ? PLANS.agency : PLANS.creator;
+  // Default to creator / monthly if not specified (legacy pricing page support)
+  const resolvedPlan: "creator" | "agency" = plan === "agency" ? "agency" : "creator";
+  const resolvedCycle: "monthly" | "annual" = billingCycle === "annual" ? "annual" : "monthly";
+
+  const targetPlan = resolvedPlan === "agency" ? PLANS.agency : PLANS.creator;
+  const priceId = resolvedCycle === "annual"
+    ? targetPlan.annualPriceId
+    : targetPlan.monthlyPriceId;
+
+  console.log("[checkout] Creating session", { resolvedPlan, resolvedCycle, priceId, userId });
+
+  if (!priceId) {
+    console.error("[checkout] priceId is undefined — check STRIPE_CREATOR/AGENCY price env vars");
+    return NextResponse.json(
+      { error: `Price ID not configured for ${resolvedPlan}/${resolvedCycle}. Check environment variables.` },
+      { status: 500 }
+    );
+  }
 
   const email = clerkUser.emailAddresses[0]?.emailAddress ?? "";
   const dbUser = await getOrCreateUser(userId, email);
 
   // Reuse or create Stripe customer
-  let customerId = dbUser.stripe_customer_id;
+  let customerId = dbUser?.stripe_customer_id;
   if (!customerId) {
     const customer = await stripe.customers.create({
       email,
@@ -50,29 +68,30 @@ export async function POST(req: NextRequest) {
       .eq("clerk_user_id", userId);
   }
 
-  const priceId =
-    billingCycle === "annual"
-      ? targetPlan.annualPriceId
-      : targetPlan.monthlyPriceId;
-
   const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
 
-  const session = await stripe.checkout.sessions.create({
-    customer: customerId,
-    line_items: [{ price: priceId, quantity: 1 }],
-    mode: "subscription",
-    success_url: `${appUrl}/dashboard?upgraded=true`,
-    cancel_url: `${appUrl}/pricing?cancelled=true`,
-    allow_promotion_codes: true,
-    // client_reference_id: easiest way to get clerkUserId in webhook
-    client_reference_id: userId,
-    // session.metadata: available on checkout.session.completed
-    metadata: { clerkUserId: userId, plan: plan ?? "creator" },
-    // subscription_data.metadata: available on subscription.created/updated
-    subscription_data: {
-      metadata: { clerkUserId: userId, plan: plan ?? "creator" },
-    },
-  });
+  try {
+    const session = await stripe.checkout.sessions.create({
+      customer: customerId,
+      line_items: [{ price: priceId, quantity: 1 }],
+      mode: "subscription",
+      success_url: `${appUrl}/dashboard?upgraded=true`,
+      cancel_url: `${appUrl}/pricing?cancelled=true`,
+      allow_promotion_codes: true,
+      client_reference_id: userId,
+      metadata: { clerkUserId: userId, plan: resolvedPlan },
+      subscription_data: {
+        metadata: { clerkUserId: userId, plan: resolvedPlan },
+      },
+    });
 
-  return NextResponse.json({ url: session.url });
+    console.log("[checkout] Session created:", session.id);
+    return NextResponse.json({ url: session.url });
+  } catch (err: any) {
+    console.error("[checkout] Stripe session creation failed:", err?.message ?? err);
+    return NextResponse.json(
+      { error: err?.message ?? "Failed to create checkout session" },
+      { status: 500 }
+    );
+  }
 }
