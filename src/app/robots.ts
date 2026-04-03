@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://scriva.netlify.app";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://scriva.online";
 
 export default function robots(): MetadataRoute.Robots {
   return {
