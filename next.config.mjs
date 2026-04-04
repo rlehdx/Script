@@ -13,8 +13,9 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   experimental: {
-    optimizePackageImports: ["framer-motion", "lucide-react"],
+    optimizePackageImports: ["@clerk/nextjs", "framer-motion"],
   },
+  serverExternalPackages: ["@clerk/backend"],
 };
 
 export default nextConfig;
