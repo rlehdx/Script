@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -8,12 +9,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-accent-gradient flex items-center justify-center">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 8L6.5 11.5L13 4.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <span className="font-bold text-base">Scriva</span>
+              <Image
+                src="/logo.png"
+                alt="Scriva"
+                width={120}
+                height={32}
+                className="h-8 w-auto"
+              />
             </div>
             <p className="text-sm text-slate-500 leading-relaxed max-w-xs">
               Turn any idea into a high-converting script in seconds. Built for creators,
