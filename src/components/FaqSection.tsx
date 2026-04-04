@@ -32,8 +32,8 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
 export default function FaqSection({ faqs }: { faqs: Faq[] }) {
   return (
     <div className="space-y-3">
-      {faqs.map((faq, i) => (
-        <FaqItem key={i} question={faq.q} answer={faq.a} />
+      {faqs.map((faq) => (
+        <FaqItem key={faq.q} question={faq.q} answer={faq.a} />
       ))}
     </div>
   );

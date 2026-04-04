@@ -540,7 +540,7 @@ function renderContent(content: string) {
     } else if (line.trim() !== "") {
       elements.push(
         <p key={i} className="text-slate-400 leading-relaxed mb-3 text-sm"
-          dangerouslySetInnerHTML={{ __html: line.replace(/\*\*(.*?)\*\*/g, "<strong class='text-slate-200'>$1</strong>").replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer sponsored" class="text-purple-400 hover:text-purple-300 underline underline-offset-2">$1</a>') }}
+          dangerouslySetInnerHTML={{ __html: line.replace(/\*\*(.*?)\*\*/g, "<strong class='text-slate-200'>$1</strong>").replace(/\[(.*?)\]\((https:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer sponsored" class="text-purple-400 hover:text-purple-300 underline underline-offset-2">$1</a>') }}
         />
       );
     }

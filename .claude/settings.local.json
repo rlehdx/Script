@@ -10,7 +10,9 @@
       "Bash(mv settings:*)",
       "Bash(mv pricing:*)",
       "Bash(mv sign-in:*)",
-      "Bash(mv sign-up:*)"
+      "Bash(mv sign-up:*)",
+      "mcp__plugin_context-mode_context-mode__ctx_search",
+      "mcp__plugin_context-mode_context-mode__ctx_execute_file"
     ]
   }
 }
