@@ -2,6 +2,15 @@ import { MetadataRoute } from "next";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://scriva.online";
 
+const BLOG_SLUGS = [
+  "youtube-script-template",
+  "tiktok-hook-examples",
+  "how-to-write-vsl-script",
+  "ai-script-generator-guide",
+  "podcast-script-outline",
+  "facebook-ad-script",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
@@ -17,16 +26,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${APP_URL}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...BLOG_SLUGS.map((slug) => ({
+      url: `${APP_URL}/blog/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    {
       url: `${APP_URL}/sign-in`,
       lastModified: new Date(),
       changeFrequency: "yearly",
-      priority: 0.5,
+      priority: 0.3,
     },
     {
       url: `${APP_URL}/sign-up`,
       lastModified: new Date(),
       changeFrequency: "yearly",
-      priority: 0.5,
+      priority: 0.3,
     },
   ];
 }
