@@ -73,6 +73,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <ClerkProvider>
       <html lang="en" className={inter.variable}>
         <head>
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
           {GA_ID && (
             <>
               <script

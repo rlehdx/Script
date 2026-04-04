@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  compress: true,
+  poweredByHeader: false,
   images: {
     remotePatterns: [
       {
@@ -8,6 +10,10 @@ const nextConfig = {
         hostname: "api.dicebear.com",
       },
     ],
+    formats: ["image/avif", "image/webp"],
+  },
+  experimental: {
+    optimizePackageImports: ["framer-motion", "lucide-react"],
   },
 };
 

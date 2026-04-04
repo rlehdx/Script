@@ -147,33 +147,18 @@ export default function HomePage() {
             <span className="text-xs text-purple-300 font-medium">Powered by GPT-4o — the most capable AI model</span>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] mb-6"
-          >
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] mb-6">
             Turn Any Idea Into a<br />
             <span className="gradient-text">High-Converting Script</span><br />
             in Seconds
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed"
-          >
+          <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
             Scriva AI generates YouTube scripts, TikTok hooks, VSL scripts, ad copy, and more —
             instantly. Stop staring at a blank page.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/sign-up" className="btn-primary text-base px-8 py-3.5">
               Generate Free Script
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -183,7 +168,7 @@ export default function HomePage() {
             <Link href="#how-it-works" className="btn-secondary text-base px-8 py-3.5">
               See how it works
             </Link>
-          </motion.div>
+          </div>
 
           <motion.p
             initial={{ opacity: 0 }}
