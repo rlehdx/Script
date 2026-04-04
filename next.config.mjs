@@ -14,8 +14,8 @@ const nextConfig = {
   },
   experimental: {
     optimizePackageImports: ["@clerk/nextjs", "framer-motion"],
+    serverComponentsExternalPackages: ["@clerk/backend"],
   },
-  serverExternalPackages: ["@clerk/backend"],
 };
 
 export default nextConfig;

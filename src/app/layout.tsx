@@ -74,7 +74,7 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ClerkProvider dynamic>
+    <ClerkProvider>
     <html lang="en" className={inter.variable}>
       <head>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
