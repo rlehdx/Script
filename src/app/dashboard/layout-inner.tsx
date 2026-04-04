@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
 import { motion, AnimatePresence } from "framer-motion";
 import type { PlanType } from "@/lib/stripe";
+import AffiliateWidget from "@/components/AffiliateWidget";
 
 interface UsageStatus {
   planType: PlanType;
@@ -116,6 +117,7 @@ export default function DashboardLayout({
             </Link>
           </div>
         )}
+        {usage.planType === "starter" && <AffiliateWidget />}
         <div className="flex items-center gap-3 px-1">
           <UserButton afterSignOutUrl="/" />
           <div className="text-xs text-slate-500 truncate">Signed in</div>

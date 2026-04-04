@@ -10,6 +10,7 @@ import UpgradeModal from "@/components/UpgradeModal";
 import UsageBar from "@/components/UsageBar";
 import ScriptHistory, { type HistoryScript } from "@/components/ScriptHistory";
 import SceneViewer from "@/components/SceneViewer";
+import AffiliateCTA from "@/components/AffiliateCTA";
 import { SCRIPT_TYPES, TONES, DURATIONS, LANGUAGES } from "@/lib/openai";
 import type { PlanType } from "@/lib/stripe";
 
@@ -378,6 +379,7 @@ function DashboardContent() {
                       script={output}
                       scenes={scenes}
                     />
+                    <AffiliateCTA />
                   </motion.div>
                 )}
               </AnimatePresence>
