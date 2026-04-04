@@ -8,6 +8,9 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
+  weight: ["400", "500", "600", "700"],
+  adjustFontFallback: true,
 });
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://scriva.app";

@@ -103,8 +103,8 @@ export default function HomePage() {
       {/* ===== HERO ===== */}
       <section className="relative pt-40 pb-28 px-6">
         <div className="absolute inset-0 bg-hero-glow pointer-events-none" />
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-40 right-1/4 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="hidden md:block absolute top-20 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="hidden md:block absolute top-40 right-1/4 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-5xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 glass border border-purple-500/20 rounded-full px-4 py-2 mb-8">
@@ -213,7 +213,7 @@ export default function HomePage() {
 
       {/* ===== HOW IT WORKS ===== */}
       <section id="how-it-works" className="py-24 px-6 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/3 to-transparent pointer-events-none" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/3 to-transparent pointer-events-none" />
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-xs font-semibold uppercase tracking-widest text-purple-400 mb-4">How it works</p>
