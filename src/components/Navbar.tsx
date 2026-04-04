@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import dynamic from "next/dynamic";
 
 const NavbarAuth = dynamic(() => import("@/components/NavbarAuth"), { ssr: false });
@@ -34,14 +33,12 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-5 py-2.5">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <Image
-            src="/logo.png"
-            alt="Scriva"
-            width={120}
-            height={32}
-            className="h-8 w-auto transition-opacity duration-300 group-hover:opacity-80"
-            priority
-          />
+          <div className="w-8 h-8 rounded-lg bg-accent-gradient flex items-center justify-center shadow-lg shadow-purple-500/30 transition-transform duration-300 group-hover:scale-110">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8L6.5 11.5L13 4.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <span className="font-bold text-base tracking-tight">Scriva</span>
         </Link>
 
         {/* Desktop nav */}
