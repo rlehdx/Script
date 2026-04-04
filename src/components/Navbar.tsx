@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import dynamic from "next/dynamic";
+
+const NavbarAuth = dynamic(() => import("@/components/NavbarAuth"), { ssr: false });
+const NavbarAuthMobile = dynamic(() => import("@/components/NavbarAuthMobile"), { ssr: false });
 
 const NAV_LINKS = [
   { href: "/#features", label: "Features" },
@@ -15,7 +17,6 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -37,9 +38,7 @@ export default function Navbar() {
               <path d="M3 8L6.5 11.5L13 4.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
-          <span className="font-bold text-base tracking-tight">
-            Scriva
-          </span>
+          <span className="font-bold text-base tracking-tight">Scriva</span>
         </Link>
 
         {/* Desktop nav */}
@@ -55,25 +54,9 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* CTA */}
+        {/* Desktop CTA — lazy loaded */}
         <div className="hidden md:flex items-center gap-3">
-          <SignedOut>
-            <Link href="/sign-in" className="text-sm text-slate-400 hover:text-white transition-colors">
-              Sign in
-            </Link>
-            <Link href="/sign-up" className="btn-primary text-sm py-2 px-4">
-              Get started free
-            </Link>
-          </SignedOut>
-          <SignedIn>
-            <Link
-              href="/dashboard"
-              className="text-sm text-slate-400 hover:text-white transition-colors px-3 py-1.5 rounded-lg hover:bg-white/5 flex items-center"
-            >
-              Dashboard
-            </Link>
-            <UserButton afterSignOutUrl="/" />
-          </SignedIn>
+          <NavbarAuth />
         </div>
 
         {/* Mobile toggle */}
@@ -90,7 +73,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu — CSS transition, no framer-motion */}
+      {/* Mobile menu */}
       <div className={`overflow-hidden border-t border-white/5 transition-all duration-300 ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
         <div className="px-5 py-4 flex flex-col gap-2">
           {NAV_LINKS.map((link) => (
@@ -104,19 +87,7 @@ export default function Navbar() {
             </Link>
           ))}
           <div className="border-t border-white/5 pt-3 mt-1 flex flex-col gap-2">
-            <SignedOut>
-              <Link href="/sign-in" onClick={() => setMobileOpen(false)} className="py-2 text-sm text-slate-400">
-                Sign in
-              </Link>
-              <Link href="/sign-up" onClick={() => setMobileOpen(false)} className="btn-primary text-sm text-center justify-center">
-                Get started free
-              </Link>
-            </SignedOut>
-            <SignedIn>
-              <Link href="/dashboard" onClick={() => setMobileOpen(false)} className="py-2 text-sm text-slate-400">
-                Dashboard
-              </Link>
-            </SignedIn>
+            <NavbarAuthMobile onClose={() => setMobileOpen(false)} />
           </div>
         </div>
       </div>
