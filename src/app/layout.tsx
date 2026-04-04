@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -74,28 +75,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html lang="en" className={inter.variable}>
         <head>
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
           <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-          {GA_ID && (
-            <>
-              <script
-                async
-                src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              />
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', '${GA_ID}', { page_path: window.location.pathname });
-                  `,
-                }}
-              />
-            </>
-          )}
+          <link rel="dns-prefetch" href="https://clerk.scriva.online" />
         </head>
         <body className="bg-bg-primary text-white antialiased font-sans">
           {children}
+          {GA_ID && (
+            <>
+              <Script
+                src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+                strategy="afterInteractive"
+              />
+              <Script id="ga-init" strategy="afterInteractive">
+                {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${GA_ID}');
+                `}
+              </Script>
+            </>
+          )}
         </body>
       </html>
     </ClerkProvider>
