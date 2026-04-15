@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import GuestGenerator from "@/components/GuestGenerator";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -174,14 +175,14 @@ export default function HomePage() {
             transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Link href="/sign-up" className="btn-primary text-base px-8 py-3.5">
-              Generate Free Script
+            <a href="#try-free" className="btn-primary text-base px-8 py-3.5">
+              Try Free — No Sign Up
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </Link>
-            <Link href="#how-it-works" className="btn-secondary text-base px-8 py-3.5">
-              See how it works
+            </a>
+            <Link href="/sign-up" className="btn-secondary text-base px-8 py-3.5">
+              Get 5 free/month →
             </Link>
           </motion.div>
 
@@ -212,6 +213,18 @@ export default function HomePage() {
               </div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* ===== GUEST GENERATOR ===== */}
+      <section id="try-free" className="py-20 px-6">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-xs font-semibold uppercase tracking-widest text-purple-400 mb-3">Try it now — no sign up needed</p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">Generate a script in seconds</h2>
+            <p className="text-slate-400 text-sm">3 free scripts per day. No account required.</p>
+          </div>
+          <GuestGenerator />
         </div>
       </section>
 
