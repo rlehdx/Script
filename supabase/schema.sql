@@ -3,6 +3,10 @@
 -- Run this in your Supabase SQL editor to set up the database.
 -- ============================================================
 
+-- ============================================================
+-- 1. TABLES
+-- ============================================================
+
 -- Users table (3-tier: starter / creator / agency)
 CREATE TABLE IF NOT EXISTS public.users (
   id                      UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -23,23 +27,40 @@ CREATE TABLE IF NOT EXISTS public.users (
 CREATE TABLE IF NOT EXISTS public.scripts (
   id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id     TEXT NOT NULL REFERENCES public.users(clerk_user_id) ON DELETE CASCADE,
-  title       TEXT NOT NULL,          -- topic / subject of the script
-  script_type TEXT NOT NULL,          -- YouTube, TikTok, VSL, etc.
-  content     TEXT NOT NULL,          -- the generated script body
+  title       TEXT NOT NULL,
+  script_type TEXT NOT NULL,
+  content     TEXT NOT NULL,
   tone        TEXT NOT NULL,
   language    TEXT NOT NULL DEFAULT 'English',
-  tokens_used INTEGER NOT NULL DEFAULT 0,  -- OpenAI tokens consumed
+  tokens_used INTEGER NOT NULL DEFAULT 0,
   created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
--- Indexes
+-- Guest usage table (비로그인 체험 — IP + 날짜 기준 하루 3개 제한)
+CREATE TABLE IF NOT EXISTS public.guest_usage (
+  ip    TEXT NOT NULL,
+  date  DATE NOT NULL,
+  count INTEGER NOT NULL DEFAULT 1,
+  PRIMARY KEY (ip, date)
+);
+
+-- ============================================================
+-- 2. INDEXES
+-- ============================================================
+
 CREATE INDEX IF NOT EXISTS idx_users_clerk_user_id
   ON public.users(clerk_user_id);
 
 CREATE INDEX IF NOT EXISTS idx_scripts_user_id_created
   ON public.scripts(user_id, created_at DESC);
 
--- Auto-update updated_at on users
+CREATE INDEX IF NOT EXISTS idx_guest_usage_date
+  ON public.guest_usage(date);
+
+-- ============================================================
+-- 3. TRIGGERS
+-- ============================================================
+
 CREATE OR REPLACE FUNCTION update_updated_at_column()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -54,16 +75,17 @@ CREATE TRIGGER update_users_updated_at
   FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
 -- ============================================================
--- Row Level Security
+-- 4. ROW LEVEL SECURITY
 -- ============================================================
-ALTER TABLE public.users   ENABLE ROW LEVEL SECURITY;
-ALTER TABLE public.scripts ENABLE ROW LEVEL SECURITY;
 
--- NOTE: API routes use the service-role key (supabaseAdmin) which bypasses RLS.
--- These policies protect direct browser / anon-key access.
+ALTER TABLE public.users       ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.scripts     ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.guest_usage ENABLE ROW LEVEL SECURITY;
 
--- Users: read & update own row only
-DROP POLICY IF EXISTS "Users can read own record"  ON public.users;
+-- ------------------------------------------------------------
+-- users: 자기 row만 읽기/수정
+-- ------------------------------------------------------------
+DROP POLICY IF EXISTS "Users can read own record"   ON public.users;
 DROP POLICY IF EXISTS "Users can update own record" ON public.users;
 
 CREATE POLICY "Users can read own record"
@@ -74,7 +96,9 @@ CREATE POLICY "Users can update own record"
   ON public.users FOR UPDATE
   USING (clerk_user_id = current_setting('request.jwt.claims', true)::jsonb->>'sub');
 
--- Scripts: full CRUD on own scripts only
+-- ------------------------------------------------------------
+-- scripts: service_role(API)은 RLS 우회 — 아래 정책은 anon/authenticated 보호용
+-- ------------------------------------------------------------
 DROP POLICY IF EXISTS "Users can read own scripts"   ON public.scripts;
 DROP POLICY IF EXISTS "Users can insert own scripts" ON public.scripts;
 DROP POLICY IF EXISTS "Users can delete own scripts" ON public.scripts;
@@ -83,6 +107,8 @@ CREATE POLICY "Users can read own scripts"
   ON public.scripts FOR SELECT
   USING (user_id = current_setting('request.jwt.claims', true)::jsonb->>'sub');
 
+-- INSERT는 service_role 키(supabaseAdmin)로만 실행되므로 RLS 우회됨.
+-- anon 직접 접근 차단을 위해 정책 유지.
 CREATE POLICY "Users can insert own scripts"
   ON public.scripts FOR INSERT
   WITH CHECK (user_id = current_setting('request.jwt.claims', true)::jsonb->>'sub');
@@ -91,8 +117,13 @@ CREATE POLICY "Users can delete own scripts"
   ON public.scripts FOR DELETE
   USING (user_id = current_setting('request.jwt.claims', true)::jsonb->>'sub');
 
+-- ------------------------------------------------------------
+-- guest_usage: service_role(API)만 접근 — anon 직접 접근 차단
+-- (별도 policy 없음 = authenticated/anon 접근 불가, service_role만 우회)
+-- ------------------------------------------------------------
+
 -- ============================================================
--- Migration helper: if upgrading from the old schema run these
+-- 5. MIGRATION HELPER (기존 스키마에서 업그레이드 시 실행)
 -- ============================================================
 -- ALTER TABLE public.users   ADD COLUMN IF NOT EXISTS brand_voice TEXT;
 -- ALTER TABLE public.users   DROP CONSTRAINT IF EXISTS users_plan_type_check;
@@ -103,3 +134,5 @@ CREATE POLICY "Users can delete own scripts"
 -- ALTER TABLE public.scripts ADD COLUMN IF NOT EXISTS title TEXT NOT NULL DEFAULT '';
 -- ALTER TABLE public.scripts ADD COLUMN IF NOT EXISTS content TEXT NOT NULL DEFAULT '';
 -- ALTER TABLE public.scripts ADD COLUMN IF NOT EXISTS tokens_used INTEGER NOT NULL DEFAULT 0;
+-- CREATE TABLE IF NOT EXISTS public.guest_usage (ip TEXT NOT NULL, date DATE NOT NULL, count INTEGER NOT NULL DEFAULT 1, PRIMARY KEY (ip, date));
+-- ALTER TABLE public.guest_usage ENABLE ROW LEVEL SECURITY;
