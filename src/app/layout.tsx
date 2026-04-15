@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
+  weight: ["400", "500", "600", "700"],
+  adjustFontFallback: true,
 });
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://scriva.app";
@@ -56,6 +60,15 @@ export const metadata: Metadata = {
     images: [`${APP_URL}/og-image.png`],
     creator: "@scriva_app",
   },
+  icons: {
+    icon: "/android-chrome-512x512.png",
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
+    other: [
+      { rel: "android-chrome-192x192", url: "/android-chrome-192x192.png" },
+      { rel: "android-chrome-512x512", url: "/android-chrome-512x512.png" },
+    ],
+  },
   robots: {
     index: true,
     follow: true,
@@ -71,31 +84,34 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <ClerkProvider>
-      <html lang="en" className={inter.variable}>
-        <head>
-          {GA_ID && (
-            <>
-              <script
-                async
-                src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              />
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', '${GA_ID}', { page_path: window.location.pathname });
-                  `,
-                }}
-              />
-            </>
-          )}
-        </head>
-        <body className="bg-bg-primary text-white antialiased font-sans">
-          {children}
-        </body>
-      </html>
+    <html lang="en" className={inter.variable}>
+      <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://clerk.scriva.online" />
+        <link rel="dns-prefetch" href="https://challenges.cloudflare.com" />
+      </head>
+      <body className="bg-bg-primary text-white antialiased font-sans">
+        {children}
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
+      </body>
+    </html>
     </ClerkProvider>
   );
 }

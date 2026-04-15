@@ -13,7 +13,7 @@ export default function Footer() {
                   <path d="M3 8L6.5 11.5L13 4.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <span className="font-bold text-base">ScriptFlow AI</span>
+              <span className="font-bold text-base">Scriva</span>
             </div>
             <p className="text-sm text-slate-500 leading-relaxed max-w-xs">
               Turn any idea into a high-converting script in seconds. Built for creators,

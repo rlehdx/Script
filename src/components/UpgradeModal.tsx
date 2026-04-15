@@ -42,7 +42,7 @@ export default function UpgradeModal({ isOpen, onClose, scriptsUsed }: UpgradeMo
                 You've used all {scriptsUsed} free scripts
               </h2>
               <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                Upgrade to ScriptFlow Pro and get unlimited script generation, all tones,
+                Upgrade to Scriva Pro and get unlimited script generation, all tones,
                 5 languages, and priority generation — for less than a coffee a day.
               </p>
 
