@@ -73,6 +73,19 @@ const FAQS = [
   { q: "Can I use scripts commercially?",a: "Yes — everything you generate is yours. Ads, YouTube, client work, anything." },
 ];
 
+const jsonLdFaq = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+};
+
 /* ── FAQ Item ── */
 function FaqItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);
@@ -150,6 +163,10 @@ function SectionHeader({ tag, label }: { tag: string; label: string }) {
 export default function HomePage() {
   return (
     <main style={{ background: "var(--obsidian)", minHeight: "100svh" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
+      />
       <Navbar />
       <HeroSection />
 
