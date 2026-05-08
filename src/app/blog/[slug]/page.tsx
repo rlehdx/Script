@@ -461,7 +461,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.desc,
       url: `${APP_URL}/blog/${slug}`,
       type: "article",
-      publishedTime: post.date,
+      publishedTime: new Date(post.date).toISOString(),
       images: [
         {
           url: `${APP_URL}/og-image.png`,
@@ -582,7 +582,7 @@ export default async function BlogPostPage({ params }: Props) {
             "@type": "Article",
             headline: post.title,
             description: post.desc,
-            datePublished: post.date,
+            datePublished: new Date(post.date).toISOString(),
             url: `${APP_URL}/blog/${slug}`,
             author: { "@type": "Organization", name: "Scriva", url: APP_URL },
             publisher: {
