@@ -141,7 +141,7 @@ const jsonLdSoftwareApp = {
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.9",
-    ratingCount: "3400",
+    ratingCount: 3400,
     bestRating: "5",
   },
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 
 const SCRIPT_TYPES = [
@@ -64,36 +64,50 @@ export default function GuestGenerator() {
   const [limitReached, setLimitReached] = useState(false);
   const [copied, setCopied] = useState(false);
 
+  const abortRef = useRef<AbortController | null>(null);
+
   async function handleGenerate() {
     if (!topic.trim() || generating) return;
+
+    // 이전 요청이 있으면 취소
+    abortRef.current?.abort();
+    abortRef.current = new AbortController();
+
     setGenerating(true);
     setError("");
     setOutput("");
 
-    const res = await fetch("/api/generate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ scriptType, topic, tone, duration, language: "English" }),
-    });
+    try {
+      const res = await fetch("/api/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ scriptType, topic, tone, duration, language: "English" }),
+        signal: abortRef.current.signal,
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (!res.ok) {
-      if (data.code === "GUEST_LIMIT_REACHED") {
-        setLimitReached(true);
-        setGuestUsed(data.guestUsed ?? 3);
-      } else {
-        setError(data.error ?? "Generation failed. Please try again.");
+      if (!res.ok) {
+        if (data.code === "GUEST_LIMIT_REACHED") {
+          setLimitReached(true);
+          setGuestUsed(data.guestUsed ?? 3);
+        } else {
+          setError(data.error ?? "Generation failed. Please try again.");
+        }
+        return;
       }
-      setGenerating(false);
-      return;
-    }
 
-    setOutput(data.output ?? data.script ?? "");
-    setTitle(data.title ?? "");
-    setScenes(data.scenes ?? []);
-    setGuestUsed(data.guestUsed ?? 0);
-    setGenerating(false);
+      setOutput(data.output ?? data.script ?? "");
+      setTitle(data.title ?? "");
+      setScenes(data.scenes ?? []);
+      setGuestUsed(data.guestUsed ?? 0);
+    } catch (err: any) {
+      if (err?.name !== "AbortError") {
+        setError("Generation failed. Please try again.");
+      }
+    } finally {
+      setGenerating(false);
+    }
   }
 
   async function handleCopy() {

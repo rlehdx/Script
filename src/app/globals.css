@@ -306,6 +306,27 @@
     background: var(--border-subtle);
   }
 
+  /* 반응형 bento 그리드 — 인라인 스타일과 Tailwind 충돌 방지 */
+  .bento-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bento-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .bento-grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .bento-grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
   .bento-cell {
     background: var(--charcoal);
     padding: 2rem;

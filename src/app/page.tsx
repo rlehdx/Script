@@ -229,12 +229,10 @@ export default function HomePage() {
             </Reveal>
 
             {/* Bento grid */}
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
+            <div className="bento-grid-4" style={{
               gap: "1px",
               background: "rgba(255,255,255,0.04)",
-            }} className="grid-cols-2 md:grid-cols-4">
+            }}>
               {SCRIPT_TYPES.map((type, i) => (
                 <Reveal key={type.code} delay={i * 0.04}>
                   <div
@@ -302,12 +300,10 @@ export default function HomePage() {
               </h2>
             </Reveal>
 
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
+            <div className="bento-grid-3" style={{
               gap: "1px",
               background: "rgba(255,255,255,0.04)",
-            }} className="grid-cols-1 md:grid-cols-3">
+            }}>
               {STEPS.map((step, i) => (
                 <Reveal key={step.num} delay={i * 0.1}>
                   <div className="bento-cell" style={{ padding: "2.5rem" }}>
@@ -447,9 +443,9 @@ export default function HomePage() {
               {TESTIMONIALS.map((t, i) => (
                 <Reveal key={t.name} delay={i * 0.1}>
                   <div className="bento-cell" style={{ padding: "2rem" }}>
-                    <div style={{ display: "flex", gap: "2px", marginBottom: "1.25rem" }}>
+                    <div style={{ display: "flex", gap: "2px", marginBottom: "1.25rem" }} aria-label="5 out of 5 stars">
                       {[...Array(5)].map((_, j) => (
-                        <span key={j} style={{ color: "var(--champagne)", fontSize: "0.7rem" }}>★</span>
+                        <span key={j} style={{ color: "var(--champagne)", fontSize: "0.7rem" }} aria-hidden="true">★</span>
                       ))}
                     </div>
                     <blockquote style={{ margin: 0, fontFamily: "var(--font-body)", fontStyle: "italic", fontSize: "0.88rem", lineHeight: 1.75, color: "var(--silver)", marginBottom: "1.5rem" }}>
