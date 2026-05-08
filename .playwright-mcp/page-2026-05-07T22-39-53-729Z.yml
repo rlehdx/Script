@@ -1,0 +1,387 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - link "Scriva" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img [ref=e7]
+          - generic [ref=e9]: Scriva
+        - navigation [ref=e10]:
+          - link "Features" [ref=e11] [cursor=pointer]:
+            - /url: /#features
+          - link "How it works" [ref=e12] [cursor=pointer]:
+            - /url: /#how-it-works
+          - link "Pricing" [ref=e13] [cursor=pointer]:
+            - /url: /pricing
+          - link "Blog" [ref=e14] [cursor=pointer]:
+            - /url: /blog
+        - generic [ref=e15]:
+          - link "Sign in" [ref=e16] [cursor=pointer]:
+            - /url: /sign-in
+          - link "Get started free" [ref=e17] [cursor=pointer]:
+            - /url: /sign-up
+      - generic [ref=e19]:
+        - link "Features" [ref=e20] [cursor=pointer]:
+          - /url: /#features
+        - link "How it works" [ref=e21] [cursor=pointer]:
+          - /url: /#how-it-works
+        - link "Pricing" [ref=e22] [cursor=pointer]:
+          - /url: /pricing
+        - link "Blog" [ref=e23] [cursor=pointer]:
+          - /url: /blog
+        - generic [ref=e24]:
+          - link "Sign in" [ref=e25] [cursor=pointer]:
+            - /url: /sign-in
+          - link "Get started free" [ref=e26] [cursor=pointer]:
+            - /url: /sign-up
+    - generic [ref=e28]:
+      - generic [ref=e31]: Powered by GPT-4o — the most capable AI model
+      - heading "Your YouTube Scripts, AI-Powered in Seconds." [level=1] [ref=e32]:
+        - text: Your YouTube Scripts, AI-Powered
+        - text: in Seconds.
+      - paragraph [ref=e33]: Just drop your idea. From concept to full script, Scriva handles everything.
+      - generic [ref=e34]:
+        - link "Start Creating Now" [ref=e35] [cursor=pointer]:
+          - /url: /sign-up
+          - text: Start Creating Now
+          - img [ref=e36]
+        - link "Try Free — No Sign Up" [ref=e38] [cursor=pointer]:
+          - /url: "#try-free"
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - generic [ref=e41]: 12,000+
+          - generic [ref=e42]: scripts generated
+        - generic [ref=e43]:
+          - generic [ref=e44]: 3,400+
+          - generic [ref=e45]: creators using Scriva
+        - generic [ref=e46]:
+          - generic [ref=e47]: 4.9/5
+          - generic [ref=e48]: average rating
+      - paragraph [ref=e49]: No credit card required. 5 free scripts every month.
+    - region "Generate a script in seconds" [ref=e50]:
+      - generic [ref=e52]:
+        - generic [ref=e54]: Live Demo
+        - generic [ref=e57]:
+          - heading "Generate a script in seconds" [level=2] [ref=e58]:
+            - text: Generate a script in
+            - emphasis [ref=e59]: seconds
+          - paragraph [ref=e60]: 3 free scripts per day · No account required
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - generic [ref=e64]:
+              - generic [ref=e65]: Script type
+              - combobox [ref=e66]:
+                - option "YouTube Video Script" [selected]
+                - option "TikTok/Reels Hook"
+                - option "VSL Script"
+                - option "Facebook Ad Script"
+                - option "Podcast Intro"
+                - option "Cold Email Script"
+            - generic [ref=e67]:
+              - generic [ref=e68]: Tone
+              - combobox [ref=e69]:
+                - option "Professional" [selected]
+                - option "Casual"
+                - option "Funny"
+                - option "Urgent"
+          - generic [ref=e70]:
+            - generic [ref=e71]: "Duration (guest: 30s / 60s only)"
+            - generic [ref=e72]:
+              - button "30s" [ref=e73] [cursor=pointer]
+              - button "60s" [ref=e74] [cursor=pointer]
+              - link "3min Pro" [ref=e75] [cursor=pointer]:
+                - /url: /sign-up
+              - link "5min Pro" [ref=e76] [cursor=pointer]:
+                - /url: /sign-up
+              - link "10min Pro" [ref=e77] [cursor=pointer]:
+                - /url: /sign-up
+          - generic [ref=e78]:
+            - generic [ref=e79]: Topic / Product / Goal
+            - textbox "e.g. Selling a $97 Notion productivity course to overwhelmed freelancers..." [ref=e80]
+          - button "Generate Free Script" [disabled] [ref=e81]:
+            - text: Generate Free Script
+            - img [ref=e82]
+    - region "Everything you need to script faster" [ref=e84]:
+      - generic [ref=e85]:
+        - generic [ref=e87]:
+          - generic [ref=e89]: Why Scriva
+          - heading "Everything you need to script faster" [level=2] [ref=e92]:
+            - text: Everything you need to
+            - emphasis [ref=e93]: script faster
+          - paragraph [ref=e94]: No more templates that sound like every other creator. Every script is unique, on-brand, and conversion-optimized.
+        - generic [ref=e96]:
+          - article [ref=e97]:
+            - generic [ref=e100]: ⚡
+            - heading "Generate in under 10 seconds" [level=3] [ref=e101]
+            - paragraph [ref=e102]: GPT-4o processes your brief and outputs a fully structured, section-labeled script instantly. No waiting. No spinner loops.
+            - generic [ref=e103]:
+              - text: // Output
+              - text: "[HOOK] Stop — you've been leaving money on the table..."
+              - text: "[INTRO] I'm going to show you exactly how to fix that..."
+          - article [ref=e104]:
+            - generic [ref=e105]: 🌍
+            - heading "5 Languages" [level=3] [ref=e106]
+            - paragraph [ref=e107]: Reach global audiences without a translator — EN, ES, KO, JA, FR.
+            - generic [ref=e108]:
+              - generic [ref=e109]: English
+              - generic [ref=e110]: Spanish
+              - generic [ref=e111]: Korean
+              - generic [ref=e112]: Japanese
+              - generic [ref=e113]: French
+          - article [ref=e114]:
+            - generic [ref=e115]: 🎯
+            - heading "8 Script Types" [level=3] [ref=e116]
+            - paragraph [ref=e117]: YouTube, TikTok, VSL, ads, cold email, podcast, product demo, webinar — one tool, all formats.
+          - article [ref=e118]:
+            - generic [ref=e119]: 🎙
+            - heading "4 Tones" [level=3] [ref=e120]
+            - paragraph [ref=e121]: Professional, Casual, Funny, or Urgent. Your brand voice — not a generic AI voice.
+          - article [ref=e122]:
+            - generic [ref=e123]: 📂
+            - heading "Script History" [level=3] [ref=e124]
+            - paragraph [ref=e125]: Every script is saved. Copy, download as .txt, or regenerate with new settings anytime.
+    - region "Three steps to a finished script" [ref=e126]:
+      - generic [ref=e127]:
+        - generic [ref=e129]:
+          - generic [ref=e131]: How it works
+          - heading "Three steps to a finished script" [level=2] [ref=e134]:
+            - text: Three steps to a
+            - emphasis [ref=e135]: finished script
+        - generic [ref=e137]:
+          - generic [ref=e139]:
+            - generic [ref=e140]:
+              - generic [ref=e141]: ✎
+              - generic [ref=e142]: "1"
+            - heading "Describe your topic" [level=3] [ref=e143]
+            - paragraph [ref=e144]: Pick a script type, paste your topic or brief, choose tone, duration, and language.
+          - generic [ref=e145]:
+            - generic [ref=e146]:
+              - generic [ref=e147]: ◈
+              - generic [ref=e148]: "2"
+            - heading "AI writes the script" [level=3] [ref=e149]
+            - paragraph [ref=e150]: GPT-4o generates a fully structured, section-labeled script in under 10 seconds.
+          - generic [ref=e151]:
+            - generic [ref=e152]:
+              - generic [ref=e153]: →
+              - generic [ref=e154]: "3"
+            - heading "Copy, edit, and ship" [level=3] [ref=e155]
+            - paragraph [ref=e156]: Copy to clipboard, download as .txt, or regenerate with one click. Ready for production.
+    - region "Every format you need" [ref=e157]:
+      - generic [ref=e158]:
+        - generic [ref=e160]:
+          - generic [ref=e162]: Script types
+          - heading "Every format you need" [level=2] [ref=e165]
+          - paragraph [ref=e166]: Real sample outputs — generated by Scriva.
+        - generic [ref=e168]:
+          - article [ref=e169]:
+            - generic [ref=e170]:
+              - generic [ref=e171]: ▶
+              - generic [ref=e172]: YouTube Video Script
+            - paragraph [ref=e174]: "[HOOK] You've been doing this wrong for years — and it's costing you views... [INTRO] Hey, I'm [Name], and today we're diving into the exact framework that took my channel from 0 to 100k..."
+          - article [ref=e175]:
+            - generic [ref=e176]:
+              - generic [ref=e177]: ♪
+              - generic [ref=e178]: TikTok / Reels Hook
+            - paragraph [ref=e180]: "POV: You spent 3 hours writing a script... then found out AI can do it in 10 seconds. [Cut] Here's the exact prompt I use — and why it converts 5x better..."
+          - article [ref=e181]:
+            - generic [ref=e182]:
+              - generic [ref=e183]: ◈
+              - generic [ref=e184]: VSL Script
+            - paragraph [ref=e186]: If you're still struggling to convert visitors into buyers, this might be the most important video you'll watch today. In the next 7 minutes, I'll show you...
+          - article [ref=e187]:
+            - generic [ref=e188]:
+              - generic [ref=e189]: ◉
+              - generic [ref=e190]: Facebook Ad Script
+            - paragraph [ref=e192]: STOP scrolling if you're a coach tired of posting daily but getting zero clients. I used to be you. 90 days ago I had 23 followers and zero paid clients...
+          - article [ref=e193]:
+            - generic [ref=e194]:
+              - generic [ref=e195]: ◎
+              - generic [ref=e196]: Podcast Intro
+            - paragraph [ref=e198]: Welcome to The Founder's Edge — the show where we break down exactly how 7-figure entrepreneurs think, operate, and scale. I'm your host, [Name]. Today's episode...
+          - article [ref=e199]:
+            - generic [ref=e200]:
+              - generic [ref=e201]: ✉
+              - generic [ref=e202]: Cold Email Script
+            - paragraph [ref=e204]: "Subject: Quick question about [Company]'s onboarding Hi [First Name], I noticed [Company] recently [trigger]. Most teams at your stage tell us they're losing 40% of new users in week one..."
+    - region "Simple, honest pricing" [ref=e205]:
+      - generic [ref=e206]:
+        - generic [ref=e208]:
+          - generic [ref=e210]: Pricing
+          - heading "Simple, honest pricing" [level=2] [ref=e213]
+          - paragraph [ref=e214]: Start free. Upgrade when you need more.
+        - generic [ref=e216]:
+          - generic [ref=e217]:
+            - generic [ref=e218]:
+              - text: Free
+              - generic [ref=e219]:
+                - generic [ref=e220]: $0
+                - generic [ref=e221]: /month
+            - list [ref=e222]:
+              - listitem [ref=e223]:
+                - generic [ref=e224]: ◆
+                - text: 5 scripts per month
+              - listitem [ref=e225]:
+                - generic [ref=e226]: ◆
+                - text: All 8 script types
+              - listitem [ref=e227]:
+                - generic [ref=e228]: ◆
+                - text: 4 tones
+              - listitem [ref=e229]:
+                - generic [ref=e230]: ◆
+                - text: Copy & download (.txt)
+              - listitem [ref=e231]:
+                - generic [ref=e232]: ◆
+                - text: Script history (last 10)
+            - link "Get started free" [ref=e233] [cursor=pointer]:
+              - /url: /sign-up
+          - generic [ref=e234]:
+            - generic [ref=e237]: Most Popular
+            - generic [ref=e238]:
+              - text: Pro
+              - generic [ref=e239]:
+                - generic [ref=e240]: $19
+                - generic [ref=e241]: /month
+              - paragraph [ref=e242]: or $149/year — save $79
+            - list [ref=e243]:
+              - listitem [ref=e244]:
+                - generic [ref=e245]: ◆
+                - text: Unlimited scripts (200/mo)
+              - listitem [ref=e246]:
+                - generic [ref=e247]: ◆
+                - text: All script types + tones
+              - listitem [ref=e248]:
+                - generic [ref=e249]: ◆
+                - text: 5 languages (EN, ES, KO, JA, FR)
+              - listitem [ref=e250]:
+                - generic [ref=e251]: ◆
+                - text: Unlimited script history
+              - listitem [ref=e252]:
+                - generic [ref=e253]: ◆
+                - text: Priority generation speed
+            - link "Upgrade to Pro" [ref=e254] [cursor=pointer]:
+              - /url: /pricing
+    - region "Creators love Scriva" [ref=e255]:
+      - generic [ref=e256]:
+        - generic [ref=e258]:
+          - generic [ref=e260]: Social Proof
+          - heading "Creators love Scriva" [level=2] [ref=e263]:
+            - text: Creators
+            - emphasis [ref=e264]: love Scriva
+        - generic [ref=e266]:
+          - article [ref=e267]:
+            - generic [ref=e268]:
+              - img [ref=e269]
+              - img [ref=e271]
+              - img [ref=e273]
+              - img [ref=e275]
+              - img [ref=e277]
+            - blockquote [ref=e279]: "\"I used to spend 3-4 hours scripting each video. Now I generate a full draft in 30 seconds. My last 3 videos hit 100k+ views using Scriva scripts.\""
+            - generic [ref=e280]:
+              - generic [ref=e281]: MW
+              - generic [ref=e282]:
+                - generic [ref=e283]: Marcus Webb
+                - text: YouTube Creator, 280k subs
+          - article [ref=e284]:
+            - generic [ref=e285]:
+              - img [ref=e286]
+              - img [ref=e288]
+              - img [ref=e290]
+              - img [ref=e292]
+              - img [ref=e294]
+            - blockquote [ref=e296]: "\"I charge clients $500 per VSL script. Scriva lets me produce a polished first draft in minutes. My output has tripled and clients love the results.\""
+            - generic [ref=e297]:
+              - generic [ref=e298]: PN
+              - generic [ref=e299]:
+                - generic [ref=e300]: Priya Nair
+                - text: Freelance Copywriter
+          - article [ref=e301]:
+            - generic [ref=e302]:
+              - img [ref=e303]
+              - img [ref=e305]
+              - img [ref=e307]
+              - img [ref=e309]
+              - img [ref=e311]
+            - blockquote [ref=e313]: "\"Our Facebook ad ROAS went from 1.8x to 4.2x after we started using Scriva scripts. The Urgent tone template is absolutely dialed in for conversion.\""
+            - generic [ref=e314]:
+              - generic [ref=e315]: JT
+              - generic [ref=e316]:
+                - generic [ref=e317]: Jake Thornton
+                - text: E-commerce Founder
+    - region "Common questions" [ref=e318]:
+      - generic [ref=e319]:
+        - generic [ref=e321]:
+          - generic [ref=e323]: FAQ
+          - heading "Common questions" [level=2] [ref=e326]
+        - generic [ref=e328]:
+          - generic [ref=e329]:
+            - button "What AI model powers Scriva?" [ref=e330] [cursor=pointer]:
+              - generic [ref=e331]: What AI model powers Scriva?
+              - img [ref=e333]
+            - paragraph [ref=e335]: Scriva uses OpenAI's GPT-4o — the most capable model available. You get the same AI that professional agencies use, without paying agency prices.
+          - generic [ref=e336]:
+            - button "How is the Free plan limited?" [ref=e337] [cursor=pointer]:
+              - generic [ref=e338]: How is the Free plan limited?
+              - img [ref=e340]
+            - paragraph [ref=e342]: Free users get 5 scripts per month — enough to test every script type. Counters reset on the 1st of each month. Pro users get up to 200 scripts/month.
+          - generic [ref=e343]:
+            - button "Can I cancel my Pro subscription anytime?" [ref=e344] [cursor=pointer]:
+              - generic [ref=e345]: Can I cancel my Pro subscription anytime?
+              - img [ref=e347]
+            - paragraph [ref=e349]: Yes. Cancel anytime from your Settings page. You keep Pro access until the end of your billing period — no questions asked.
+          - generic [ref=e350]:
+            - button "What languages are supported?" [ref=e351] [cursor=pointer]:
+              - generic [ref=e352]: What languages are supported?
+              - img [ref=e354]
+            - paragraph [ref=e356]: Pro users can generate scripts in English, Spanish, Korean, Japanese, and French. More languages are on the roadmap.
+          - generic [ref=e357]:
+            - button "Can I use the scripts commercially?" [ref=e358] [cursor=pointer]:
+              - generic [ref=e359]: Can I use the scripts commercially?
+              - img [ref=e361]
+            - paragraph [ref=e363]: Yes. All scripts you generate are yours to use commercially — ads, YouTube, client work, anything.
+    - region "Ready to script faster?" [ref=e364]:
+      - generic [ref=e367]:
+        - heading "Ready to script faster?" [level=2] [ref=e373]
+        - paragraph [ref=e374]: Join 3,400+ creators. Start free — no credit card required.
+        - link "Generate Your First Script Free" [ref=e375] [cursor=pointer]:
+          - /url: /sign-up
+          - text: Generate Your First Script Free
+          - img [ref=e376]
+    - generic [ref=e380]:
+      - generic [ref=e381]:
+        - generic [ref=e382]:
+          - generic [ref=e383]:
+            - img [ref=e385]
+            - generic [ref=e387]: Scriva
+          - paragraph [ref=e388]: Turn any idea into a high-converting script in seconds. Built for creators, marketers, and solopreneurs.
+          - generic [ref=e389]:
+            - img [ref=e390]
+            - text: Powered by OpenAI GPT-4o
+        - generic [ref=e393]:
+          - heading "Product" [level=4] [ref=e394]
+          - list [ref=e395]:
+            - listitem [ref=e396]:
+              - link "Features" [ref=e397] [cursor=pointer]:
+                - /url: /#features
+            - listitem [ref=e398]:
+              - link "How it works" [ref=e399] [cursor=pointer]:
+                - /url: /#how-it-works
+            - listitem [ref=e400]:
+              - link "Pricing" [ref=e401] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=e402]:
+              - link "Dashboard" [ref=e403] [cursor=pointer]:
+                - /url: /dashboard
+        - generic [ref=e404]:
+          - heading "Legal" [level=4] [ref=e405]
+          - list [ref=e406]:
+            - listitem [ref=e407]:
+              - link "Privacy Policy" [ref=e408] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=e409]:
+              - link "Terms of Service" [ref=e410] [cursor=pointer]:
+                - /url: /terms
+            - listitem [ref=e411]:
+              - link "Refund Policy" [ref=e412] [cursor=pointer]:
+                - /url: /refund
+      - paragraph [ref=e414]: © 2026 Scriva. All rights reserved.
+  - alert [ref=e415]
