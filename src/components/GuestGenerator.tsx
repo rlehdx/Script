@@ -181,14 +181,14 @@ export default function GuestGenerator() {
       {/* Form grid */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
         <div>
-          <label style={labelStyle}>Script type</label>
-          <select value={scriptType} onChange={(e) => setScriptType(e.target.value)} style={selectStyle}>
+          <label htmlFor="guest-script-type" style={labelStyle}>Script type</label>
+          <select id="guest-script-type" value={scriptType} onChange={(e) => setScriptType(e.target.value)} style={selectStyle}>
             {SCRIPT_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
           </select>
         </div>
         <div>
-          <label style={labelStyle}>Tone</label>
-          <select value={tone} onChange={(e) => setTone(e.target.value)} style={selectStyle}>
+          <label htmlFor="guest-tone" style={labelStyle}>Tone</label>
+          <select id="guest-tone" value={tone} onChange={(e) => setTone(e.target.value)} style={selectStyle}>
             {TONES.map((t) => <option key={t} value={t}>{t}</option>)}
           </select>
         </div>
