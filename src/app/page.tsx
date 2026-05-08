@@ -152,7 +152,7 @@ function SectionHeader({ tag, label }: { tag: string; label: string }) {
       <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--champagne)" }}>
         {tag}
       </span>
-      <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--silver-dim)" }}>
+      <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--silver)" }}>
         {label}
       </span>
     </div>
@@ -443,7 +443,7 @@ export default function HomePage() {
               {TESTIMONIALS.map((t, i) => (
                 <Reveal key={t.name} delay={i * 0.1}>
                   <div className="bento-cell" style={{ padding: "2rem" }}>
-                    <div style={{ display: "flex", gap: "2px", marginBottom: "1.25rem" }} aria-label="5 out of 5 stars">
+                    <div role="img" aria-label="5 out of 5 stars" style={{ display: "flex", gap: "2px", marginBottom: "1.25rem" }}>
                       {[...Array(5)].map((_, j) => (
                         <span key={j} style={{ color: "var(--champagne)", fontSize: "0.7rem" }} aria-hidden="true">★</span>
                       ))}

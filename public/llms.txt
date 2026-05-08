@@ -1,0 +1,40 @@
+# Scriva
+
+> AI-powered script generator for YouTube, TikTok, VSL, podcasts, Facebook ads, cold emails, and more. Powered by GPT-4.1.
+
+## What Scriva Does
+
+Scriva takes a topic, script type, tone, and duration as inputs and generates a fully structured, section-labeled video or marketing script in under 10 seconds. It supports 8 script formats and 5 languages (English, Spanish, Korean, Japanese, French).
+
+## Key Pages
+
+- Homepage: https://scriva.online/
+- Pricing: https://scriva.online/pricing
+- Blog: https://scriva.online/blog
+- Sign Up: https://scriva.online/sign-up
+- Sign In: https://scriva.online/sign-in
+- Privacy Policy: https://scriva.online/privacy
+- Terms of Service: https://scriva.online/terms
+- Refund Policy: https://scriva.online/refund
+
+## Plans
+
+- Free: 5 scripts/month, all 8 script types, 4 tones, copy & download
+- Pro ($19/mo or $149/yr): 200 scripts/month, 5 languages, unlimited history, priority speed
+
+## Script Types Supported
+
+YouTube Video Script, TikTok/Reels Hook, VSL Script, Facebook Ad Script, Podcast Intro, Cold Email Script, Product Demo, Webinar Script
+
+## Tones Supported
+
+Professional, Casual, Funny, Urgent
+
+## Tech Stack
+
+Next.js 14 (App Router), OpenAI GPT-4.1, Supabase, Clerk Auth, Stripe, Netlify
+
+## Contact & Support
+
+- Website: https://scriva.online
+- Twitter: https://twitter.com/scriva_app

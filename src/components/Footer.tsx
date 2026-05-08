@@ -116,7 +116,7 @@ export default function Footer() {
               borderRight: "1px solid rgba(255,255,255,0.06)",
             }}
           >
-            <h4
+            <p
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.58rem",
@@ -128,7 +128,7 @@ export default function Footer() {
               }}
             >
               Product
-            </h4>
+            </p>
             <ul
               style={{
                 listStyle: "none",
@@ -163,7 +163,7 @@ export default function Footer() {
 
           {/* Legal column */}
           <div style={{ padding: "3rem 2rem" }}>
-            <h4
+            <p
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.58rem",
@@ -175,7 +175,7 @@ export default function Footer() {
               }}
             >
               Legal
-            </h4>
+            </p>
             <ul
               style={{
                 listStyle: "none",
