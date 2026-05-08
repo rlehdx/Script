@@ -2,43 +2,189 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useRef, useMemo } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import * as THREE from "three";
+
+/* ── 3D floating particle field ── */
+function ParticleField() {
+  const meshRef = useRef<THREE.Points>(null);
+  const { mouse } = useThree();
+
+  const [positions, sizes] = useMemo(() => {
+    const count = 420;
+    const pos = new Float32Array(count * 3);
+    const sz = new Float32Array(count);
+    for (let i = 0; i < count; i++) {
+      pos[i * 3]     = (Math.random() - 0.5) * 18;
+      pos[i * 3 + 1] = (Math.random() - 0.5) * 12;
+      pos[i * 3 + 2] = (Math.random() - 0.5) * 8;
+      sz[i] = Math.random() * 1.8 + 0.4;
+    }
+    return [pos, sz];
+  }, []);
+
+  useFrame(({ clock }) => {
+    if (!meshRef.current) return;
+    const t = clock.getElapsedTime();
+    meshRef.current.rotation.y = t * 0.04 + mouse.x * 0.12;
+    meshRef.current.rotation.x = t * 0.02 + mouse.y * 0.08;
+  });
+
+  return (
+    <points ref={meshRef}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          args={[positions, 3]}
+        />
+        <bufferAttribute
+          attach="attributes-size"
+          args={[sizes, 1]}
+        />
+      </bufferGeometry>
+      <pointsMaterial
+        size={0.04}
+        color="#C9A84C"
+        transparent
+        opacity={0.45}
+        sizeAttenuation
+      />
+    </points>
+  );
+}
+
+/* ── Floating gold ring ── */
+function GoldRing() {
+  const ref = useRef<THREE.Mesh>(null);
+  const { mouse } = useThree();
+
+  useFrame(({ clock }) => {
+    if (!ref.current) return;
+    const t = clock.getElapsedTime();
+    ref.current.rotation.x = t * 0.15 + mouse.y * 0.3;
+    ref.current.rotation.z = t * 0.08 + mouse.x * 0.2;
+    ref.current.position.y = Math.sin(t * 0.5) * 0.15;
+  });
+
+  return (
+    <mesh ref={ref} position={[2.8, -0.4, -1.5]}>
+      <torusGeometry args={[1.1, 0.018, 16, 80]} />
+      <meshStandardMaterial
+        color="#C9A84C"
+        emissive="#8A6E2A"
+        emissiveIntensity={0.6}
+        metalness={0.9}
+        roughness={0.1}
+      />
+    </mesh>
+  );
+}
+
+/* ── Small orbiting sphere ── */
+function OrbitSphere() {
+  const ref = useRef<THREE.Mesh>(null);
+
+  useFrame(({ clock }) => {
+    if (!ref.current) return;
+    const t = clock.getElapsedTime() * 0.6;
+    ref.current.position.x = Math.cos(t) * 3.2 + 1;
+    ref.current.position.y = Math.sin(t) * 1.4 - 0.5;
+    ref.current.position.z = Math.sin(t * 0.5) * 1.2;
+  });
+
+  return (
+    <mesh ref={ref}>
+      <sphereGeometry args={[0.08, 16, 16]} />
+      <meshStandardMaterial
+        color="#EDD078"
+        emissive="#C9A84C"
+        emissiveIntensity={2}
+        metalness={1}
+        roughness={0}
+      />
+    </mesh>
+  );
+}
+
+/* ── Scene ── */
+function Scene() {
+  return (
+    <>
+      <ambientLight intensity={0.15} />
+      <pointLight position={[4, 4, 4]} intensity={1.2} color="#C9A84C" />
+      <pointLight position={[-4, -2, 2]} intensity={0.4} color="#7A1225" />
+      <ParticleField />
+      <GoldRing />
+      <OrbitSphere />
+    </>
+  );
+}
+
+/* ── Stagger variants ── */
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
+
+const itemVariants = {
+  hidden:  { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+};
 
 export default function HeroSection() {
   return (
     <section
       aria-label="Hero"
       style={{
-        background: "var(--paper)",
-        paddingTop: "84px", /* navbar height: 28px ticker + 56px nav */
+        position: "relative",
         minHeight: "100svh",
         display: "flex",
         flexDirection: "column",
+        paddingTop: "84px",
+        background: "var(--obsidian)",
+        overflow: "hidden",
       }}
     >
-      {/* ── Top metadata row ── */}
+      {/* Radial glow backdrop */}
       <div
+        aria-hidden="true"
         style={{
-          borderBottom: "1px solid rgba(13,13,13,0.15)",
-          paddingInline: "2rem",
-          maxWidth: "1200px",
-          marginInline: "auto",
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          height: "36px",
-          gap: "1rem",
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(ellipse 80% 55% at 60% 40%, rgba(201,168,76,0.08) 0%, transparent 65%), " +
+            "radial-gradient(ellipse 50% 40% at 20% 80%, rgba(196,30,58,0.05) 0%, transparent 60%)",
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Three.js canvas — right half */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          width: "60%",
+          height: "100%",
+          pointerEvents: "none",
         }}
       >
-        <span className="issue-number">Vol. 01 — AI Script Studio</span>
-        <div style={{ height: "100%", width: "1px", background: "rgba(13,13,13,0.12)" }} />
-        <span className="issue-number" style={{ flex: 1 }}>Est. 2024</span>
-        <span className="issue-number">GPT-4o</span>
+        <Canvas
+          camera={{ position: [0, 0, 6], fov: 55 }}
+          dpr={[1, 1.5]}
+          gl={{ antialias: true, alpha: true }}
+        >
+          <Scene />
+        </Canvas>
       </div>
 
-      {/* ── Hero content ── */}
+      {/* Content */}
       <div
         style={{
+          position: "relative",
+          zIndex: 1,
           flex: 1,
           display: "flex",
           flexDirection: "column",
@@ -46,169 +192,162 @@ export default function HeroSection() {
           marginInline: "auto",
           width: "100%",
           paddingInline: "2rem",
+          paddingBlock: "4rem 5rem",
+          justifyContent: "center",
         }}
       >
-        {/* Big headline block */}
-        <div
-          style={{
-            borderBottom: "1px solid rgba(13,13,13,0.15)",
-            paddingBlock: "3rem 2rem",
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "0",
-          }}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          style={{ maxWidth: "640px" }}
         >
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {/* Kicker */}
-            <div style={{ marginBottom: "1.25rem" }}>
-              <span className="kicker">Script Generation — Instant</span>
-            </div>
-
-            {/* Main headline */}
-            <h1 className="text-hero" style={{ color: "var(--ink)", marginBottom: "0" }}>
-              Your Scripts.
-              <br />
-              <span style={{ color: "var(--red)", WebkitTextStroke: "0px" }}>
-                Written
-              </span>
-              <br />
-              <span style={{ color: "var(--ink)" }}>
-                In Seconds.
-              </span>
-            </h1>
+          {/* Kicker */}
+          <motion.div variants={itemVariants} style={{ marginBottom: "1.5rem" }}>
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.62rem",
+                fontWeight: 600,
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                color: "var(--champagne)",
+                border: "1px solid rgba(201,168,76,0.25)",
+                padding: "0.35rem 0.85rem",
+                borderRadius: "2px",
+                background: "rgba(201,168,76,0.06)",
+              }}
+            >
+              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--champagne)", display: "inline-block", boxShadow: "0 0 8px var(--champagne)" }} />
+              GPT-4o · Script Generation · Instant
+            </span>
           </motion.div>
-        </div>
 
-        {/* ── Two-column lower block ── */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "0",
-            flex: 1,
-          }}
-          className="grid-cols-1 md:grid-cols-2"
-        >
-          {/* Left — description + CTA */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.25 }}
+          {/* Headline */}
+          <motion.h1
+            variants={itemVariants}
             style={{
-              borderRight: "1px solid rgba(13,13,13,0.15)",
-              padding: "2.5rem 2.5rem 3rem 0",
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(3.2rem, 9vw, 7.5rem)",
+              fontWeight: 800,
+              lineHeight: 1.0,
+              letterSpacing: "-0.04em",
+              color: "var(--silver-bright)",
+              marginBottom: "1.75rem",
+            }}
+          >
+            Your Scripts.
+            <br />
+            <span
+              style={{
+                background: "linear-gradient(135deg, #8A6E2A 0%, #C9A84C 40%, #EDD078 55%, #C9A84C 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              Written
+            </span>
+            <br />
+            In Seconds.
+          </motion.h1>
+
+          {/* Description */}
+          <motion.p
+            variants={itemVariants}
+            style={{
+              fontFamily: "var(--font-body)",
+              fontSize: "0.9rem",
+              lineHeight: 1.75,
+              color: "var(--silver)",
+              maxWidth: "420px",
+              marginBottom: "2.5rem",
+            }}
+          >
+            Drop your topic. Pick a format. GPT-4o writes a fully structured,
+            section-labeled script — YouTube, TikTok, VSL, cold email, podcast —
+            ready for production in under 10 seconds.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            variants={itemVariants}
+            style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", alignItems: "center" }}
+          >
+            <Link href="/sign-up" className="btn-champagne">
+              Start for free
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 6H10M7 3L10 6L7 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </Link>
+            <a href="#try-free" className="btn-glass">
+              Try without signing up
+            </a>
+          </motion.div>
+
+          {/* Trust strip */}
+          <motion.div
+            variants={itemVariants}
+            style={{
+              marginTop: "3rem",
               display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
+              flexWrap: "wrap",
               gap: "2rem",
             }}
           >
-            <p
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "0.85rem",
-                lineHeight: 1.8,
-                color: "var(--ink-muted)",
-                maxWidth: "380px",
-              }}
-            >
-              Drop your topic. Pick a format. GPT-4o writes a fully structured,
-              section-labeled script — YouTube, TikTok, VSL, cold email, podcast —
-              ready for production in under 10 seconds.
-            </p>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", alignItems: "flex-start" }}>
-              <Link href="/sign-up" className="btn-ink">
-                Start for free
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 6H10M7 3L10 6L7 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter"/>
-                </svg>
-              </Link>
-              <a
-                href="#try-free"
-                className="btn-outline"
-              >
-                Try without signing up
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Right — stats table */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            style={{ padding: "2.5rem 0 3rem 2.5rem" }}
-          >
-            {/* Stat grid */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
-              {[
-                { n: "12,000+", label: "Scripts Generated", sub: "Since launch" },
-                { n: "3,400+",  label: "Active Creators",   sub: "Using Scriva daily" },
-                { n: "4.9/5",   label: "Average Rating",    sub: "User satisfaction" },
-                { n: "<10s",    label: "Generation Speed",  sub: "From input to output" },
-              ].map((stat, i) => (
-                <div
-                  key={stat.label}
+            {[
+              { n: "12,000+", label: "Scripts Generated" },
+              { n: "3,400+",  label: "Active Creators" },
+              { n: "4.9/5",   label: "Avg Rating" },
+              { n: "<10s",    label: "Per Script" },
+            ].map((stat) => (
+              <div key={stat.label} style={{ display: "flex", flexDirection: "column", gap: "0.2rem" }}>
+                <span
                   style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    alignItems: "center",
-                    borderBottom: i < 3 ? "1px solid rgba(13,13,13,0.1)" : "none",
-                    paddingBlock: "1rem",
-                    gap: "1rem",
+                    fontFamily: "var(--font-display)",
+                    fontSize: "clamp(1.4rem, 3vw, 2rem)",
+                    fontWeight: 800,
+                    letterSpacing: "-0.03em",
+                    color: "var(--silver-bright)",
+                    lineHeight: 1,
                   }}
                 >
-                  <span className="stat-num">{stat.n}</span>
-                  <div>
-                    <div
-                      style={{
-                        fontFamily: "var(--font-body)",
-                        fontSize: "0.72rem",
-                        fontWeight: 500,
-                        letterSpacing: "0.06em",
-                        textTransform: "uppercase",
-                        color: "var(--ink)",
-                      }}
-                    >
-                      {stat.label}
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: "var(--font-body)",
-                        fontSize: "0.65rem",
-                        color: "var(--ink-faint)",
-                        marginTop: "0.15rem",
-                        letterSpacing: "0.04em",
-                      }}
-                    >
-                      {stat.sub}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Small footnote */}
-            <p
-              style={{
-                marginTop: "1.5rem",
-                fontFamily: "var(--font-body)",
-                fontSize: "0.62rem",
-                color: "var(--ink-faint)",
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-              }}
-            >
-              No credit card required · 5 free scripts/month
-            </p>
+                  {stat.n}
+                </span>
+                <span
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "0.58rem",
+                    fontWeight: 500,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    color: "var(--silver-dim)",
+                  }}
+                >
+                  {stat.label}
+                </span>
+              </div>
+            ))}
           </motion.div>
-        </div>
+        </motion.div>
       </div>
+
+      {/* Bottom fade */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: "120px",
+          background: "linear-gradient(to bottom, transparent, var(--obsidian))",
+          pointerEvents: "none",
+        }}
+      />
     </section>
   );
 }

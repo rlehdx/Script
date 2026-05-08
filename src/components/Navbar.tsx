@@ -37,15 +37,22 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 50,
-        background: "var(--paper)",
-        borderBottom: scrolled ? "1px solid var(--ink)" : "1px solid transparent",
-        transition: "border-color 0.3s ease",
+        background: scrolled
+          ? "rgba(13,13,13,0.92)"
+          : "rgba(13,13,13,0.72)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        borderBottom: scrolled
+          ? "1px solid rgba(201,168,76,0.15)"
+          : "1px solid rgba(255,255,255,0.05)",
+        transition: "background 0.4s ease, border-color 0.4s ease",
       }}
     >
       {/* Top ticker strip */}
       <div
         style={{
-          background: "var(--ink)",
+          background: "linear-gradient(90deg, rgba(201,168,76,0.12), rgba(201,168,76,0.06), rgba(201,168,76,0.12))",
+          borderBottom: "1px solid rgba(201,168,76,0.12)",
           overflow: "hidden",
           height: "28px",
           display: "flex",
@@ -65,11 +72,11 @@ export default function Navbar() {
             <span
               key={i}
               style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "0.6rem",
-                letterSpacing: "0.12em",
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.58rem",
+                letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                color: "rgba(244,241,235,0.55)",
+                color: "rgba(201,168,76,0.6)",
                 paddingInline: "3rem",
               }}
             >
@@ -96,7 +103,6 @@ export default function Navbar() {
           alignItems: "center",
           justifyContent: "space-between",
           height: "56px",
-          borderBottom: "1px solid rgba(13,13,13,0.12)",
         }}
       >
         {/* Logo */}
@@ -107,16 +113,16 @@ export default function Navbar() {
             textDecoration: "none",
             display: "flex",
             alignItems: "baseline",
-            gap: "0.3rem",
+            gap: "0.25rem",
           }}
         >
           <span
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "1.6rem",
-              letterSpacing: "0.06em",
-              color: "var(--ink)",
-              textTransform: "uppercase",
+              fontSize: "1.4rem",
+              fontWeight: 800,
+              letterSpacing: "-0.02em",
+              color: "#E0E0E8",
               lineHeight: 1,
             }}
           >
@@ -125,11 +131,10 @@ export default function Navbar() {
           <span
             style={{
               fontFamily: "var(--font-body)",
-              fontSize: "0.55rem",
-              color: "var(--red)",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              fontWeight: 500,
+              fontSize: "0.5rem",
+              color: "var(--champagne)",
+              letterSpacing: "0.06em",
+              fontWeight: 600,
               paddingBottom: "2px",
             }}
           >
@@ -154,23 +159,18 @@ export default function Navbar() {
                 alignItems: "center",
                 fontFamily: "var(--font-body)",
                 fontSize: "0.65rem",
-                fontWeight: 400,
-                letterSpacing: "0.1em",
+                fontWeight: 500,
+                letterSpacing: "0.08em",
                 textTransform: "uppercase",
-                color: "var(--ink-faint)",
+                color: "var(--silver-dim)",
                 textDecoration: "none",
-                borderRight: "1px solid rgba(13,13,13,0.08)",
-                transition: "color 0.15s ease, background 0.15s ease",
+                transition: "color 0.2s ease",
               }}
               onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLAnchorElement;
-                el.style.color = "var(--ink)";
-                el.style.background = "var(--paper-dark)";
+                (e.currentTarget as HTMLAnchorElement).style.color = "var(--champagne-light)";
               }}
               onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLAnchorElement;
-                el.style.color = "var(--ink-faint)";
-                el.style.background = "transparent";
+                (e.currentTarget as HTMLAnchorElement).style.color = "var(--silver-dim)";
               }}
             >
               {link.label}
@@ -191,10 +191,11 @@ export default function Navbar() {
           aria-expanded={mobileOpen}
           style={{
             padding: "0.5rem",
-            background: "transparent",
-            border: "1px solid rgba(13,13,13,0.2)",
+            background: "rgba(255,255,255,0.04)",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: "2px",
             cursor: "pointer",
-            color: "var(--ink)",
+            color: "var(--silver-bright)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -220,8 +221,9 @@ export default function Navbar() {
           overflow: "hidden",
           maxHeight: mobileOpen ? "24rem" : "0",
           transition: "max-height 0.3s ease",
-          background: "var(--paper)",
-          borderBottom: mobileOpen ? "1px solid var(--ink)" : "none",
+          background: "rgba(13,13,13,0.97)",
+          backdropFilter: "blur(20px)",
+          borderBottom: mobileOpen ? "1px solid rgba(201,168,76,0.15)" : "none",
         }}
         aria-hidden={!mobileOpen}
       >
@@ -238,11 +240,12 @@ export default function Navbar() {
                 padding: "1rem 2rem",
                 fontFamily: "var(--font-body)",
                 fontSize: "0.7rem",
+                fontWeight: 500,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: "var(--ink)",
+                color: "var(--silver)",
                 textDecoration: "none",
-                borderBottom: "1px solid rgba(13,13,13,0.1)",
+                borderBottom: "1px solid rgba(255,255,255,0.05)",
               }}
             >
               {link.label}

@@ -3,11 +3,11 @@
 import Link from "next/link";
 
 const PRODUCT_LINKS = [
-  { href: "/#features",    label: "Formats" },
-  { href: "/#how-it-works",label: "Process" },
-  { href: "/pricing",      label: "Pricing" },
-  { href: "/dashboard",    label: "Dashboard" },
-  { href: "/blog",         label: "Blog" },
+  { href: "/#features",     label: "Formats" },
+  { href: "/#how-it-works", label: "Process" },
+  { href: "/pricing",       label: "Pricing" },
+  { href: "/dashboard",     label: "Dashboard" },
+  { href: "/blog",          label: "Blog" },
 ];
 
 const LEGAL_LINKS = [
@@ -20,8 +20,8 @@ export default function Footer() {
   return (
     <footer
       style={{
-        borderTop: "1px solid rgba(13,13,13,0.15)",
-        background: "var(--paper-warm)",
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+        background: "var(--charcoal)",
       }}
     >
       <div
@@ -37,7 +37,7 @@ export default function Footer() {
             display: "grid",
             gridTemplateColumns: "2fr 1fr 1fr",
             gap: "0",
-            borderBottom: "1px solid rgba(13,13,13,0.1)",
+            borderBottom: "1px solid rgba(255,255,255,0.06)",
           }}
           className="grid-cols-1 md:grid-cols-[2fr_1fr_1fr]"
         >
@@ -45,17 +45,17 @@ export default function Footer() {
           <div
             style={{
               padding: "3rem 3rem 3rem 0",
-              borderRight: "1px solid rgba(13,13,13,0.1)",
+              borderRight: "1px solid rgba(255,255,255,0.06)",
             }}
           >
             <div style={{ marginBottom: "1.5rem" }}>
               <span
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "2rem",
-                  letterSpacing: "0.06em",
-                  color: "var(--ink)",
-                  textTransform: "uppercase",
+                  fontSize: "1.8rem",
+                  fontWeight: 800,
+                  letterSpacing: "-0.02em",
+                  color: "var(--silver-bright)",
                   display: "block",
                   lineHeight: 1,
                 }}
@@ -69,7 +69,7 @@ export default function Footer() {
                 fontFamily: "var(--font-body)",
                 fontSize: "0.78rem",
                 lineHeight: 1.75,
-                color: "var(--ink-muted)",
+                color: "var(--silver-dim)",
                 maxWidth: "260px",
                 marginBottom: "1.5rem",
               }}
@@ -83,16 +83,28 @@ export default function Footer() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.5rem",
-                fontFamily: "var(--font-body)",
-                fontSize: "0.6rem",
-                letterSpacing: "0.1em",
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.58rem",
+                letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                color: "var(--ink-faint)",
-                border: "1px solid rgba(13,13,13,0.15)",
+                color: "var(--champagne)",
+                border: "1px solid rgba(201,168,76,0.2)",
                 padding: "0.4rem 0.85rem",
+                borderRadius: "2px",
+                background: "rgba(201,168,76,0.05)",
               }}
             >
-              <span style={{ color: "var(--red)", fontSize: "0.5rem" }}>●</span>
+              <span
+                style={{
+                  width: 5,
+                  height: 5,
+                  borderRadius: "50%",
+                  background: "var(--champagne)",
+                  boxShadow: "0 0 6px var(--champagne)",
+                  display: "inline-block",
+                  flexShrink: 0,
+                }}
+              />
               Powered by OpenAI GPT-4o
             </div>
           </div>
@@ -101,17 +113,17 @@ export default function Footer() {
           <div
             style={{
               padding: "3rem 2rem",
-              borderRight: "1px solid rgba(13,13,13,0.1)",
+              borderRight: "1px solid rgba(255,255,255,0.06)",
             }}
           >
             <h4
               style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "0.6rem",
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.58rem",
                 fontWeight: 600,
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                color: "var(--ink-faint)",
+                color: "var(--silver-dim)",
                 marginBottom: "1.25rem",
               }}
             >
@@ -134,13 +146,13 @@ export default function Footer() {
                     style={{
                       fontFamily: "var(--font-body)",
                       fontSize: "0.78rem",
-                      color: "var(--ink-muted)",
+                      color: "var(--silver-dim)",
                       textDecoration: "none",
                       letterSpacing: "0.02em",
                       transition: "color 0.15s ease",
                     }}
-                    onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--red)")}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--ink-muted)")}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--champagne-light)")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--silver-dim)")}
                   >
                     {link.label}
                   </Link>
@@ -153,12 +165,12 @@ export default function Footer() {
           <div style={{ padding: "3rem 2rem" }}>
             <h4
               style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "0.6rem",
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.58rem",
                 fontWeight: 600,
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                color: "var(--ink-faint)",
+                color: "var(--silver-dim)",
                 marginBottom: "1.25rem",
               }}
             >
@@ -181,13 +193,13 @@ export default function Footer() {
                     style={{
                       fontFamily: "var(--font-body)",
                       fontSize: "0.78rem",
-                      color: "var(--ink-muted)",
+                      color: "var(--silver-dim)",
                       textDecoration: "none",
                       letterSpacing: "0.02em",
                       transition: "color 0.15s ease",
                     }}
-                    onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--red)")}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--ink-muted)")}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--champagne-light)")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--silver-dim)")}
                   >
                     {link.label}
                   </Link>
@@ -210,10 +222,10 @@ export default function Footer() {
         >
           <p
             style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "0.65rem",
-              color: "var(--ink-faint)",
-              letterSpacing: "0.06em",
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.6rem",
+              color: "var(--silver-dim)",
+              letterSpacing: "0.08em",
               textTransform: "uppercase",
             }}
           >
@@ -221,10 +233,10 @@ export default function Footer() {
           </p>
           <p
             style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "0.65rem",
-              color: "var(--ink-faint)",
-              letterSpacing: "0.06em",
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.6rem",
+              color: "var(--silver-dim)",
+              letterSpacing: "0.08em",
               textTransform: "uppercase",
             }}
           >
