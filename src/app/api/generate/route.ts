@@ -1,4 +1,4 @@
-import { auth, currentUser } from "@clerk/nextjs/server";
+﻿import { auth, currentUser } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { openai, OPENAI_ENABLED } from "@/lib/openai";
 import { supabaseAdmin } from "@/lib/supabase";
@@ -9,7 +9,6 @@ import type { PlanType } from "@/lib/stripe";
 // Prevent Netlify 10s function timeout
 export const maxDuration = 60;
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 const db = supabaseAdmin as any;
 
 // ─── Plan / Duration access control ────────────────────────────────────────
@@ -123,10 +122,13 @@ Write the complete script now:`;
 }
 
 // ─── IP extraction helper ───────────────────────────────────────────────────
+// Netlify sets x-nf-client-connection-ip as the verified client IP.
+// x-forwarded-for is user-controlled and spoofable — never use it as the sole source.
 function getClientIp(req: NextRequest): string {
   return (
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    req.headers.get("x-nf-client-connection-ip") ??
     req.headers.get("x-real-ip") ??
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
     "unknown"
   );
 }
@@ -190,6 +192,12 @@ export async function POST(req: NextRequest) {
     planType = usage.planType;
   }
 
+  // Reject oversized payloads before parsing
+  const contentLength = Number(req.headers.get("content-length") ?? 0);
+  if (contentLength > 8_000) {
+    return NextResponse.json({ error: "Request too large" }, { status: 413 });
+  }
+
   const body = await req.json();
   const { scriptType, topic, tone, duration, language } = body as {
     scriptType: string;
@@ -205,6 +213,10 @@ export async function POST(req: NextRequest) {
 
   if (topic.trim().length < 5) {
     return NextResponse.json({ error: "Topic must be at least 5 characters" }, { status: 400 });
+  }
+
+  if (topic.trim().length > 1000) {
+    return NextResponse.json({ error: "Topic must be under 1000 characters" }, { status: 400 });
   }
 
   // Guests: 30s/60s only, English only

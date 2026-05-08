@@ -284,7 +284,7 @@ export default function SettingsPage() {
               type="text"
               value={deleteConfirm}
               onChange={(e) => setDeleteConfirm(e.target.value)}
-              placeholder={userEmail ? `Type "${userEmail}" to confirm` : "Type your email address to confirm"}
+              placeholder={userEmail ? `Type ${userEmail} to confirm` : "Type your email address to confirm"}
               className="w-full bg-bg-secondary border border-white/8 rounded-lg px-3 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-red-500/40 transition-colors"
             />
             <button

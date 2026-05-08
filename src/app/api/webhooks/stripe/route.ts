@@ -1,9 +1,8 @@
-import { NextRequest, NextResponse } from "next/server";
+﻿import { NextRequest, NextResponse } from "next/server";
 import { stripe, STRIPE_ENABLED, PLANS, type PlanType } from "@/lib/stripe";
 import { supabaseAdmin } from "@/lib/supabase";
 import Stripe from "stripe";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 const db = supabaseAdmin as any;
 
 /** Derive plan_type from subscription metadata or price ID */
@@ -125,7 +124,9 @@ export async function POST(req: NextRequest) {
         session.metadata?.clerkUserId ??     // set via session.metadata
         session.metadata?.userId;            // fallback alias
 
-      const plan = (session.metadata?.plan ?? "creator") as PlanType;
+      const rawPlan = session.metadata?.plan;
+      const plan: PlanType =
+        rawPlan === "agency" || rawPlan === "creator" ? rawPlan : "creator";
 
       console.log("[stripe-webhook] checkout.session.completed", {
         sessionId: session.id,

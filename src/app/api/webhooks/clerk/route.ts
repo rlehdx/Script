@@ -74,5 +74,23 @@ export async function POST(req: Request) {
     console.log('[clerk-webhook] User created successfully:', id);
   }
 
+  if (evt.type === 'user.deleted') {
+    const { id } = evt.data;
+    if (!id) return new Response('Success', { status: 200 });
+
+    console.log('[clerk-webhook] Deleting user data:', id);
+
+    const { error } = await supabase
+      .from('users')
+      .delete()
+      .eq('clerk_user_id', id);
+
+    if (error) {
+      console.error('[clerk-webhook] Supabase delete error:', JSON.stringify(error));
+    } else {
+      console.log('[clerk-webhook] User data deleted:', id);
+    }
+  }
+
   return new Response('Success', { status: 200 });
 }

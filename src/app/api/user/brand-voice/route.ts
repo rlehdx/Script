@@ -1,8 +1,7 @@
-import { auth } from "@clerk/nextjs/server";
+﻿import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 const db = supabaseAdmin as any;
 
 export async function PATCH(req: NextRequest) {
@@ -29,6 +28,10 @@ export async function PATCH(req: NextRequest) {
 
   if (typeof brandVoice !== "string") {
     return NextResponse.json({ error: "Invalid brand voice value" }, { status: 400 });
+  }
+
+  if (brandVoice.length > 500) {
+    return NextResponse.json({ error: "Brand voice must be 500 characters or less" }, { status: 400 });
   }
 
   const { error } = await db

@@ -1,8 +1,7 @@
-import { auth } from "@clerk/nextjs/server";
+﻿import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 const db = supabaseAdmin as any;
 
 export async function GET(req: NextRequest) {

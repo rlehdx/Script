@@ -287,6 +287,9 @@ export default function PricingPage() {
                   `Upgrade to Agency — ${billingCycle === "annual" ? "$490/yr" : "$49/mo"}`
                 )}
               </button>
+              {checkoutError && loading !== "creator" && (
+                <p className="text-xs text-red-400 text-center mt-3">{checkoutError}</p>
+              )}
               <p className="text-[11px] text-slate-600 text-center mt-3">Cancel anytime.</p>
             </motion.div>
           </div>

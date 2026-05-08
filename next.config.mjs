@@ -16,6 +16,11 @@ const nextConfig = {
     optimizePackageImports: ["@clerk/nextjs", "framer-motion"],
     serverComponentsExternalPackages: ["@clerk/backend"],
   },
+  // Netlify: prevent API routes from being bundled as Edge functions
+  // Long-running routes (OpenAI) need Node.js runtime
+  serverRuntimeConfig: {
+    // available server-side only
+  },
 };
 
 export default nextConfig;

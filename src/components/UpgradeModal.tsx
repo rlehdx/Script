@@ -36,7 +36,7 @@ export default function UpgradeModal({ isOpen, onClose, scriptsUsed }: UpgradeMo
               <div className="text-center mb-6">
                 <div className="text-4xl mb-3">🚀</div>
                 <h2 className="text-xl font-bold text-slate-100">
-                  You've used all your scripts this month
+                  You&apos;ve used all your scripts this month
                 </h2>
                 <p className="text-sm text-slate-400 mt-2">
                   Upgrade to Creator for 100 scripts/month + more powerful models

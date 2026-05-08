@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Guest usage tracking (unauthenticated users)
  * - Stored in Supabase guest_usage table by IP + date
  * - Daily limit of 3 scripts
@@ -23,9 +23,7 @@ export async function getGuestUsage(ip: string): Promise<number> {
   }
 
   const today = new Date().toISOString().slice(0, 10);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const db = supabaseAdmin as any;
-
   const { data } = await db
     .from("guest_usage")
     .select("count")
@@ -37,22 +35,28 @@ export async function getGuestUsage(ip: string): Promise<number> {
 }
 
 export async function incrementGuestUsage(ip: string): Promise<number> {
-  const current = await getGuestUsage(ip);
-  const next = current + 1;
-
   if (!SUPABASE_ENABLED || !supabaseAdmin) {
-    memoryStore.set(getTodayKey(ip), next);
+    const key = getTodayKey(ip);
+    const next = (memoryStore.get(key) ?? 0) + 1;
+    memoryStore.set(key, next);
     return next;
   }
 
   const today = new Date().toISOString().slice(0, 10);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const db = supabaseAdmin as any;
+  // Atomic upsert: increment count in a single DB round-trip to avoid race conditions
+  const { data } = await db.rpc("increment_guest_usage", { p_ip: ip, p_date: today });
 
-  await db.from("guest_usage").upsert(
-    { ip, date: today, count: next },
-    { onConflict: "ip,date" }
-  );
+  // Fallback to read-then-write if RPC not available
+  if (data === null || data === undefined) {
+    const current = await getGuestUsage(ip);
+    const next = current + 1;
+    await db.from("guest_usage").upsert(
+      { ip, date: today, count: next },
+      { onConflict: "ip,date" }
+    );
+    return next;
+  }
 
-  return next;
+  return data as number;
 }

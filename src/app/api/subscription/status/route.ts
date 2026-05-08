@@ -1,12 +1,11 @@
-import { auth } from "@clerk/nextjs/server";
+﻿import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin, SUPABASE_ENABLED } from "@/lib/supabase";
 import { getPlan, type PlanType } from "@/lib/stripe";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 const db = supabaseAdmin as any;
 
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   const { userId } = await auth();
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

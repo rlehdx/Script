@@ -316,6 +316,7 @@ function DashboardContent() {
                     onChange={(e) => {
                       if (usage.planType === "starter" && e.target.value !== "English") {
                         setShowUpgradeModal(true);
+                        e.target.value = "English"; // reset select visually
                         return;
                       }
                       setLanguage(e.target.value);

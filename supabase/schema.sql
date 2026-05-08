@@ -113,7 +113,34 @@ DROP POLICY IF EXISTS "Users can delete own scripts" ON public.scripts;
 -- ------------------------------------------------------------
 
 -- ============================================================
--- 5. MIGRATION HELPER (run in Supabase SQL editor to upgrade existing schema)
+-- 5. FUNCTIONS
+-- ============================================================
+
+-- Atomic guest usage increment — avoids read-then-write race condition
+CREATE OR REPLACE FUNCTION increment_guest_usage(p_ip TEXT, p_date DATE)
+RETURNS INTEGER AS $$
+DECLARE
+  v_count INTEGER;
+BEGIN
+  INSERT INTO public.guest_usage (ip, date, count)
+  VALUES (p_ip, p_date, 1)
+  ON CONFLICT (ip, date)
+  DO UPDATE SET count = guest_usage.count + 1
+  RETURNING count INTO v_count;
+  RETURN v_count;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Cleanup old guest_usage rows (run daily via pg_cron or Supabase cron)
+CREATE OR REPLACE FUNCTION cleanup_guest_usage()
+RETURNS void AS $$
+BEGIN
+  DELETE FROM public.guest_usage WHERE date < CURRENT_DATE - INTERVAL '7 days';
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- ============================================================
+-- 6. MIGRATION HELPER (run in Supabase SQL editor to upgrade existing schema)
 -- ============================================================
 -- ALTER TABLE public.users   ADD COLUMN IF NOT EXISTS brand_voice TEXT;
 -- ALTER TABLE public.users   DROP CONSTRAINT IF EXISTS users_plan_type_check;

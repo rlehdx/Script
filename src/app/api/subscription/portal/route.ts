@@ -1,12 +1,11 @@
-import { auth } from "@clerk/nextjs/server";
+﻿import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { stripe, STRIPE_ENABLED } from "@/lib/stripe";
 import { supabaseAdmin } from "@/lib/supabase";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 const db = supabaseAdmin as any;
 
-export async function POST(req: NextRequest) {
+export async function POST(_req: NextRequest) {
   if (!STRIPE_ENABLED) {
     return NextResponse.json(
       { error: "Stripe is not configured. Set STRIPE_SECRET_KEY to enable payments." },
@@ -29,7 +28,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "No billing account found" }, { status: 400 });
   }
 
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? process.env.URL ?? "http://localhost:3000";
 
   const session = await stripe.billingPortal.sessions.create({
     customer: user.stripe_customer_id,

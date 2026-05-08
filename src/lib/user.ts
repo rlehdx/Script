@@ -1,7 +1,6 @@
-import { supabaseAdmin } from "./supabase";
-import { getPlan, type PlanType } from "./stripe";
+﻿import { supabaseAdmin } from "./supabase";
+import { getPlan, PLANS, type PlanType } from "./stripe";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 const db = supabaseAdmin as any;
 
 export async function getOrCreateUser(clerkUserId: string, email: string) {
@@ -53,9 +52,9 @@ export async function checkAndIncrementUsage(clerkUserId: string): Promise<{
       allowed: false,
       reason: "User not found",
       scriptsUsed: 0,
-      limit: 5,
+      limit: PLANS.starter.scriptsPerMonth,
       planType: "starter",
-      model: "gpt-4o-mini",
+      model: PLANS.starter.model,
       brandVoice: null,
     };
   }
@@ -74,11 +73,14 @@ export async function checkAndIncrementUsage(clerkUserId: string): Promise<{
   let scriptsUsed = user.scripts_used_this_month;
 
   if (monthsElapsed >= 1) {
+    // Advance billing_cycle_start by however many full months have elapsed
+    const newCycleStart = new Date(cycleStart);
+    newCycleStart.setMonth(newCycleStart.getMonth() + monthsElapsed);
     await db
       .from("users")
       .update({
         scripts_used_this_month: 0,
-        billing_cycle_start: new Date(now.getFullYear(), now.getMonth(), 1).toISOString(),
+        billing_cycle_start: newCycleStart.toISOString(),
       })
       .eq("clerk_user_id", clerkUserId);
     scriptsUsed = 0;

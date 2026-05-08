@@ -1,10 +1,9 @@
-import { auth, currentUser } from "@clerk/nextjs/server";
+﻿import { auth, currentUser } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { stripe, STRIPE_ENABLED, PLANS, type PlanType } from "@/lib/stripe";
 import { supabaseAdmin } from "@/lib/supabase";
 import { getOrCreateUser } from "@/lib/user";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 const db = supabaseAdmin as any;
 
 export async function POST(req: NextRequest) {
@@ -68,7 +67,8 @@ export async function POST(req: NextRequest) {
       .eq("clerk_user_id", userId);
   }
 
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+  // NEXT_PUBLIC_APP_URL must be set in Netlify environment variables
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? process.env.URL ?? "http://localhost:3000";
 
   try {
     const session = await stripe.checkout.sessions.create({
