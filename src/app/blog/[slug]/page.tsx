@@ -446,6 +446,8 @@ Scriva generates Facebook and Instagram ad scripts — including hook, problem, 
 
 type Props = { params: Promise<{ slug: string }> };
 
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://scriva.online";
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = POSTS[slug];
@@ -453,6 +455,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.desc,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.desc,
+      url: `${APP_URL}/blog/${slug}`,
+      type: "article",
+      publishedTime: post.date,
+      images: [
+        {
+          url: `${APP_URL}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
   };
 }
 
@@ -556,6 +574,27 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            description: post.desc,
+            datePublished: post.date,
+            url: `${APP_URL}/blog/${slug}`,
+            author: { "@type": "Organization", name: "Scriva", url: APP_URL },
+            publisher: {
+              "@type": "Organization",
+              name: "Scriva",
+              url: APP_URL,
+              logo: { "@type": "ImageObject", url: `${APP_URL}/logo.png` },
+            },
+            image: `${APP_URL}/og-image.png`,
+          }),
+        }}
+      />
       <Navbar />
       <main className="min-h-screen bg-bg-primary pt-24 pb-20">
         <div className="max-w-2xl mx-auto px-5">
@@ -584,6 +623,27 @@ export default async function BlogPostPage({ params }: Props) {
 
           {/* Content */}
           <article>{renderContent(post.content)}</article>
+
+          {/* Related guides */}
+          <div className="mt-12 mb-8">
+            <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">
+              Related Guides
+            </h2>
+            <div className="flex flex-col gap-2">
+              {Object.entries(POSTS)
+                .filter(([s]) => s !== slug)
+                .slice(0, 3)
+                .map(([s, p]) => (
+                  <Link
+                    key={s}
+                    href={`/blog/${s}`}
+                    className="text-sm text-purple-400 hover:text-purple-300 transition-colors"
+                  >
+                    → {p.title}
+                  </Link>
+                ))}
+            </div>
+          </div>
 
           {/* CTA */}
           <div className="mt-12 bezel-card p-8 text-center">
