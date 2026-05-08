@@ -1,4 +1,4 @@
-﻿import { auth, currentUser } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { openai, OPENAI_ENABLED } from "@/lib/openai";
 import { supabaseAdmin } from "@/lib/supabase";
@@ -23,7 +23,7 @@ const ALLOWED_DURATIONS: Record<PlanType, Duration[]> = {
 const PLAN_MODEL: Record<PlanType, string> = {
   starter: "gpt-4.1-mini",
   creator: "gpt-4.1",
-  agency:  "o3",
+  agency:  "o4-mini",
 };
 
 // ─── Duration config ────────────────────────────────────────────────────────
@@ -67,8 +67,63 @@ const DURATION_CONFIG: Record<Duration, DurationConfig> = {
   },
 };
 
+// ─── Script type → temperature mapping ─────────────────────────────────────
+const SCRIPT_TYPE_TEMPERATURE: Record<string, number> = {
+  "Educational":    0.55,
+  "Tutorial":       0.55,
+  "How-To":         0.55,
+  "Review":         0.60,
+  "Explainer":      0.60,
+  "Documentary":    0.65,
+  "Vlog":           0.75,
+  "Entertainment":  0.85,
+  "Viral":          0.90,
+  "Comedy":         0.90,
+};
+
+function getTemperature(scriptType: string): number {
+  return SCRIPT_TYPE_TEMPERATURE[scriptType] ?? 0.75;
+}
+
+// ─── JSON schema for structured output ──────────────────────────────────────
+function buildResponseFormat(sceneCount: number) {
+  return {
+    type: "json_schema" as const,
+    json_schema: {
+      name: "video_script",
+      strict: true,
+      schema: {
+        type: "object",
+        properties: {
+          title: { type: "string" },
+          script: { type: "string" },
+          scenes: {
+            type: "array",
+            items: {
+              type: "object",
+              properties: {
+                id:            { type: "number" },
+                label:         { type: "string" },
+                narration:     { type: "string" },
+                visual:        { type: "string" },
+                duration_hint: { type: "string" },
+              },
+              required: ["id", "label", "narration", "visual", "duration_hint"],
+              additionalProperties: false,
+            },
+            minItems: sceneCount,
+            maxItems: sceneCount,
+          },
+        },
+        required: ["title", "script", "scenes"],
+        additionalProperties: false,
+      },
+    },
+  };
+}
+
 // ─── Prompt builder ─────────────────────────────────────────────────────────
-function buildPrompt(
+function buildMessages(
   topic: string,
   scriptType: string,
   tone: string,
@@ -76,8 +131,9 @@ function buildPrompt(
   duration: Duration,
   planType: PlanType,
   brandVoice?: string | null
-): string {
+): { role: "system" | "user"; content: string }[] {
   const config = DURATION_CONFIG[duration];
+
   const brandVoiceSection = brandVoice
     ? `\nBRAND VOICE: ${brandVoice}`
     : "";
@@ -87,9 +143,9 @@ function buildPrompt(
       ? "\nELITE QUALITY: Apply advanced retention psychology, pattern interrupts, and conversion-optimized copywriting techniques."
       : "";
 
-  return `You are an elite YouTube scriptwriter and conversion copywriter specializing in viral, high-retention video scripts.
+  const systemPrompt = `You are an elite YouTube scriptwriter and conversion copywriter specializing in viral, high-retention video scripts. You always respond with valid JSON matching the required schema exactly — no markdown, no code blocks, no extra keys.`;
 
-TOPIC: ${topic}
+  const userPrompt = `TOPIC: ${topic}
 SCRIPT TYPE: ${scriptType}
 TONE: ${tone}
 OUTPUT LANGUAGE: ${language}
@@ -102,23 +158,14 @@ REQUIREMENTS:
 - Stay strictly within the word count: ${config.wordCount}
 - Every sentence must earn its place — no filler words
 - Open with a hook that stops the scroll in the first 3 seconds
+- Scene labels: HOOK, INTRO, POINT 1, POINT 2, RE-HOOK, CTA (adapt as needed)
 
-OUTPUT FORMAT (strict JSON, no markdown, no code blocks):
-{
-  "title": "Compelling video title (under 60 characters)",
-  "script": "Full narration text as a single continuous string",
-  "scenes": [
-    {
-      "id": 1,
-      "label": "Scene label (e.g. HOOK, INTRO, POINT 1, RE-HOOK, CTA)",
-      "narration": "Exact spoken words for this scene",
-      "visual": "Camera direction or B-roll description",
-      "duration_hint": "Approximate seconds for this scene"
-    }
-  ]
-}
+Write the complete script now.`;
 
-Write the complete script now:`;
+  return [
+    { role: "system", content: systemPrompt },
+    { role: "user",   content: userPrompt },
+  ];
 }
 
 // ─── IP extraction helper ───────────────────────────────────────────────────
@@ -250,9 +297,10 @@ export async function POST(req: NextRequest) {
 
   const model = isGuest ? "gpt-4.1-mini" : PLAN_MODEL[planType];
   const config = DURATION_CONFIG[duration];
-  const isReasoningModel = model === "o3" || model.startsWith("o1");
+  // o4-mini supports reasoning but also accepts temperature via structured outputs
+  const isReasoningModel = model === "o4-mini" || model.startsWith("o1") || model === "o3";
 
-  const prompt = buildPrompt(
+  const messages = buildMessages(
     topic,
     scriptType,
     tone,
@@ -262,13 +310,16 @@ export async function POST(req: NextRequest) {
     isGuest ? null : usage?.brandVoice
   );
 
+  const responseFormat = buildResponseFormat(config.sceneCount);
+
   try {
     const completion = await openai.chat.completions.create({
       model,
-      messages: [{ role: "user", content: prompt }],
+      messages,
+      response_format: responseFormat,
       ...(isReasoningModel
         ? { max_completion_tokens: config.maxTokens + 1000 }
-        : { temperature: 0.75, max_tokens: config.maxTokens }
+        : { temperature: getTemperature(scriptType), max_tokens: config.maxTokens }
       ),
     });
 
@@ -277,7 +328,7 @@ export async function POST(req: NextRequest) {
 
     const tokensUsed = completion.usage?.total_tokens ?? 0;
 
-    // Parse JSON response
+    // With structured outputs the response is guaranteed valid JSON
     let parsed: { title: string; script: string; scenes: any[] };
     try {
       parsed = JSON.parse(raw);
