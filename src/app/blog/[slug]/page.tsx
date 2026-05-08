@@ -442,6 +442,1294 @@ This format builds trust before asking for the click.
 Scriva generates Facebook and Instagram ad scripts — including hook, problem, solution, and CTA — tailored to your product and audience.
     `,
   },
+
+  "youtube-script-length": {
+    title: "How Long Should a YouTube Script Be? (By Video Type)",
+    desc: "The exact word counts and time targets for different YouTube formats — explainers, vlogs, tutorials, and shorts.",
+    tag: "YouTube",
+    date: "Apr 10, 2025",
+    readTime: "5 min read",
+    content: `
+## Why Script Length Matters More Than Video Length
+
+Most creators think in minutes. Think in words instead. A tight 1,200-word script delivers a better 8-minute video than a rambling 2,000-word one.
+
+---
+
+## Word Count by Video Type
+
+### YouTube Shorts (Under 60 seconds)
+- **Target:** 120–180 words
+- **Structure:** Hook (10s) → Point (30s) → CTA (10s)
+- Trim every word that doesn't earn its place
+
+### Tutorial / How-To (8–12 minutes)
+- **Target:** 1,200–1,800 words
+- **Structure:** Hook → Problem → Steps (3–5) → Recap → CTA
+- Use numbered transitions: "Step 1... Step 2..."
+
+### Talking Head / Opinion (5–8 minutes)
+- **Target:** 800–1,200 words
+- **Structure:** Hook → Claim → Evidence (2–3 points) → Takeaway → CTA
+- Conversational tone beats dense paragraphs
+
+### Explainer / Educational (10–15 minutes)
+- **Target:** 1,800–2,400 words
+- **Structure:** Hook → Why it matters → Deep dive → Summary → CTA
+- Use chapter markers in the script to match timestamps
+
+### Vlog / Lifestyle (6–10 minutes)
+- **Target:** 600–1,000 words (partial script)
+- Use bullet-point outlines, not word-for-word scripts
+- Leave room for spontaneous moments
+
+---
+
+## The Words-Per-Minute Formula
+
+Average speaking pace: **130–150 words per minute** (conversational, not rushed).
+
+| Duration | Target word count |
+|----------|-------------------|
+| 1 min    | 130–150 words     |
+| 5 min    | 650–750 words     |
+| 8 min    | 1,040–1,200 words |
+| 12 min   | 1,560–1,800 words |
+| 15 min   | 1,950–2,250 words |
+
+---
+
+## The Most Common Length Mistake
+
+**Over-scripting.** A word-for-word script for a 15-minute video is ~2,000 words. Reading that verbatim sounds robotic and kills retention. Use full scripts for hooks and CTAs; use bullet outlines for body content.
+
+---
+
+## Generate the Right Length Script
+
+Scriva lets you set target duration before generating — it automatically calibrates word count and pacing for your format.
+    `,
+  },
+
+  "youtube-shorts-script": {
+    title: "YouTube Shorts Script Template: Hook in 2 Seconds or Lose Them",
+    desc: "The exact 3-part Shorts formula top creators use to hit 500k+ views. Includes 10 fill-in-the-blank templates.",
+    tag: "YouTube",
+    date: "Apr 15, 2025",
+    readTime: "5 min read",
+    content: `
+## Why Shorts Are Different
+
+Long-form YouTube rewards patience. Shorts punish it. You have 2 seconds before the swipe. Everything about Shorts scripting is built around that constraint.
+
+---
+
+## The 3-Part Shorts Formula
+
+### Part 1: The Hook (0–3 seconds)
+Lead with the payoff, the conflict, or the most shocking moment.
+
+> "I gained 10,000 subscribers in 7 days — here's the exact method."
+
+> "Most people get this completely wrong."
+
+> "POV: you just discovered the productivity trick nobody talks about."
+
+### Part 2: The Rapid Payoff (3–45 seconds)
+Deliver the value immediately. No backstory, no throat-clearing. Use:
+- **Lists** ("3 things that changed everything...")
+- **Before/after** ("I used to do X. Now I do Y. Here's why.")
+- **Mini-story** (hook → struggle → resolution in 30 seconds)
+
+### Part 3: The Loop or CTA (45–60 seconds)
+Either loop back to the hook (encourages replay = algorithm boost) or give a single clear CTA.
+
+> "Follow for one tip like this every day."
+
+---
+
+## 10 Fill-in-the-Blank Shorts Templates
+
+1. "Nobody talks about [topic] but it changed my [result]."
+2. "[Number] signs you're [negative state] — and how to fix it."
+3. "POV: You finally [positive outcome]."
+4. "Stop doing [common thing]. Do [alternative] instead."
+5. "The [adjective] truth about [topic]."
+6. "I tried [thing] for [duration]. Here's what happened."
+7. "[Question]? Here's the answer nobody gives you."
+8. "Things I wish I knew before [experience]."
+9. "[Number] [items] that take under 2 minutes."
+10. "Watch this if you [audience pain point]."
+
+---
+
+## What Makes Shorts Go Viral
+
+- **Completion rate** is the #1 signal. Every word must earn its place.
+- **Loops** — end where you began. Algorithm rewards replays.
+- **Captions** — 85% of Shorts are watched without sound.
+- **No intros** — your name, your channel, your story — cut it all.
+
+---
+
+## Generate Your Shorts Script
+
+Scriva has a dedicated Shorts mode — 60-second max output, hook-first structure, loop ending built in.
+    `,
+  },
+
+  "youtube-channel-growth-scripts": {
+    title: "How Top YouTubers Use Scripts to Grow Faster (With Examples)",
+    desc: "Why scripted videos outperform unscripted across every metric — and the exact frameworks used by channels with 100k+ subscribers.",
+    tag: "YouTube",
+    date: "Apr 20, 2025",
+    readTime: "7 min read",
+    content: `
+## The Scripted vs. Unscripted Debate Is Over
+
+The data is clear: scripted videos have higher average view duration, better click-through rates (because creators plan stronger titles), and more consistent publishing schedules.
+
+That doesn't mean reading word-for-word. It means planning your words before you record.
+
+---
+
+## How Fast-Growing Channels Use Scripts
+
+### Pattern 1: Full Script for Hook + Outline for Body
+Most 100k+ channels write every word of their first 30 seconds, then use bullet outlines for the rest. Result: strong algorithm signal (watch time past 30s) with natural delivery.
+
+### Pattern 2: The "5 Bullet" Outline Method
+- Write 5 bullets — one per key point
+- Under each bullet: one stat, one story, one action
+- Total planning time: 15 minutes. Total script: ~900 words.
+
+### Pattern 3: Daily Script Templates
+Channels that post 5x/week use templates:
+- Fixed opening format ("Welcome back — today we're...")
+- Fixed CTA ("If this helped, the next video you should watch is...")
+- Variable middle section only
+
+---
+
+## The Retention Curve and Your Script
+
+YouTube Analytics shows exactly where viewers drop off. Use it to diagnose your script:
+
+| Drop-off point | Script fix |
+|----------------|------------|
+| First 30 seconds | Weak hook — rewrite the opening |
+| 2–3 minute mark | Missing re-hook — add "stick around because..." |
+| End | Weak CTA — add clear next-step instruction |
+
+---
+
+## Example: Before vs. After Script Opening
+
+**Before (unscripted):**
+> "Hey guys, what's up, welcome back to my channel, so today I wanted to talk about something I've been thinking about a lot lately which is productivity and I know there's a lot of videos on this but..."
+
+**After (scripted):**
+> "You're losing 2 hours every day to a habit you don't even notice. I'll show you exactly what it is and how to eliminate it in 60 seconds."
+
+Same topic. Completely different retention outcome.
+
+---
+
+## Use Scriva to Build Your Script System
+
+Scriva generates scripts in your brand voice — so your 5th video sounds as sharp as your first.
+    `,
+  },
+
+  "how-to-hook-viewers-youtube": {
+    title: "YouTube Hook Examples: 40 Openings That Keep Viewers Watching",
+    desc: "Copy-paste hooks for every niche and video type. Organized by psychological trigger — curiosity, fear, desire, and social proof.",
+    tag: "YouTube",
+    date: "Apr 25, 2025",
+    readTime: "8 min read",
+    content: `
+## The Psychology of a YouTube Hook
+
+Every hook exploits one of four psychological triggers:
+1. **Curiosity gap** — "I'll tell you what, but not yet"
+2. **Fear of loss** — "You're making a costly mistake"
+3. **Desire** — "Here's how to get what you want"
+4. **Social proof** — "Here's what successful people do"
+
+Pick your trigger before you write your first line.
+
+---
+
+## 10 Curiosity Gap Hooks
+
+1. "Most people do this backwards — and it costs them everything."
+2. "The thing nobody tells you about [topic]."
+3. "I was wrong about [topic] for 3 years. Here's what I learned."
+4. "There's a reason the most successful [people] all do this one thing."
+5. "What I discovered after [action] surprised me."
+6. "This simple change doubled my [result]. Here's what it was."
+7. "The counterintuitive reason [common belief] is keeping you stuck."
+8. "You've been told to [advice]. Here's why that's wrong."
+9. "After studying 100 [examples], I found one pattern."
+10. "The secret to [outcome] isn't what you think."
+
+---
+
+## 10 Fear-of-Loss Hooks
+
+11. "You're losing [resource] every day you ignore this."
+12. "If you're doing [thing], stop immediately."
+13. "The biggest mistake [audience] makes — and how to avoid it."
+14. "Warning: this common [habit] is silently [negative outcome]."
+15. "Why [popular approach] is making your [problem] worse."
+16. "The [resource] you're wasting that you can never get back."
+17. "You're one [decision] away from [bad outcome]."
+18. "What nobody warns you about [topic]."
+19. "This is why [goal] feels impossible — and it's fixable."
+20. "I almost gave up on [thing]. Here's what stopped me."
+
+---
+
+## 10 Desire Hooks
+
+21. "How to [desired outcome] in [short timeframe]."
+22. "I went from [bad state] to [good state] — here's exactly how."
+23. "The [adjective] way to [achieve goal] without [common obstacle]."
+24. "What [successful person] does differently to get [result]."
+25. "How to [outcome] even if [common objection]."
+26. "The [number]-step system I used to [achieve result]."
+27. "Why [audience type] are getting [result] faster than ever."
+28. "[Result] in [timeframe] — here's the exact blueprint."
+29. "How to [outcome] starting today, with zero [resource]."
+30. "The [tool/method] that [result] in [timeframe]."
+
+---
+
+## 10 Social Proof Hooks
+
+31. "I interviewed 50 [successful people]. Here's what they all said."
+32. "[Number] creators used this to hit [milestone]."
+33. "What [famous person] does every morning — and why it works."
+34. "[Number] million people have tried this. Here's what actually works."
+35. "After working with [number] clients, I noticed one pattern."
+36. "The strategy [successful brand] used to grow to [number]."
+37. "[Expert title] shared this with me and I had to pass it on."
+38. "This worked for [audience type] in [location] — here's why."
+39. "[Testimonial paraphrase] — here's the exact method."
+40. "The approach [number] top performers swear by."
+
+---
+
+## How to Pick Your Hook
+
+Match trigger to your content:
+- **Tutorial** → Desire or Social proof
+- **Opinion piece** → Curiosity gap
+- **Warning/advice** → Fear of loss
+- **Story** → Curiosity gap + Desire
+
+---
+
+## Generate Custom Hooks for Your Niche
+
+Scriva generates hook variations tuned to your specific topic, audience, and tone — not generic templates.
+    `,
+  },
+
+  "tiktok-script-template": {
+    title: "TikTok Script Template: The Exact Formula for Any Niche",
+    desc: "A reusable TikTok script structure that works across finance, fitness, beauty, business, and education content.",
+    tag: "TikTok",
+    date: "May 1, 2025",
+    readTime: "6 min read",
+    content: `
+## Why TikTok Needs a Different Script Format
+
+YouTube rewards depth. TikTok rewards speed. Your TikTok script needs to deliver the core value within the first 8 seconds — or the algorithm buries you.
+
+---
+
+## The Universal TikTok Script Template
+
+### Line 1: The Hook (0–2 seconds)
+One sentence. Bold claim, relatable situation, or unexpected statement.
+
+> Template: "[Audience] who [do X thing] — this changes everything."
+> Template: "Stop [common behavior] if you want to [desired outcome]."
+> Template: "I [unexpected result] by doing one thing differently."
+
+### Lines 2–4: The Setup (2–8 seconds)
+Expand on the hook. Give just enough context to make them want to stay.
+
+> Template: "Most [audience] [common mistake]. Here's what the top [percentage] do instead."
+
+### Lines 5–12: The Payoff (8–45 seconds)
+The actual value. Use one of these formats:
+- **List:** "3 things you need to know about [topic]..."
+- **Story:** "Last week I [situation]. Here's what I learned."
+- **Tutorial:** "Step 1: [action]. Step 2: [action]. Step 3: [action]."
+- **Comparison:** "Old way: [X]. New way: [Y]. Result: [Z]."
+
+### Final Line: The CTA or Loop (45–60 seconds)
+One action, no more.
+
+> "Follow for more [topic] tips."
+> "Comment [word] and I'll send you the full guide."
+> "Save this for later." (strongest for algorithm)
+
+---
+
+## Template by Niche
+
+**Finance:** "Most people think [common belief] is the path to [goal]. It's actually the slowest way. Here's what wealthy people do instead: [3 points]. Follow for one money habit every day."
+
+**Fitness:** "If you're doing [exercise] for [goal], you're doing it wrong. The muscle you actually need to target is [muscle]. Try this instead: [movement]. Save this so you remember."
+
+**Business:** "Before I hit $10k/month, I was making all 3 of these mistakes: [list]. Here's what changed everything: [insight]. Comment 'guide' if you want my full breakdown."
+
+**Education:** "Nobody explains [topic] correctly. Here's the simplest version: [explanation in 3 sentences]. Now you'll never forget it. Follow for one lesson like this every day."
+
+---
+
+## Generate TikTok Scripts Instantly
+
+Scriva generates TikTok scripts in any of these formats — just paste your topic and pick your niche.
+    `,
+  },
+
+  "tiktok-viral-formula": {
+    title: "The TikTok Viral Formula: What Makes Videos Blow Up (And How to Replicate It)",
+    desc: "Data-backed breakdown of what the TikTok algorithm rewards — and how to engineer your scripts to hit every signal.",
+    tag: "TikTok",
+    date: "May 5, 2025",
+    readTime: "7 min read",
+    content: `
+## What the TikTok Algorithm Actually Measures
+
+TikTok's algorithm is simpler than most creators think. It rewards videos that keep people watching. Every other metric — shares, comments, likes — is secondary.
+
+The four signals that matter most:
+
+1. **Completion rate** — Did they watch the full video?
+2. **Rewatch rate** — Did they loop it?
+3. **Shares** — Did they send it to someone?
+4. **Saves** — Did they bookmark it for later?
+
+Your script determines all four.
+
+---
+
+## How to Engineer Each Signal
+
+### Completion Rate
+- Deliver value in the first 8 seconds (don't make them wait)
+- End with a cliffhanger or a payoff that justifies watching
+- Cut every word that doesn't push the story forward
+
+### Rewatch Rate
+- Create a loop: end where you began
+- Use a detail early in the video that only makes sense at the end
+- Example: Open with "The answer is 7." Close with "So now you know why the answer is 7."
+
+### Shares
+- Make the viewer look smart for sharing it
+- "Send this to anyone who [relates to the problem]"
+- Create content people want to use as a response or reference
+
+### Saves
+- "Save this for later" as your CTA (this is the strongest CTA on TikTok)
+- List-format content gets saved more than opinion content
+- Tutorials, templates, and checklists are the most saved formats
+
+---
+
+## The Viral Script Structure (Based on Top 1% Videos)
+
+**0–2s:** Bold hook that creates a curiosity gap
+**2–8s:** Brief context that makes the hook believable
+**8–40s:** The value delivery (3 points, a story, or a tutorial)
+**40–55s:** The unexpected twist or payoff
+**55–60s:** CTA that drives saves or follows
+
+---
+
+## Niches With Highest Viral Potential on TikTok
+
+| Niche | Best format | Avg completion rate |
+|-------|-------------|---------------------|
+| Finance | List + story | 68% |
+| Fitness | Tutorial | 72% |
+| Business/side hustle | Story + result | 65% |
+| Relationship/psychology | Opinion | 71% |
+| Food | Tutorial | 78% |
+
+---
+
+## Generate Viral-Optimized TikTok Scripts
+
+Scriva builds completion rate into every script — hook, pacing, and loop ending are all engineered for the algorithm.
+    `,
+  },
+
+  "tiktok-for-business-script": {
+    title: "TikTok for Business: Script Templates That Drive Sales Without Being Salesy",
+    desc: "How to write TikTok scripts that convert viewers into customers — without the cringey hard sell.",
+    tag: "TikTok",
+    date: "May 8, 2025",
+    readTime: "6 min read",
+    content: `
+## Why Most Business TikToks Fail
+
+They sell too early. A cold audience on TikTok hasn't decided to trust you yet. Lead with value, not your product.
+
+The rule: **Give first. Sell second.**
+
+---
+
+## The 4-Stage Business TikTok Funnel
+
+### Stage 1: Awareness (Give, don't sell)
+**Script format:** Educational tip, insight, or story
+**Goal:** Views + follows
+**CTA:** "Follow for more [topic] tips"
+
+Example: A skincare brand posts "3 ingredients that are silently aging your skin" — no product mention.
+
+### Stage 2: Interest (Show, don't tell)
+**Script format:** Behind-the-scenes, process, transformation
+**Goal:** Saves + profile visits
+**CTA:** "Save this" or "Check the link in bio"
+
+Example: Same brand shows the formulation process — still no hard sell.
+
+### Stage 3: Desire (Soft pitch)
+**Script format:** Problem → solution → product as vehicle
+**Goal:** Click-throughs
+**CTA:** "Link in bio for [specific benefit]"
+
+Example: "I was getting [problem] until I switched to [type of product]. Three months later: [result]. Link in bio."
+
+### Stage 4: Action (Direct offer)
+**Script format:** Testimonial + offer + urgency
+**Goal:** Conversions
+**CTA:** Clear, specific action
+
+Example: "Last week 400 people used this to [result]. We're running [offer] through Sunday — link in bio."
+
+---
+
+## 3 Business TikTok Script Templates
+
+**Template 1 (Educational):**
+"[Audience], stop [mistake]. Here's what [experts/successful people] do instead: [3 tips]. Follow for one [industry] insight every day."
+
+**Template 2 (Transformation story):**
+"Before [product/method]: [negative state]. After 30 days: [positive result]. Here's exactly what changed: [explanation]. [Soft CTA]."
+
+**Template 3 (Social proof):**
+"[Number] of our customers told us the same thing: [common pain point]. That's why we [solution]. Here's how it works: [explanation]. [CTA]."
+
+---
+
+## Generate Business TikTok Scripts
+
+Scriva generates business-focused TikTok scripts that balance value and conversion — for any product category.
+    `,
+  },
+
+  "vsl-script-examples": {
+    title: "VSL Script Examples: 3 Real Scripts That Convert at 4%+",
+    desc: "Annotated VSL scripts with conversion commentary — showing exactly why each section works.",
+    tag: "VSL",
+    date: "May 12, 2025",
+    readTime: "10 min read",
+    content: `
+## What Makes a VSL Convert
+
+The difference between a 0.5% and a 4% conversion rate isn't production value — it's script structure. Here are three annotated examples showing exactly what works and why.
+
+---
+
+## Example 1: Online Course VSL (Education Niche)
+
+**[ATTENTION GRABBER]**
+> "If you've been trying to grow your online business for more than 6 months without hitting $5,000 a month, this is the most important video you'll watch this year."
+
+*Why it works: Specific audience (6 months trying), specific threshold ($5k), extreme stakes ("most important video").*
+
+**[PROBLEM AGITATION]**
+> "You've tried courses. You've tried coaches. You've consumed hours of free content. And you're still in the same place. The brutal truth? It's not your effort. You're solving the wrong problem."
+
+*Why it works: Validates past attempts, removes blame, creates curiosity about the "real" problem.*
+
+**[SOLUTION INTRODUCTION]**
+> "That's why I created [Product Name] — a step-by-step system that focuses on the one lever that actually moves the needle for online businesses under $10k/month."
+
+*Why it works: "One lever" implies simplicity. "Under $10k/month" speaks directly to where the audience is.*
+
+**[PROOF STACK]**
+> "Over 2,400 students have gone through this. Here's what Sarah said after 90 days..."
+
+*Why it works: Specific number (2,400), specific timeframe (90 days), named person (Sarah).*
+
+---
+
+## Example 2: SaaS Tool VSL (B2B)
+
+**[OPENING]**
+> "What if you could cut your [process] time by 70% without hiring anyone new?"
+
+*Why it works: Specific number (70%), removes the most common objection (headcount).*
+
+**[PROOF OF CONCEPT]**
+> "Our customers are doing this right now. [Company] reduced their [task] from 8 hours a week to 2. [Company 2] eliminated [problem] entirely."
+
+*Why it works: Named companies, specific numbers, specific problems solved.*
+
+---
+
+## Example 3: Physical Product VSL (Health)
+
+**[HOOK]**
+> "In the next 7 minutes, I'm going to show you why everything you've been told about [problem] is wrong — and what 1,200 people are doing instead."
+
+*Why it works: Specific time (7 minutes = low commitment), challenges existing beliefs, social proof (1,200).*
+
+---
+
+## The VSL Section Checklist
+
+- [ ] Attention grabber targets a specific audience with a specific problem
+- [ ] Problem agitation names 3+ failed alternatives before yours
+- [ ] Root cause reveal explains WHY other solutions failed
+- [ ] Solution intro is one clear sentence
+- [ ] Proof stack has at least 3 data points (testimonials, numbers, names)
+- [ ] Price reveal comes after value stack
+- [ ] Guarantee removes all risk
+- [ ] CTA is one action with urgency
+
+---
+
+## Generate Your VSL Script
+
+Scriva generates complete VSL scripts with all 9 sections — tailored to your product, audience, and price point.
+    `,
+  },
+
+  "google-ads-script": {
+    title: "Google Ads Video Script: The Formula for In-Stream and Discovery Ads",
+    desc: "How to write scripts for YouTube pre-roll, in-stream, and Discovery ads — with skip-proof opening lines.",
+    tag: "Paid Ads",
+    date: "May 15, 2025",
+    readTime: "7 min read",
+    content: `
+## The 5-Second Rule for Google Video Ads
+
+In-stream ads can be skipped after 5 seconds. That means your entire campaign ROI depends on the first 5 seconds of your script.
+
+---
+
+## Script Structure by Ad Format
+
+### In-Stream (Skippable) — 15–60 seconds
+
+**Seconds 0–5 (Skip-proof zone):**
+- Ask a question they must answer "yes" to
+- Make a bold, counterintuitive claim
+- Show a transformation or result immediately
+
+> "Are you still paying [price] for [thing]? There's a better way."
+
+**Seconds 5–30 (Value delivery):**
+- Deliver on the promise of your hook
+- One clear point, not three
+
+**Seconds 30–60 (CTA):**
+- One action: click, sign up, learn more
+- Repeat the core benefit one more time
+
+### Non-Skippable Bumper Ads — 6 seconds
+Every word must work. Use this template:
+
+> "[Problem] → [Solution] → [CTA]"
+> "Tired of [pain]? [Brand] fixes it in [timeframe]. Try free."
+
+### Discovery Ads (YouTube homepage / search)
+Match your script to your headline — if the headline promises "double your revenue," the script must deliver that promise.
+
+---
+
+## 5 Skip-Proof Opening Lines
+
+1. "Before you skip this — [specific benefit for them]."
+2. "[Audience], this is for you specifically."
+3. "You're about to see something you can't unsee."
+4. "I'll give you [specific thing] in the next 30 seconds."
+5. "Quick question: are you still [doing painful thing]?"
+
+---
+
+## What Google's Algorithm Rewards
+
+- **View-through rate** — watch time past the skip point
+- **Click-through rate** — clicks on your CTA overlay
+- **Earned actions** — views, likes, follows after watching
+
+Scripts that generate earned actions get cheaper CPMs over time.
+
+---
+
+## Generate Google Ads Scripts
+
+Scriva generates video ad scripts optimized for in-stream, bumper, and Discovery formats — with skip-proof openings built in.
+    `,
+  },
+
+  "instagram-reel-script": {
+    title: "Instagram Reel Script Template: Hook, Deliver, Convert in 30 Seconds",
+    desc: "How to write Reels scripts that stop the scroll, get shared, and drive profile visits — with 10 fill-in-the-blank templates.",
+    tag: "Paid Ads",
+    date: "May 18, 2025",
+    readTime: "6 min read",
+    content: `
+## Reels vs. TikTok: What's Different
+
+Instagram users are more likely to visit your profile after a Reel (intent to follow/buy). TikTok users are more likely to share. Write Reels scripts to drive profile visits; write TikTok scripts to drive shares.
+
+---
+
+## The Reels Script Formula (30 seconds)
+
+**0–3s: Scroll-stopping hook**
+Visual + spoken hook must work together. The first frame determines if they stop.
+
+> Spoken: "This mistake is costing you followers every day."
+> Visual: Text overlay with the same message.
+
+**3–20s: Fast value delivery**
+Get to the point immediately. One idea, executed clearly.
+
+- List format: "3 reasons why..."
+- Tutorial: "Step 1... Step 2... Step 3..."
+- Contrast: "Most people do X. Here's what works instead: Y."
+
+**20–28s: CTA**
+One ask. The highest-converting Reels CTAs:
+1. "Follow for more [topic]" — drives followers
+2. "Save this for later" — drives algorithm reach
+3. "Tag someone who needs this" — drives shares
+4. "Link in bio" — drives traffic
+
+**28–30s: Replay bait (optional)**
+End with something that makes them want to rewatch.
+
+---
+
+## 10 Reels Script Templates
+
+1. "The [number] things nobody tells you about [topic]: [list]. Follow for more."
+2. "If you're [audience], you need to hear this: [insight]."
+3. "[Common belief] is wrong. Here's what actually works: [alternative]."
+4. "I spent [time] figuring this out so you don't have to: [insight]."
+5. "Before you [action], watch this: [tip]. Save it."
+6. "[Question]? The answer is [simple insight]. Follow for more."
+7. "This [thing] changed my [area] completely. Here's how: [explanation]."
+8. "[Stat/fact]. Most people don't know this. Now you do."
+9. "POV: You finally [positive outcome]. Here's how you got there."
+10. "[Number]-second [topic] tip: [tip]. That's it. Save this."
+
+---
+
+## Generate Reels Scripts
+
+Scriva generates Instagram Reel scripts in 30, 45, or 60-second formats — with hook, value, and CTA built in.
+    `,
+  },
+
+  "ugc-ad-script": {
+    title: "UGC Ad Script Template: How to Write Scripts That Feel Authentic (And Convert)",
+    desc: "The formula behind UGC ads that outperform polished brand videos — with 5 complete script examples.",
+    tag: "Paid Ads",
+    date: "May 20, 2025",
+    readTime: "7 min read",
+    content: `
+## Why UGC Ads Outperform Polished Ads
+
+User-generated content ads convert because they don't look like ads. The moment a viewer suspects they're watching an ad, trust drops and conversion rates follow.
+
+The goal of a UGC script: sound completely real while hitting every conversion beat.
+
+---
+
+## The UGC Ad Formula
+
+### Opening (0–5 seconds): The Relatable Moment
+Start mid-thought, mid-story, or mid-action. No branded intro.
+
+> "Okay so I've been using this for three weeks and I need to talk about it."
+> "I was skeptical. I'll be honest. I almost didn't try it."
+> "My friend wouldn't stop talking about [product] so I finally caved."
+
+### Middle (5–35 seconds): The Honest Journey
+Share the problem, the discovery, and the result. Use imperfect language.
+
+> "I've tried [alternatives] — nothing worked. Then I found [product]. The first thing I noticed was [specific benefit]. By week two, [another benefit]."
+
+### End (35–60 seconds): The Genuine Recommendation
+Sound like you're telling a friend, not closing a sale.
+
+> "I don't usually post stuff like this but [product] actually surprised me. If you're dealing with [problem], just try it. They have a [guarantee/free trial] so you've got nothing to lose."
+
+---
+
+## 5 Complete UGC Script Examples
+
+**Script 1 (Skincare):**
+"I've been breaking out since I was 14. Tried everything. Last month I started using [product] and I genuinely cannot believe the difference. My skin hasn't looked this good in years. I'll link it below — they have a 30-day trial so you can actually see if it works for you."
+
+**Script 2 (Productivity App):**
+"I used to spend Sunday evening dreading the week. Then someone in my team mentioned [app] and now I actually look forward to Monday. Sounds dramatic but I'm not joking. The [specific feature] alone saved me two hours this week."
+
+**Script 3 (Food/Supplement):**
+"My nutritionist recommended [product] three months ago and I kept putting it off. Finally tried it last month. I don't have the words for how different I feel. Energy is up, [symptom] is gone. I'm not a review person but this one deserved it."
+
+**Script 4 (Online Course):**
+"I bought [course] thinking it would be like every other course I've bought and never finished. I finished it in a week. Did [specific outcome] 10 days later. Leaving this here for whoever needs to hear it."
+
+**Script 5 (SaaS):**
+"If you're still doing [task] manually, please watch this. [Tool] does it in [timeframe]. I was genuinely embarrassed it took me so long to find this."
+
+---
+
+## Generate UGC Scripts
+
+Scriva generates UGC-style ad scripts in an authentic, conversational tone — optimized for any product category.
+    `,
+  },
+
+  "podcast-intro-script": {
+    title: "Podcast Intro Script: How to Hook Listeners in the First 60 Seconds",
+    desc: "The exact formula for podcast intros that hook listeners, set expectations, and reduce early drop-off.",
+    tag: "Podcast",
+    date: "May 22, 2025",
+    readTime: "5 min read",
+    content: `
+## Why Most Podcast Intros Fail
+
+The average listener decides to keep listening — or not — within the first 60 seconds. Most podcast intros waste this time on long music beds, extended host introductions, and vague episode previews.
+
+---
+
+## The Podcast Intro Formula (60 seconds)
+
+### 0–15 seconds: The Cold Open Hook
+Start in the middle of the story. No music, no intro, no "welcome back."
+
+> "The day I almost quit this podcast, I had 200 episodes published and fewer listeners than when I started. Today I'm going to tell you what changed — and why it applies to everything you're building."
+
+### 15–30 seconds: Episode Promise
+Tell them exactly what they'll get. Specific beats generic every time.
+
+> **Weak:** "Today we're talking about content strategy."
+> **Strong:** "Today you'll get the exact 3-part framework I used to grow from 2,000 to 50,000 listeners in 8 months — without any paid promotion."
+
+### 30–45 seconds: Credibility Anchor
+One sentence that earns the right to teach this topic.
+
+> "I've been studying podcast growth for 4 years and interviewed 80+ top podcasters about what actually works."
+
+### 45–60 seconds: Bridge to Content
+Transition into the episode without a hard cut.
+
+> "Let's get into it. The first thing most podcasters get wrong is..."
+
+---
+
+## Intro Templates by Show Type
+
+**Interview Show:**
+> "[Hook about guest's most remarkable insight]. I'm [Host], talking to [Guest] — [one-sentence credential]. By the end of this you'll know [specific takeaway]. Here's [Guest]."
+
+**Solo Show:**
+> "[Hook — bold claim or story]. I'm [Host]. In the next [time], I'm going to give you [specific deliverable]. Let's get into it."
+
+**News/Roundup Show:**
+> "Three things happened this week in [industry] that you need to know about. I'm [Host] and in the next [time] I'll break down [story 1], [story 2], and [story 3]."
+
+---
+
+## Generate Podcast Intros
+
+Scriva generates podcast intros for any show format — solo, interview, or panel — in under 10 seconds.
+    `,
+  },
+
+  "podcast-sponsorship-script": {
+    title: "Podcast Sponsorship Script: How to Read Ads That Don't Kill Listener Drop-Off",
+    desc: "The ad read format used by top podcasters that keeps listeners engaged — and sponsors coming back.",
+    tag: "Podcast",
+    date: "May 25, 2025",
+    readTime: "5 min read",
+    content: `
+## The Problem With Most Podcast Ad Reads
+
+Most hosts read sponsor copy verbatim. Listeners hear it instantly, skip past it, and the host loses trust. Sponsors see low conversion. Everyone loses.
+
+The solution: ad reads that sound like personal recommendations, not scripts.
+
+---
+
+## The 4-Part Podcast Ad Formula
+
+### Part 1: The Personal Bridge (5–10 seconds)
+Connect the sponsor to something personal or relevant to the episode.
+
+> "Speaking of [episode topic], today's sponsor actually helped me with [related problem]..."
+
+### Part 2: The Genuine Recommendation (15–20 seconds)
+Speak like you're talking to a friend. Use "I" statements.
+
+> "I've been using [product] for [time] and the thing that surprised me most was [specific benefit]. I [specific use case] and [specific result]."
+
+### Part 3: The Audience Fit (10 seconds)
+Tell them why it's relevant to them specifically.
+
+> "If you're [audience description] and you [problem], this is exactly for you."
+
+### Part 4: The Offer + CTA (5–10 seconds)
+Make it easy. Give a URL or code. Create light urgency.
+
+> "Try it free at [URL] — or use code [CODE] for [offer]. I'll put the link in the show notes."
+
+---
+
+## Host-Read vs. Produced Ad
+
+| Format | Best for | Conversion rate |
+|--------|----------|-----------------|
+| Host-read (personal) | Trust-based products | Higher (2–3%) |
+| Produced (polished) | Brand awareness | Lower (0.5–1%) |
+| Hybrid | Mid-funnel offers | Medium (1–2%) |
+
+---
+
+## The One Rule for Good Ad Reads
+
+Only accept sponsors whose products you'd genuinely recommend. Listeners hear inauthenticity immediately.
+
+---
+
+## Generate Podcast Ad Scripts
+
+Scriva generates podcast sponsorship scripts in your voice — personal, natural, and conversion-optimized.
+    `,
+  },
+
+  "chatgpt-script-prompts": {
+    title: "ChatGPT Prompts for YouTube Scripts: What Works (And What Doesn't)",
+    desc: "The exact prompts that generate usable YouTube scripts from ChatGPT — plus the common mistakes that produce generic garbage.",
+    tag: "AI Tools",
+    date: "May 28, 2025",
+    readTime: "7 min read",
+    content: `
+## Why Generic ChatGPT Scripts Fall Flat
+
+"Write me a YouTube script about productivity" produces content that could have been written about any channel, for any audience, in any tone. The problem isn't ChatGPT — it's the prompt.
+
+---
+
+## The 5-Part Prompt Framework
+
+Every good AI script prompt needs:
+
+**1. Audience Definition**
+Don't say "entrepreneurs." Say "burned-out 9-to-5 employees in their 30s with a side hustle making under $2,000/month."
+
+**2. Specific Topic (not general subject)**
+Don't say "productivity." Say "why their morning routine is killing their focus by noon."
+
+**3. Script Type and Length**
+"8-minute YouTube video script with hook, 3 main points, and a CTA."
+
+**4. Tone**
+"Conversational, slightly irreverent, like a smart friend giving real advice — not a corporate consultant."
+
+**5. Structural Requirements**
+"Start with a hook that creates a curiosity gap. Include a re-hook at the 2-minute mark. End with a subscribe CTA that ties back to the opening."
+
+---
+
+## Before vs. After Prompt Examples
+
+**Before:**
+> "Write a YouTube script about investing."
+
+**After:**
+> "Write an 8-minute YouTube script for 25–35 year olds who earn $60–80k/year but have never invested. Tone: encouraging but honest, like a slightly older friend who figured this out. Hook: a curiosity gap about why waiting costs more than the market doing badly. Structure: hook (0–30s), re-hook (30s), 3 main points with transitions, CTA to subscribe. No jargon."
+
+---
+
+## Prompts for Specific Script Types
+
+**YouTube Hook Only:**
+> "Write 5 hook variations for a YouTube video about [topic] targeting [audience]. Each hook should use a different psychological trigger: curiosity gap, fear of loss, desire, social proof, and controversy."
+
+**TikTok Script:**
+> "Write a 45-second TikTok script for [audience] about [topic]. Start with a scroll-stopping first line. Deliver 3 quick points. End with a 'save this' CTA. Conversational tone."
+
+**VSL Opening:**
+> "Write the first 90 seconds of a VSL for [product] targeting [audience]. Open with the most emotionally resonant version of their pain. Transition to why previous solutions have failed. Don't mention the product yet."
+
+---
+
+## When to Use Scriva Instead
+
+ChatGPT doesn't know your niche, your brand voice, or what's worked in your analytics. It also doesn't automatically apply proven script structures. Scriva is purpose-built for scripts — format awareness, structure, and brand voice are built into every output.
+    `,
+  },
+
+  "best-ai-script-tools": {
+    title: "Best AI Script Generator Tools in 2025 (Compared)",
+    desc: "An honest comparison of the top AI script tools for YouTube, TikTok, and ads — what each does well and where they fall short.",
+    tag: "AI Tools",
+    date: "May 30, 2025",
+    readTime: "8 min read",
+    content: `
+## What to Look for in an AI Script Generator
+
+Most AI writing tools are general-purpose — they can write scripts, but they weren't designed for them. The best script generators are:
+
+1. **Format-aware** — they know YouTube is different from TikTok is different from VSL
+2. **Structure-built** — they apply proven frameworks automatically
+3. **Tone-controllable** — you can set urgency, humor, authority, etc.
+4. **Fast** — sub-30 seconds for a usable draft
+
+---
+
+## The Tools (Honest Assessment)
+
+### ChatGPT / Claude (General AI)
+**Best for:** Custom prompts, iterating on drafts
+**Weakness:** No built-in script structure — you have to prompt every element
+**Verdict:** Powerful but requires prompt expertise
+
+### Jasper
+**Best for:** Long-form marketing copy
+**Weakness:** Not optimized for video formats — outputs read like blog posts
+**Verdict:** Strong for written content, not scripts
+
+### Copy.ai
+**Best for:** Short-form ad copy
+**Weakness:** Limited on longer formats (VSL, full YouTube scripts)
+**Verdict:** Good for social ad hooks, weak on full scripts
+
+### Scriva
+**Best for:** YouTube, TikTok, VSL, podcast, and ad scripts
+**Strength:** Built-in format structures, tone control, brand voice
+**Verdict:** Purpose-built for video scripts
+
+---
+
+## Feature Comparison
+
+| Feature | ChatGPT | Jasper | Copy.ai | Scriva |
+|---------|---------|--------|---------|--------|
+| YouTube script structure | Manual | Weak | No | Yes |
+| TikTok hook format | Manual | No | Partial | Yes |
+| VSL framework | Manual | No | No | Yes |
+| Tone control | Good | Good | Good | Yes |
+| Free tier | Yes | Trial | Yes | Yes (5/mo) |
+| Price | $20/mo | $49/mo | $36/mo | $19/mo |
+
+---
+
+## Which Tool Should You Use?
+
+- **If you already know how to prompt AI well:** ChatGPT + strong prompts
+- **If you want structure without the prompt work:** Scriva
+- **If you primarily write ad copy:** Copy.ai
+- **If you're creating long-form blog + scripts:** Jasper
+
+---
+
+## Try Scriva
+
+Scriva is free to start — 5 scripts per month, all formats included, no credit card required.
+    `,
+  },
+
+  "sales-video-script": {
+    title: "Sales Video Script Template: The 7-Step Formula That Converts Cold Traffic",
+    desc: "How to write a sales video that converts viewers who've never heard of you — with a complete fill-in-the-blank template.",
+    tag: "Conversion",
+    date: "Jun 2, 2025",
+    readTime: "9 min read",
+    content: `
+## Why Sales Videos Need a Different Script
+
+A sales video has one job: convert a skeptical viewer into a buyer. Every sentence serves that goal or gets cut.
+
+---
+
+## The 7-Step Sales Video Framework
+
+### Step 1: The Pattern Interrupt (0–15 seconds)
+> "I'm not going to tell you [product] is perfect. I'm going to tell you exactly who it's for — and who it's not."
+
+This disarms skepticism by demonstrating honesty.
+
+### Step 2: The Pain Statement (15–45 seconds)
+> "If you're [audience], you know the frustration of [specific pain]. You've tried [solution 1], [solution 2]. And you're still here."
+
+### Step 3: The Root Cause (45–90 seconds)
+> "Here's why none of that worked: [specific insight that reframes the problem]."
+
+Without this, your solution sounds like "just another tool."
+
+### Step 4: The New Mechanism (90s–2:30)
+> "What you actually need is [approach]. Here's how it works: [simple explanation]."
+
+### Step 5: The Proof Stack (2:30–4:00)
+Three types of proof in this order:
+1. Testimonials (real people with specific results)
+2. Case studies (one detailed story)
+3. Data (numbers, percentages, timeframes)
+
+### Step 6: The Offer (4:00–5:00)
+> "When you join [product], you get [feature 1] ($X value), [feature 2] ($X value), and [bonus] ($X value). Total value: $X. Your investment today: $[price]."
+
+### Step 7: The Close (5:00–end)
+> "If you don't [result] in [timeframe], I'll refund every cent. No questions. Click the button below right now."
+
+---
+
+## Fill-in-the-Blank Template
+
+**[PATTERN INTERRUPT]:** "I'm not going to tell you [product] is for everyone. Here's who it's actually for."
+
+**[PAIN]:** "If you're a [audience] who's been struggling with [problem], you know that..."
+
+**[ROOT CAUSE]:** "The reason [previous solutions] haven't worked is [insight]."
+
+**[NEW MECHANISM]:** "[Product] works differently because [specific approach]."
+
+**[PROOF]:** "[Name] went from [before] to [after] in [timeframe] using [specific feature]."
+
+**[OFFER]:** "Everything you need to [outcome]: [list features]. Today: $[price]."
+
+**[CLOSE]:** "[Guarantee]. [Urgency]. [Single CTA]."
+
+---
+
+## Generate Your Sales Video Script
+
+Scriva generates complete sales video scripts with all 7 sections — tailored to your product, audience, and price point.
+    `,
+  },
+
+  "explainer-video-script": {
+    title: "Explainer Video Script: How to Make Complex Ideas Instantly Clear",
+    desc: "The 5-part explainer script formula used by SaaS companies and educators to convert confused visitors into engaged users.",
+    tag: "Conversion",
+    date: "Jun 5, 2025",
+    readTime: "6 min read",
+    content: `
+## What an Explainer Video Must Do
+
+An explainer video has 90 seconds to answer three questions:
+1. What is this?
+2. Why do I need it?
+3. How do I get it?
+
+---
+
+## The 5-Part Explainer Script Formula
+
+### Part 1: The Problem (0–20 seconds)
+> "[Audience] spend [time/money] dealing with [problem]. It's frustrating. And it's completely avoidable."
+
+### Part 2: The Solution (20–40 seconds)
+> "[Product] is [simple category] that [core benefit] — so you can [desired outcome] without [main obstacle]."
+
+### Part 3: How It Works (40–70 seconds)
+> "Here's how it works: First, [step 1]. Then [step 2]. Within [timeframe], [result]."
+
+Three steps maximum. Simpler is always better.
+
+### Part 4: The Proof (70–80 seconds)
+> "Over [number] teams use [product] to [result]. [Company name] reduced [metric] by [percentage] in [timeframe]."
+
+### Part 5: The CTA (80–90 seconds)
+> "Try [product] free — no credit card required. [URL]"
+
+---
+
+## Common Explainer Video Mistakes
+
+| Mistake | Fix |
+|---------|-----|
+| Starting with company history | Start with the customer's problem |
+| Listing all features | Focus on the one core benefit |
+| Using jargon | Replace every technical term with a plain-language equivalent |
+| Multiple CTAs | Pick one: sign up, learn more, or watch demo |
+| Running over 90 seconds | Cut everything that doesn't answer the 3 core questions |
+
+---
+
+## Explainer Script Template
+
+**[0:00–0:20]** "[Audience] deal with [problem] every [frequency]. It costs them [time/money] and [frustration]."
+
+**[0:20–0:40]** "That's why we built [product] — [one-sentence description] that [benefit] in [timeframe]."
+
+**[0:40–1:10]** "Here's how it works: [Step 1]. [Step 2]. [Step 3]. That's it."
+
+**[1:10–1:20]** "[Proof: number of users, or specific result]."
+
+**[1:20–1:30]** "Start free at [URL]. No credit card needed."
+
+---
+
+## Generate Explainer Scripts
+
+Scriva generates 60–90 second explainer video scripts for any product category — clear, structured, and CTA-ready.
+    `,
+  },
+
+  "webinar-script-template": {
+    title: "Webinar Script Template: How to Fill 60 Minutes and Close Sales",
+    desc: "The complete webinar script structure used by course creators and coaches — from welcome to pitch.",
+    tag: "Conversion",
+    date: "Jun 8, 2025",
+    readTime: "10 min read",
+    content: `
+## Why Webinar Scripts Are Different
+
+Webinars are the highest-converting sales format in online business — when scripted correctly. A great webinar script teaches, builds trust, and sells simultaneously.
+
+---
+
+## The 6-Part Webinar Script Structure
+
+### Part 1: The Welcome + Promise (Minutes 0–5)
+> "Welcome. In the next 60 minutes, I'm going to show you [specific outcome]. Not theory — the exact [method/system] I've used to [result]. Stay to the end because I have something special for you."
+
+### Part 2: The Host Story (Minutes 5–15)
+- Where you were (relatable low point)
+- The turning point (discovery of the method)
+- Where you are now (credibility)
+- Why you're sharing it (reason to trust)
+
+### Part 3: The Teaching (Minutes 15–45)
+- 3 core insights, each with: concept → story → proof → application
+- Leave the "how" slightly incomplete — enough to be valuable, enough to want more
+
+> Insight 1: [Reframe their problem]
+> Insight 2: [Introduce the new approach]
+> Insight 3: [Show them it's achievable]
+
+### Part 4: The Transition (Minutes 45–50)
+> "Everything I've shown you today is what you need to understand why [offer] works. Now I want to show you how to get it done for you."
+
+### Part 5: The Pitch (Minutes 50–58)
+- Value stack (features → benefits → dollar values)
+- Price reveal after value is established
+- Guarantee (removes risk)
+- Bonus(es) for deciding now (creates urgency)
+
+### Part 6: The Q&A + Close (Minutes 58–75)
+- Answer the 5 most common objections (prepare these in advance)
+- Re-state the offer and CTA after each answer
+- Hard close at the end
+
+---
+
+## The 5 Objections to Script In Advance
+
+1. "I don't have time" — "[Product] is designed for busy [audience]. It takes [time] per [frequency]."
+2. "I can't afford it" — "Let's talk about the cost of not solving this problem."
+3. "I've tried things before" — "That's because you were using [old approach]. This is different because [new mechanism]."
+4. "I need to think about it" — "I understand. Here's what I'd ask you to consider..."
+5. "Will this work for me?" — Lead with a specific testimonial that matches their situation.
+
+---
+
+## Generate Webinar Scripts
+
+Scriva generates full webinar scripts with all 6 sections — including the pitch, value stack, and Q&A prep.
+    `,
+  },
+
+  "ai-vs-human-copywriting": {
+    title: "AI Copywriting vs. Human: When to Use Each (And When to Combine)",
+    desc: "An honest breakdown of what AI does better than humans, what humans do better than AI, and how to get the best of both.",
+    tag: "AI Tools",
+    date: "Jun 10, 2025",
+    readTime: "6 min read",
+    content: `
+## The Wrong Question
+
+Most marketers ask: "Is AI better than human copywriting?" The right question is: "What is each best at?"
+
+---
+
+## What AI Does Better
+
+### Speed
+An AI script generator produces a structured 1,500-word script in under 30 seconds. A human copywriter needs 2–4 hours for the same output.
+
+### Format Consistency
+AI applies the same framework every time. Your 50th YouTube script follows the same 7-part structure as your first.
+
+### Variation
+Need 10 hook variations for A/B testing? AI generates them in seconds.
+
+### First Drafts
+AI excels at producing a usable starting point. The blank page problem disappears.
+
+---
+
+## What Humans Do Better
+
+### Genuine Emotion
+AI can approximate emotion. Humans can access it. A story about a personal failure — the authentic texture only comes from someone who lived it.
+
+### Brand Voice Nuance
+The subtlest elements — the specific joke, the cultural reference, the tone shift in a crisis — require human judgment.
+
+### Strategic Judgment
+Which story to tell? Which objection to lead with? What to leave out? These decisions depend on context AI doesn't have.
+
+---
+
+## The Optimal Workflow
+
+1. **AI generates the structure + first draft** (format, framework, transitions)
+2. **Human reviews and edits** (voice, authenticity, strategic judgment)
+3. **AI generates variations** (A/B test hooks, CTAs, lengths)
+4. **Human makes final call** (which version ships)
+
+---
+
+## When to Use AI Scripts Without Editing
+
+- High-volume social content (10+ pieces per week)
+- First draft for quick-turn projects
+- A/B testing variations
+
+## When to Always Add a Human Pass
+
+- High-stakes launches
+- Personal brand content requiring your specific voice
+- Emotionally complex stories
+
+---
+
+## Use Scriva for the AI Half
+
+Scriva handles structure, format, and first draft. You handle the voice and strategy. That's the winning combination.
+    `,
+  },
 };
 
 type Props = { params: Promise<{ slug: string }> };
