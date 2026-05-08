@@ -1,4 +1,4 @@
-# Scriva
+# Scriva — AI Script Generator
 
 > AI-powered script generator for YouTube, TikTok, VSL, podcasts, Facebook ads, cold emails, and more. Powered by GPT-4.1.
 
@@ -8,14 +8,14 @@ Scriva takes a topic, script type, tone, and duration as inputs and generates a 
 
 ## Key Pages
 
-- Homepage: https://scriva.online/
-- Pricing: https://scriva.online/pricing
-- Blog: https://scriva.online/blog
-- Sign Up: https://scriva.online/sign-up
-- Sign In: https://scriva.online/sign-in
-- Privacy Policy: https://scriva.online/privacy
-- Terms of Service: https://scriva.online/terms
-- Refund Policy: https://scriva.online/refund
+- [Homepage](https://scriva.online/)
+- [Pricing](https://scriva.online/pricing)
+- [Blog](https://scriva.online/blog)
+- [Sign Up](https://scriva.online/sign-up)
+- [Sign In](https://scriva.online/sign-in)
+- [Privacy Policy](https://scriva.online/privacy)
+- [Terms of Service](https://scriva.online/terms)
+- [Refund Policy](https://scriva.online/refund)
 
 ## Plans
 
@@ -24,7 +24,14 @@ Scriva takes a topic, script type, tone, and duration as inputs and generates a 
 
 ## Script Types Supported
 
-YouTube Video Script, TikTok/Reels Hook, VSL Script, Facebook Ad Script, Podcast Intro, Cold Email Script, Product Demo, Webinar Script
+- [YouTube Video Script](https://scriva.online/#features)
+- [TikTok/Reels Hook](https://scriva.online/#features)
+- [VSL Script](https://scriva.online/#features)
+- [Facebook Ad Script](https://scriva.online/#features)
+- [Podcast Intro](https://scriva.online/#features)
+- [Cold Email Script](https://scriva.online/#features)
+- [Product Demo](https://scriva.online/#features)
+- [Webinar Script](https://scriva.online/#features)
 
 ## Tones Supported
 
@@ -36,5 +43,5 @@ Next.js 14 (App Router), OpenAI GPT-4.1, Supabase, Clerk Auth, Stripe, Netlify
 
 ## Contact & Support
 
-- Website: https://scriva.online
-- Twitter: https://twitter.com/scriva_app
+- [Website](https://scriva.online)
+- [Twitter](https://twitter.com/scriva_app)

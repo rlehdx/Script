@@ -69,7 +69,7 @@ export default function Footer() {
                 fontFamily: "var(--font-body)",
                 fontSize: "0.78rem",
                 lineHeight: 1.75,
-                color: "var(--silver-dim)",
+                color: "var(--silver)",
                 maxWidth: "260px",
                 marginBottom: "1.5rem",
               }}
@@ -123,7 +123,7 @@ export default function Footer() {
                 fontWeight: 600,
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                color: "var(--silver-dim)",
+                color: "var(--silver)",
                 marginBottom: "1.25rem",
               }}
             >
@@ -146,13 +146,13 @@ export default function Footer() {
                     style={{
                       fontFamily: "var(--font-body)",
                       fontSize: "0.78rem",
-                      color: "var(--silver-dim)",
+                      color: "var(--silver)",
                       textDecoration: "none",
                       letterSpacing: "0.02em",
                       transition: "color 0.15s ease",
                     }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--champagne-light)")}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--silver-dim)")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--silver)")}
                   >
                     {link.label}
                   </Link>
@@ -170,7 +170,7 @@ export default function Footer() {
                 fontWeight: 600,
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                color: "var(--silver-dim)",
+                color: "var(--silver)",
                 marginBottom: "1.25rem",
               }}
             >
@@ -193,13 +193,13 @@ export default function Footer() {
                     style={{
                       fontFamily: "var(--font-body)",
                       fontSize: "0.78rem",
-                      color: "var(--silver-dim)",
+                      color: "var(--silver)",
                       textDecoration: "none",
                       letterSpacing: "0.02em",
                       transition: "color 0.15s ease",
                     }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--champagne-light)")}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--silver-dim)")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--silver)")}
                   >
                     {link.label}
                   </Link>
@@ -224,7 +224,7 @@ export default function Footer() {
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: "0.6rem",
-              color: "var(--silver-dim)",
+              color: "var(--silver)",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
             }}
@@ -235,7 +235,7 @@ export default function Footer() {
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: "0.6rem",
-              color: "var(--silver-dim)",
+              color: "var(--silver)",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
             }}
