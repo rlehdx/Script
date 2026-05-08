@@ -105,7 +105,7 @@ export default function Footer() {
                   flexShrink: 0,
                 }}
               />
-              Powered by OpenAI GPT-4o
+              Powered by OpenAI GPT-4.1
             </div>
           </div>
 

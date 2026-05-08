@@ -43,7 +43,7 @@ const SCRIPT_TYPES = [
 
 const STEPS = [
   { num: "01", title: "Describe",  detail: "Pick script type. Paste your topic, niche, or talking points. Choose tone and duration." },
-  { num: "02", title: "Generate", detail: "GPT-4o processes your brief and outputs a fully labeled, section-structured script in under 10 seconds." },
+  { num: "02", title: "Generate", detail: "GPT-4.1 processes your brief and outputs a fully labeled, section-structured script in under 10 seconds." },
   { num: "03", title: "Ship",     detail: "Copy to clipboard, download .txt, or regenerate with different settings. Zero friction." },
 ];
 
@@ -66,7 +66,7 @@ const TESTIMONIALS = [
 ];
 
 const FAQS = [
-  { q: "What AI model powers Scriva?",   a: "OpenAI GPT-4o — the same model professional agencies use. You get that quality at a fraction of the cost." },
+  { q: "What AI model powers Scriva?",   a: "OpenAI GPT-4.1 — the same model professional agencies use. You get that quality at a fraction of the cost." },
   { q: "How is the Free plan limited?",  a: "5 scripts per month. Resets on the 1st. Enough to test every script type before committing." },
   { q: "Can I cancel anytime?",          a: "Yes. Cancel from Settings. You keep Pro access until the billing period ends. No questions asked." },
   { q: "What languages are supported?",  a: "Pro users: English, Spanish, Korean, Japanese, French. More on the roadmap." },

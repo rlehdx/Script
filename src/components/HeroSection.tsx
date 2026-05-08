@@ -222,7 +222,7 @@ export default function HeroSection() {
               }}
             >
               <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--champagne)", display: "inline-block", boxShadow: "0 0 8px var(--champagne)" }} />
-              GPT-4o · Script Generation · Instant
+              GPT-4.1 · Script Generation · Instant
             </span>
           </motion.div>
 
@@ -267,7 +267,7 @@ export default function HeroSection() {
               marginBottom: "2.5rem",
             }}
           >
-            Drop your topic. Pick a format. GPT-4o writes a fully structured,
+            Drop your topic. Pick a format. GPT-4.1 writes a fully structured,
             section-labeled script — YouTube, TikTok, VSL, cold email, podcast —
             ready for production in under 10 seconds.
           </motion.p>

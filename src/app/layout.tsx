@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Scriva",
   },
   description:
-    "Generate high-converting YouTube scripts, TikTok hooks, VSL copy, and ad scripts in seconds. Powered by GPT-4o. Used by 3,400+ creators and agencies worldwide.",
+    "Generate high-converting YouTube scripts, TikTok hooks, VSL copy, and ad scripts in seconds. Powered by GPT-4.1. Used by 3,400+ creators and agencies worldwide.",
   keywords: [
     "AI script generator",
     "YouTube script generator",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "VSL script generator",
     "ad copy generator",
     "video script AI",
-    "GPT-4o scriptwriter",
+    "GPT-4.1 scriptwriter",
     "content creator tools",
     "script writing software",
     "Scriva",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Scriva — AI Script Generator for YouTube, TikTok & Ads",
     description:
-      "Generate high-converting scripts for YouTube, TikTok, VSL, podcasts, and ads in seconds. Powered by GPT-4o.",
+      "Generate high-converting scripts for YouTube, TikTok, VSL, podcasts, and ads in seconds. Powered by GPT-4.1.",
     url: APP_URL,
     siteName: "Scriva",
     images: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Scriva — AI Script Generator for YouTube, TikTok & Ads",
     description:
-      "Generate high-converting scripts in seconds. Powered by GPT-4o.",
+      "Generate high-converting scripts in seconds. Powered by GPT-4.1.",
     images: [`${APP_URL}/og-image.png`],
     creator: "@scriva_app",
     site: "@scriva_app",

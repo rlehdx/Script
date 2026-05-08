@@ -80,7 +80,7 @@ export default function Navbar() {
                 paddingInline: "3rem",
               }}
             >
-              GPT-4o Powered&nbsp;&nbsp;·&nbsp;&nbsp;
+              GPT-4.1 Powered&nbsp;&nbsp;·&nbsp;&nbsp;
               YouTube Scripts&nbsp;&nbsp;·&nbsp;&nbsp;
               TikTok Hooks&nbsp;&nbsp;·&nbsp;&nbsp;
               VSL Scripts&nbsp;&nbsp;·&nbsp;&nbsp;
