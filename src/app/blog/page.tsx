@@ -3,6 +3,15 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 
+interface Post {
+  slug: string;
+  title: string;
+  desc: string;
+  tag: string;
+  date: string;
+  readTime: string;
+}
+
 export const metadata: Metadata = {
   title: "Script Writing Guides & Templates",
   description:
@@ -17,7 +26,7 @@ export const metadata: Metadata = {
   },
 };
 
-const POSTS = [
+const POSTS: Post[] = [
   {
     slug: "youtube-script-template",
     title: "The Ultimate YouTube Script Template (That Actually Gets Views)",
