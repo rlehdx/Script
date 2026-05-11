@@ -1,5 +1,7 @@
 import { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://scriva.online";
 
 const BLOG_SLUGS: { slug: string; date: string }[] = [
