@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Scriva",
   },
   description:
-    "Generate high-converting YouTube scripts, TikTok hooks, VSL copy, and ad scripts in seconds. Powered by GPT-4.1. Used by 3,400+ creators and agencies worldwide.",
+    "Generate high-converting YouTube scripts, TikTok hooks, VSL copy, and ad scripts in seconds. Powered by OpenAI GPT-4.1. Used by 3,400+ creators and agencies worldwide.",
   keywords: [
     "AI script generator",
     "YouTube script generator",
@@ -126,16 +126,16 @@ const jsonLdSoftwareApp = {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
-      name: "Starter Plan",
-      description: "5 scripts per month, all 8 script types, 4 tones, copy & download",
+      name: "Free Plan",
+      description: "5 scripts per month using GPT-4.1 mini, all 8 script types, 4 tones, English only, copy & download, script history (last 10)",
     },
     {
       "@type": "Offer",
       price: "19",
       priceCurrency: "USD",
-      name: "Creator Plan",
+      name: "Pro Plan",
       billingIncrement: "month",
-      description: "100 scripts per month, all script types, 5 languages (EN ES KO JA FR), full script history, priority speed",
+      description: "200 scripts per month using GPT-4.1 full, all script types and tones, 5 languages (EN ES KO JA FR), unlimited script history, priority generation speed, 30-day money-back guarantee",
     },
     {
       "@type": "Offer",
@@ -143,7 +143,7 @@ const jsonLdSoftwareApp = {
       priceCurrency: "USD",
       name: "Agency Plan",
       billingIncrement: "month",
-      description: "Unlimited scripts, custom brand voice, all languages, dedicated support",
+      description: "Unlimited scripts using o4-mini reasoning model, custom brand voice, all 5 languages, unlimited script history, dedicated support, 30-day money-back guarantee",
     },
   ],
   aggregateRating: {

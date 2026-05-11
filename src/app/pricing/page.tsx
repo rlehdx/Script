@@ -14,18 +14,18 @@ const STARTER_FEATURES = [
   "English only",
   "GPT-4.1 mini model",
   "Copy & download as .txt",
-  "Script history (last 5)",
+  "Script history (last 10)",
 ];
 
 const CREATOR_FEATURES = [
-  "100 scripts / month",
+  "200 scripts / month",
   "All 8 script types",
   "All 4 tones",
   "5 languages (EN, ES, KO, JA, FR)",
-  "GPT-4.1 model",
-  "Full script history",
+  "GPT-4.1 full model",
+  "Unlimited script history",
   "Priority generation speed",
-  "Early access to new features",
+  "30-day money-back guarantee",
 ];
 
 const AGENCY_FEATURES = [
@@ -316,8 +316,8 @@ export default function PricingPage() {
             <div className="space-y-3">
               {[
                 {
-                  q: "What is the difference between Creator and Agency?",
-                  a: "Creator gives you 100 scripts/month with GPT-4.1. Agency adds unlimited scripts, a custom brand voice feature, and dedicated support.",
+                  q: "What is the difference between Pro and Agency?",
+                  a: "Pro gives you 200 scripts/month with GPT-4.1 full. Agency adds unlimited scripts using o4-mini, a custom brand voice feature, and dedicated support.",
                 },
                 {
                   q: "What is the custom brand voice feature?",

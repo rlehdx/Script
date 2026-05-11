@@ -43,7 +43,7 @@ const SCRIPT_TYPES = [
 
 const STEPS = [
   { num: "01", title: "Describe",  detail: "Pick script type. Paste your topic, niche, or talking points. Choose tone and duration." },
-  { num: "02", title: "Generate", detail: "GPT-4.1 processes your brief and outputs a fully labeled, section-structured script in under 10 seconds." },
+  { num: "02", title: "Generate", detail: "OpenAI's GPT-4.1 (or GPT-4.1 mini on Free) processes your brief and outputs a fully labeled, section-structured script in under 10 seconds." },
   { num: "03", title: "Ship",     detail: "Copy to clipboard, download .txt, or regenerate with different settings. Zero friction." },
 ];
 
@@ -66,11 +66,11 @@ const TESTIMONIALS = [
 ];
 
 const FAQS = [
-  { q: "What AI model powers Scriva?",   a: "OpenAI GPT-4.1 — the same model professional agencies use. You get that quality at a fraction of the cost." },
-  { q: "How is Scriva different from ChatGPT?", a: "ChatGPT is a general-purpose chatbot — you have to engineer every prompt yourself. Scriva is purpose-built for scripts: it knows the 7-part YouTube framework, TikTok hook structure, VSL format, and more. You type your topic; Scriva applies the proven structure automatically. No prompt expertise required." },
-  { q: "How is the Free plan limited?",  a: "5 scripts per month. Resets on the 1st. Enough to test every script type before committing." },
+  { q: "What AI model powers Scriva?",   a: "Pro and Agency users get OpenAI GPT-4.1 — the same model professional agencies use. Free plan uses GPT-4.1 mini, which is still significantly more capable than a generic ChatGPT prompt for script writing." },
+  { q: "How is Scriva different from ChatGPT?", a: "ChatGPT is a general-purpose chatbot — you have to engineer every prompt yourself and get inconsistent results. Scriva is purpose-built for scripts: it knows the 7-part YouTube framework, TikTok hook structure, VSL format, and more. You type your topic; Scriva applies the proven structure automatically. No prompt expertise required." },
+  { q: "How is the Free plan limited?",  a: "5 scripts per month using GPT-4.1 mini. Resets on the 1st. Enough to test every script type before committing." },
   { q: "Can I cancel anytime?",          a: "Yes. Cancel from Settings. You keep Pro access until the billing period ends. No questions asked." },
-  { q: "What languages are supported?",  a: "Pro users: English, Spanish, Korean, Japanese, French. More on the roadmap." },
+  { q: "What languages are supported?",  a: "Pro and Agency users: English, Spanish, Korean, Japanese, French. Free plan: English only. More languages on the roadmap." },
   { q: "Can I use scripts commercially?",a: "Yes — everything you generate is yours. Ads, YouTube, client work, anything." },
   { q: "Is there a money-back guarantee?", a: "Yes — 30 days, no questions asked. If Scriva doesn't save you time on your first week of scripts, email us and we'll refund every cent." },
 ];
@@ -511,9 +511,12 @@ export default function HomePage() {
                 <div className="bento-cell" style={{ padding: "2.5rem" }}>
                   <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--silver-dim)", marginBottom: "0.75rem" }}>Free</div>
                   <div style={{ fontFamily: "var(--font-display)", fontSize: "4rem", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--silver-bright)", lineHeight: 1, marginBottom: "0.25rem" }}>$0</div>
-                  <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", color: "var(--silver-dim)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "2rem", paddingBottom: "1.5rem", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>per month</div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "2rem", paddingBottom: "1.5rem", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", color: "var(--silver-dim)", letterSpacing: "0.1em", textTransform: "uppercase" }}>per month</span>
+                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.52rem", color: "var(--silver-dim)", letterSpacing: "0.08em", background: "rgba(255,255,255,0.05)", padding: "0.2rem 0.5rem", borderRadius: "2px" }}>GPT-4.1 mini</span>
+                  </div>
                   <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.65rem", marginBottom: "2rem" }}>
-                    {["5 scripts per month", "All 8 script types", "4 tones", "Copy & download (.txt)", "Script history (last 10)"].map((f) => (
+                    {["5 scripts per month", "All 8 script types", "4 tones", "English only", "Copy & download (.txt)", "Script history (last 10)"].map((f) => (
                       <li key={f} style={{ display: "flex", alignItems: "center", gap: "0.75rem", fontFamily: "var(--font-body)", fontSize: "0.8rem", color: "var(--silver)" }}>
                         <span style={{ width: 16, height: 1, background: "var(--champagne-dim)", display: "inline-block", flexShrink: 0 }} />
                         {f}
@@ -534,12 +537,13 @@ export default function HomePage() {
                   <div style={{ display: "flex", alignItems: "baseline", gap: "0.5rem", marginBottom: "0.25rem" }}>
                     <span style={{ fontFamily: "var(--font-display)", fontSize: "4rem", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--silver-bright)", lineHeight: 1 }}>$19</span>
                   </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "2rem", paddingBottom: "1.5rem", borderBottom: "1px solid rgba(201,168,76,0.15)" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "2rem", paddingBottom: "1.5rem", borderBottom: "1px solid rgba(201,168,76,0.15)", flexWrap: "wrap" }}>
                     <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", color: "var(--silver-dim)", letterSpacing: "0.1em", textTransform: "uppercase" }}>per month</span>
+                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.52rem", color: "var(--champagne)", letterSpacing: "0.08em", background: "rgba(201,168,76,0.1)", padding: "0.2rem 0.5rem", borderRadius: "2px", border: "1px solid rgba(201,168,76,0.25)" }}>GPT-4.1 full</span>
                     <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", color: "var(--champagne)", letterSpacing: "0.06em" }}>$149/yr — save $79</span>
                   </div>
                   <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.65rem", marginBottom: "2rem" }}>
-                    {["200 scripts per month", "All script types + tones", "5 languages (EN ES KO JA FR)", "Unlimited script history", "Priority generation speed"].map((f) => (
+                    {["200 scripts per month", "All script types + tones", "5 languages (EN ES KO JA FR)", "Unlimited script history", "Priority generation speed", "30-day money-back guarantee"].map((f) => (
                       <li key={f} style={{ display: "flex", alignItems: "center", gap: "0.75rem", fontFamily: "var(--font-body)", fontSize: "0.8rem", color: "var(--silver)" }}>
                         <span style={{ width: 16, height: 1, background: "var(--champagne)", display: "inline-block", flexShrink: 0 }} />
                         {f}
