@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/terms" },
 };
 
-const LAST_UPDATED = "April 4, 2025";
+const LAST_UPDATED = "April 10, 2026";
 
 const cardStyle: React.CSSProperties = {
   background: "linear-gradient(135deg, rgba(20,20,32,0.95) 0%, rgba(12,12,20,0.98) 100%)",
