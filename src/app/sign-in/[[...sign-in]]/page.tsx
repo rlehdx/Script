@@ -88,9 +88,31 @@ export default function SignInPage() {
 
         <SignIn
           appearance={{
+            variables: {
+              colorPrimary: "#C9A84C",
+              colorBackground: "#111118",
+              colorText: "#E0E0E8",
+              colorTextSecondary: "#8A8A9A",
+              colorInputBackground: "#1A1A24",
+              colorInputText: "#E0E0E8",
+              borderRadius: "2px",
+              fontFamily: "Inter, sans-serif",
+              fontSize: "14px",
+            },
             elements: {
-              socialButtonsBlockButton: "w-full",
+              card: "shadow-none border border-white/8 bg-[#111118]",
+              headerTitle: "text-white font-semibold",
+              headerSubtitle: "text-slate-500",
+              socialButtonsBlockButton: "border border-white/10 bg-white/4 hover:bg-white/8 text-slate-200",
               socialButtonsProviderIcon__google: "w-5 h-5",
+              dividerLine: "bg-white/8",
+              dividerText: "text-slate-600",
+              formFieldLabel: "text-slate-400 text-xs",
+              formFieldInput: "bg-[#1A1A24] border-white/10 text-white focus:border-[#C9A84C]/50",
+              formButtonPrimary: "bg-[#C9A84C] hover:bg-[#B8973B] text-[#0A0A0F] font-semibold",
+              footerActionLink: "text-[#C9A84C] hover:text-[#EDD078]",
+              identityPreviewEditButton: "text-[#C9A84C]",
+              formFieldErrorText: "text-red-400",
             },
           }}
         />
