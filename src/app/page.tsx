@@ -67,10 +67,12 @@ const TESTIMONIALS = [
 
 const FAQS = [
   { q: "What AI model powers Scriva?",   a: "OpenAI GPT-4.1 — the same model professional agencies use. You get that quality at a fraction of the cost." },
+  { q: "How is Scriva different from ChatGPT?", a: "ChatGPT is a general-purpose chatbot — you have to engineer every prompt yourself. Scriva is purpose-built for scripts: it knows the 7-part YouTube framework, TikTok hook structure, VSL format, and more. You type your topic; Scriva applies the proven structure automatically. No prompt expertise required." },
   { q: "How is the Free plan limited?",  a: "5 scripts per month. Resets on the 1st. Enough to test every script type before committing." },
   { q: "Can I cancel anytime?",          a: "Yes. Cancel from Settings. You keep Pro access until the billing period ends. No questions asked." },
   { q: "What languages are supported?",  a: "Pro users: English, Spanish, Korean, Japanese, French. More on the roadmap." },
   { q: "Can I use scripts commercially?",a: "Yes — everything you generate is yours. Ads, YouTube, client work, anything." },
+  { q: "Is there a money-back guarantee?", a: "Yes — 30 days, no questions asked. If Scriva doesn't save you time on your first week of scripts, email us and we'll refund every cent." },
 ];
 
 const jsonLdFaq = {
@@ -85,6 +87,91 @@ const jsonLdFaq = {
     },
   })),
 };
+
+/* ── Newsletter Section ── */
+function NewsletterSection() {
+  return (
+    <section
+      aria-labelledby="newsletter-heading"
+      style={{
+        borderTop: "1px solid rgba(201,168,76,0.15)",
+        background: "var(--charcoal)",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      <div aria-hidden="true" style={{
+        position: "absolute", inset: 0,
+        background: "radial-gradient(ellipse 50% 80% at 50% 100%, rgba(201,168,76,0.06) 0%, transparent 60%)",
+        pointerEvents: "none",
+      }} />
+      <div style={{
+        position: "relative", zIndex: 1,
+        maxWidth: "600px", marginInline: "auto",
+        paddingInline: "2rem", paddingBlock: "4rem",
+        textAlign: "center",
+      }}>
+        <span style={{
+          display: "inline-block",
+          fontFamily: "var(--font-mono)", fontSize: "0.6rem",
+          fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase",
+          color: "var(--champagne)", marginBottom: "1.25rem",
+        }}>
+          Free weekly tips
+        </span>
+        <h2 id="newsletter-heading" style={{
+          fontFamily: "var(--font-display)",
+          fontSize: "clamp(1.6rem, 4vw, 2.8rem)",
+          fontWeight: 700, letterSpacing: "-0.03em",
+          color: "var(--silver-bright)", marginBottom: "0.75rem", lineHeight: 1.1,
+        }}>
+          Script tips that actually work
+        </h2>
+        <p style={{
+          fontFamily: "var(--font-body)", fontSize: "0.85rem",
+          lineHeight: 1.75, color: "var(--silver)", marginBottom: "2rem",
+        }}>
+          Join 3,400+ creators. Get one actionable script tip every week — hooks, structures, and formats that convert.
+        </p>
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", justifyContent: "center" }}
+        >
+          <input
+            type="email"
+            placeholder="your@email.com"
+            required
+            aria-label="Email address"
+            style={{
+              flex: "1 1 220px",
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(201,168,76,0.2)",
+              borderRadius: "2px",
+              padding: "0.75rem 1rem",
+              fontSize: "0.85rem",
+              color: "var(--silver-bright)",
+              fontFamily: "var(--font-body)",
+              outline: "none",
+              minHeight: "44px",
+            }}
+            onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(201,168,76,0.5)")}
+            onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(201,168,76,0.2)")}
+          />
+          <button type="submit" className="btn-champagne" style={{ flexShrink: 0 }}>
+            Subscribe
+          </button>
+        </form>
+        <p style={{
+          fontFamily: "var(--font-mono)", fontSize: "0.58rem",
+          color: "var(--silver-dim)", letterSpacing: "0.1em",
+          textTransform: "uppercase", marginTop: "1rem",
+        }}>
+          No spam · Unsubscribe anytime
+        </p>
+      </div>
+    </section>
+  );
+}
 
 /* ── FAQ Item ── */
 function FaqItem({ question, answer }: { question: string; answer: string }) {
@@ -169,6 +256,56 @@ export default function HomePage() {
       />
       <Navbar />
       <HeroSection />
+
+      {/* ══ TESTIMONIALS (Social proof — above the fold) ══ */}
+      <section
+        aria-labelledby="testimonials-heading"
+        style={{ borderTop: "1px solid rgba(255,255,255,0.06)", background: "var(--charcoal)" }}
+      >
+        <div style={{ maxWidth: "1200px", marginInline: "auto", paddingInline: "2rem" }}>
+          <SectionHeader tag="Testimonials" label="From real creators" />
+          <div style={{ paddingBlock: "3rem 4rem" }}>
+            <Reveal>
+              <h2 id="testimonials-heading" style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(2rem, 5vw, 4rem)",
+                fontWeight: 700,
+                letterSpacing: "-0.03em",
+                color: "var(--silver-bright)",
+                marginBottom: "3rem",
+                lineHeight: 1.05,
+              }}>
+                Creators<br />love Scriva
+              </h2>
+            </Reveal>
+
+            <div className="grid-cols-1 md:grid-cols-3" style={{ display: "grid", gap: "1px", background: "rgba(255,255,255,0.04)", alignItems: "start" }}>
+              {TESTIMONIALS.map((t, i) => (
+                <Reveal key={t.name} delay={i * 0.1}>
+                  <div className="bento-cell" style={{ padding: "2rem" }}>
+                    <div role="img" aria-label="5 out of 5 stars" style={{ display: "flex", gap: "2px", marginBottom: "1.25rem" }}>
+                      {[...Array(5)].map((_, j) => (
+                        <span key={j} style={{ color: "var(--champagne)", fontSize: "0.7rem" }} aria-hidden="true">★</span>
+                      ))}
+                    </div>
+                    <blockquote style={{ margin: 0, fontFamily: "var(--font-body)", fontStyle: "italic", fontSize: "0.88rem", lineHeight: 1.75, color: "var(--silver)", marginBottom: "1.5rem" }}>
+                      "{t.text}"
+                    </blockquote>
+                    <footer style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "1rem" }}>
+                      <cite style={{ display: "block", fontStyle: "normal", fontFamily: "var(--font-body)", fontSize: "0.75rem", fontWeight: 600, color: "var(--silver-bright)", letterSpacing: "0.02em" }}>
+                        {t.name}
+                      </cite>
+                      <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", color: "var(--silver-dim)", letterSpacing: "0.06em" }}>
+                        {t.role}
+                      </span>
+                    </footer>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ══ LIVE DEMO ══ */}
       <section
@@ -417,56 +554,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══ TESTIMONIALS ══ */}
-      <section
-        aria-labelledby="testimonials-heading"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.06)", background: "var(--charcoal)" }}
-      >
-        <div style={{ maxWidth: "1200px", marginInline: "auto", paddingInline: "2rem" }}>
-          <SectionHeader tag="Testimonials" label="From real creators" />
-          <div style={{ paddingBlock: "3rem 4rem" }}>
-            <Reveal>
-              <h2 id="testimonials-heading" style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(2rem, 5vw, 4rem)",
-                fontWeight: 700,
-                letterSpacing: "-0.03em",
-                color: "var(--silver-bright)",
-                marginBottom: "3rem",
-                lineHeight: 1.05,
-              }}>
-                Creators<br />love Scriva
-              </h2>
-            </Reveal>
-
-            <div className="grid-cols-1 md:grid-cols-3" style={{ display: "grid", gap: "1px", background: "rgba(255,255,255,0.04)", alignItems: "start" }}>
-              {TESTIMONIALS.map((t, i) => (
-                <Reveal key={t.name} delay={i * 0.1}>
-                  <div className="bento-cell" style={{ padding: "2rem" }}>
-                    <div role="img" aria-label="5 out of 5 stars" style={{ display: "flex", gap: "2px", marginBottom: "1.25rem" }}>
-                      {[...Array(5)].map((_, j) => (
-                        <span key={j} style={{ color: "var(--champagne)", fontSize: "0.7rem" }} aria-hidden="true">★</span>
-                      ))}
-                    </div>
-                    <blockquote style={{ margin: 0, fontFamily: "var(--font-body)", fontStyle: "italic", fontSize: "0.88rem", lineHeight: 1.75, color: "var(--silver)", marginBottom: "1.5rem" }}>
-                      "{t.text}"
-                    </blockquote>
-                    <footer style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "1rem" }}>
-                      <cite style={{ display: "block", fontStyle: "normal", fontFamily: "var(--font-body)", fontSize: "0.75rem", fontWeight: 600, color: "var(--silver-bright)", letterSpacing: "0.02em" }}>
-                        {t.name}
-                      </cite>
-                      <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", color: "var(--silver-dim)", letterSpacing: "0.06em" }}>
-                        {t.role}
-                      </span>
-                    </footer>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ══ FAQ ══ */}
       <section
         aria-labelledby="faq-heading"
@@ -557,6 +644,9 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
+
+      {/* ══ NEWSLETTER ══ */}
+      <NewsletterSection />
 
       <Footer />
     </main>
