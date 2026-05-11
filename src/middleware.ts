@@ -8,6 +8,10 @@ const isPublicRoute = createRouteMatcher([
   '/pricing(.*)',
   '/blog(.*)',
   '/privacy(.*)',
+  '/terms(.*)',
+  '/refund(.*)',
+  '/sitemap.xml',
+  '/robots.txt',
   '/api/generate',          // allow unauthenticated guest trials
   '/api/webhooks/(.*)',     // Stripe + Clerk webhooks must be publicly reachable
 ]);
