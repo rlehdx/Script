@@ -99,7 +99,7 @@ export default function CookieBanner() {
             letterSpacing: "0.12em",
             textTransform: "uppercase",
             background: "transparent",
-            color: "var(--silver-dim)",
+            color: "var(--silver)",
             border: "1px solid rgba(255,255,255,0.1)",
             borderRadius: "2px",
             padding: "0.5rem 1.1rem",
