@@ -215,14 +215,29 @@ export default function Navbar() {
         </button>
       </div>
 
+      {/* Mobile menu backdrop */}
+      {mobileOpen && (
+        <div
+          aria-hidden="true"
+          onClick={() => setMobileOpen(false)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: -1,
+            background: "rgba(0,0,0,0.6)",
+          }}
+        />
+      )}
+
       {/* Mobile menu */}
       <div
         style={{
           overflow: "hidden",
           maxHeight: mobileOpen ? "24rem" : "0",
           transition: "max-height 0.3s ease",
-          background: "rgba(13,13,13,0.97)",
+          background: "rgba(13,13,13,0.99)",
           backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
           borderBottom: mobileOpen ? "1px solid rgba(201,168,76,0.15)" : "none",
         }}
         aria-hidden={!mobileOpen}
