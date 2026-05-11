@@ -368,7 +368,7 @@ export default function HomePage() {
               </h2>
             </Reveal>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", background: "rgba(255,255,255,0.04)" }} className="grid-cols-1 md:grid-cols-2">
+            <div className="grid-cols-1 md:grid-cols-2" style={{ display: "grid", gap: "1px", background: "rgba(255,255,255,0.04)" }}>
               {/* Free */}
               <Reveal>
                 <div className="bento-cell" style={{ padding: "2.5rem" }}>
@@ -439,7 +439,7 @@ export default function HomePage() {
               </h2>
             </Reveal>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1px", background: "rgba(255,255,255,0.04)", alignItems: "start" }} className="grid-cols-1 md:grid-cols-3">
+            <div className="grid-cols-1 md:grid-cols-3" style={{ display: "grid", gap: "1px", background: "rgba(255,255,255,0.04)", alignItems: "start" }}>
               {TESTIMONIALS.map((t, i) => (
                 <Reveal key={t.name} delay={i * 0.1}>
                   <div className="bento-cell" style={{ padding: "2rem" }}>
@@ -474,7 +474,7 @@ export default function HomePage() {
       >
         <div style={{ maxWidth: "1200px", marginInline: "auto", paddingInline: "2rem" }}>
           <SectionHeader tag="FAQ" label="Common questions" />
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", paddingBlock: "3rem 4rem", alignItems: "start" }} className="grid-cols-1 md:grid-cols-2">
+          <div className="grid-cols-1 md:grid-cols-2" style={{ display: "grid", gap: "4rem", paddingBlock: "3rem 4rem", alignItems: "start" }}>
             <Reveal>
               <h2 id="faq-heading" style={{
                 fontFamily: "var(--font-display)",
@@ -515,7 +515,7 @@ export default function HomePage() {
           background: "radial-gradient(ellipse 60% 80% at 50% 100%, rgba(201,168,76,0.08) 0%, transparent 60%)",
           pointerEvents: "none",
         }} />
-        <div style={{ position: "relative", zIndex: 1, maxWidth: "1200px", marginInline: "auto", paddingInline: "2rem", paddingBlock: "5rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }} className="grid-cols-1 md:grid-cols-2">
+        <div className="grid-cols-1 md:grid-cols-2" style={{ position: "relative", zIndex: 1, maxWidth: "1200px", marginInline: "auto", paddingInline: "2rem", paddingBlock: "5rem", display: "grid", gap: "4rem", alignItems: "center" }}>
           <Reveal>
             <h2 id="cta-heading" style={{
               fontFamily: "var(--font-display)",

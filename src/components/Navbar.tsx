@@ -98,7 +98,7 @@ export default function Navbar() {
         style={{
           maxWidth: "1200px",
           marginInline: "auto",
-          paddingInline: "2rem",
+          paddingInline: "clamp(1rem, 4vw, 2rem)",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",

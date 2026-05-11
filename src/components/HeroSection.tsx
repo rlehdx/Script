@@ -48,17 +48,7 @@ export default function HeroSection() {
       />
 
       {/* Three.js canvas — right half, lazy-loaded to avoid blocking LCP */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          top: 0,
-          right: 0,
-          width: "60%",
-          height: "100%",
-          pointerEvents: "none",
-        }}
-      >
+      <div aria-hidden="true" className="hero-canvas-wrap">
         <HeroCanvas />
       </div>
 
@@ -157,6 +147,7 @@ export default function HeroSection() {
           {/* CTAs */}
           <motion.div
             variants={itemVariants}
+            className="hero-cta-group"
             style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", alignItems: "center" }}
           >
             <Link href="/sign-up" className="btn-champagne">

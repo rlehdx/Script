@@ -33,19 +33,17 @@ export default function Footer() {
       >
         {/* Main footer grid */}
         <div
+          className="footer-grid"
           style={{
-            display: "grid",
-            gridTemplateColumns: "2fr 1fr 1fr",
             gap: "0",
             borderBottom: "1px solid rgba(255,255,255,0.06)",
           }}
-          className="grid-cols-1 md:grid-cols-[2fr_1fr_1fr]"
         >
           {/* Brand column */}
           <div
+            className="footer-brand-col"
             style={{
-              padding: "3rem 3rem 3rem 0",
-              borderRight: "1px solid rgba(255,255,255,0.06)",
+              padding: "2rem 1rem",
             }}
           >
             <div style={{ marginBottom: "1.5rem" }}>
@@ -112,8 +110,8 @@ export default function Footer() {
           {/* Product column */}
           <div
             style={{
-              padding: "3rem 2rem",
-              borderRight: "1px solid rgba(255,255,255,0.06)",
+              padding: "2rem 1rem",
+              borderTop: "1px solid rgba(255,255,255,0.06)",
             }}
           >
             <p
@@ -162,7 +160,7 @@ export default function Footer() {
           </div>
 
           {/* Legal column */}
-          <div style={{ padding: "3rem 2rem" }}>
+          <div style={{ padding: "2rem 1rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
             <p
               style={{
                 fontFamily: "var(--font-mono)",

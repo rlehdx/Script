@@ -68,6 +68,7 @@
 
   html {
     background-color: var(--obsidian);
+    overflow-x: hidden;
   }
 
   body {
@@ -78,6 +79,7 @@
     -moz-osx-font-smoothing: grayscale;
     font-size: 14px;
     line-height: 1.6;
+    overflow-x: hidden;
   }
 
   /* ── Selection ── */
@@ -528,6 +530,105 @@
 
   .section-pad    { padding-block: 6rem; }
   .section-pad-sm { padding-block: 4rem; }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE GRID OVERRIDES
+     모바일에서 인라인 gridTemplateColumns 무력화
+     ══════════════════════════════════════════ */
+
+  .grid-cols-1 {
+    grid-template-columns: 1fr !important;
+  }
+
+  @media (min-width: 768px) {
+    .md\:grid-cols-2 {
+      grid-template-columns: 1fr 1fr !important;
+    }
+    .md\:grid-cols-3 {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+  }
+
+  /* Footer 3-column grid */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+  }
+
+  /* Footer brand column — 데스크톱에서 border-right, 넉넉한 패딩 */
+  @media (min-width: 768px) {
+    .footer-brand-col {
+      padding: 3rem 3rem 3rem 0 !important;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+  }
+
+  /* Hero canvas — 모바일에서 숨김 처리 */
+  .hero-canvas-wrap {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .hero-canvas-wrap {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      height: 100%;
+      pointer-events: none;
+    }
+  }
+
+  /* Padding 모바일 축소 */
+  .page-grid {
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .page-grid {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* 섹션 내 컨테이너 모바일 패딩 */
+  .section-container {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-container {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* 버튼 모바일 터치 타겟 최소 크기 */
+  .btn-champagne,
+  .btn-glass,
+  .btn-crimson {
+    min-height: 44px;
+  }
+
+  /* 모바일에서 버튼 전체 너비 */
+  @media (max-width: 480px) {
+    .hero-cta-group {
+      flex-direction: column;
+      width: 100%;
+    }
+    .hero-cta-group .btn-champagne,
+    .hero-cta-group .btn-glass {
+      width: 100%;
+      justify-content: center;
+    }
+  }
 
   /* ══════════════════════════════════════════
      GLOW EFFECTS
