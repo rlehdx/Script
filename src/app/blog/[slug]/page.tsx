@@ -1730,6 +1730,472 @@ Which story to tell? Which objection to lead with? What to leave out? These deci
 Scriva handles structure, format, and first draft. You handle the voice and strategy. That's the winning combination.
     `,
   },
+
+  "scriva-vs-chatgpt": {
+    title: "Scriva vs ChatGPT for Script Writing: An Honest Comparison",
+    desc: "Both use GPT-4.1 under the hood — so why does Scriva produce better scripts? Here's the honest breakdown.",
+    tag: "AI Tools",
+    date: "May 10, 2025",
+    readTime: "6 min read",
+    content: `
+## Why This Comparison Matters
+
+Both Scriva and ChatGPT use OpenAI's models. So what's the actual difference — and why does it matter for script writers?
+
+---
+
+## What ChatGPT Does Well
+
+ChatGPT (GPT-4.1) is genuinely powerful. If you know how to prompt it, you can get solid script drafts. It's flexible, conversational, and capable of following complex instructions.
+
+**Where it breaks down for scripts:**
+- No built-in script frameworks — you have to provide the structure yourself
+- Inconsistent output format across sessions
+- You need prompt expertise to get consistent results
+- No format-specific tuning (YouTube ≠ TikTok ≠ VSL)
+
+---
+
+## What Scriva Does Differently
+
+Scriva is purpose-built for scripts. Under the hood, it uses GPT-4.1 (Pro plan) — but the prompt engineering, structure enforcement, and format logic are baked in.
+
+**The difference:**
+- You select a format (YouTube, TikTok, VSL, etc.) and Scriva applies the correct framework automatically
+- Every output follows a proven structure: Hook → Body → CTA with correct pacing
+- Scene labels, transitions, and timing hints are included
+- Tone control (Authoritative, Conversational, Urgent, Humorous) is consistent
+
+---
+
+## Side-by-Side: Same Topic, Different Tools
+
+**Prompt:** "Write a 60-second TikTok script about why most people fail at saving money."
+
+**ChatGPT output (raw):**
+A generic paragraph with advice. Usable but unstructured. No hook timing, no scene breaks, no CTA direction.
+
+**Scriva output:**
+- HOOK (0–3s): "You're not bad at saving money. You're using the wrong system."
+- POINT 1 (3–20s): The real reason — spending decisions happen when willpower is lowest
+- POINT 2 (20–40s): The fix — automate the decision before willpower is needed
+- CTA (40–60s): "Set up one automatic transfer today. That's it. Follow for more."
+
+---
+
+## Feature Comparison
+
+| Feature | ChatGPT | Scriva |
+|---------|---------|--------|
+| Script framework built-in | No | Yes |
+| Format-specific structure | Manual | Automatic |
+| Scene labels & timing | Manual | Included |
+| Tone control | Via prompt | Built-in setting |
+| Script history | No | Yes (Pro) |
+| Price | $20/mo | Free–$19/mo |
+| Learning curve | High (prompt skill) | None |
+
+---
+
+## When to Use ChatGPT
+
+- You already have strong prompt engineering skills
+- You need a highly customized output that no template covers
+- You're iterating on a specific creative direction
+
+## When to Use Scriva
+
+- You want production-ready scripts without prompt expertise
+- You need consistent output across multiple formats
+- You're producing scripts at volume (agencies, creators posting 3–5x/week)
+
+---
+
+## The Bottom Line
+
+ChatGPT is a powerful tool for people who know how to use it. Scriva is for people who want the output — not the process.
+
+Try Scriva free — 5 scripts per month, no credit card required.
+    `,
+  },
+
+  "cold-email-script-template": {
+    title: "Cold Email Script Template: The 3-Sentence Formula That Gets Replies",
+    desc: "The exact cold email script structure used by top sales teams — short, specific, and built for replies, not pitches.",
+    tag: "Conversion",
+    date: "May 9, 2025",
+    readTime: "6 min read",
+    content: `
+## Why Most Cold Emails Fail
+
+Most cold emails are too long, too vague, and too focused on the sender. The best cold emails are short, specific, and focused entirely on the recipient's problem.
+
+---
+
+## The 3-Sentence Cold Email Framework
+
+### Sentence 1: The Hook (Relevance)
+Show you know them. Reference something specific — a post, a company milestone, a pain point in their industry.
+
+> "I saw [Company] just expanded into [market] — congrats on the Series B."
+
+### Sentence 2: The Value Statement
+One sentence on what you do and who it helps. No jargon. No features.
+
+> "I help [role] at [type of company] [achieve specific outcome] without [common obstacle]."
+
+### Sentence 3: The Ask
+One specific, low-friction next step. Not "let me know if interested." A real ask.
+
+> "Worth a 15-minute call this week to see if it's a fit?"
+
+---
+
+## 5 Complete Cold Email Script Templates
+
+### Template 1: The Direct Value Pitch
+**Subject:** Quick question, [First Name]
+
+[First Name],
+
+[Specific observation about their company or role]. I help [ICP] [outcome] — we did this for [similar company] in [timeframe].
+
+Worth a quick call this week?
+
+[Name]
+
+---
+
+### Template 2: The Problem-First
+**Subject:** [Pain point] at [Company]?
+
+[First Name],
+
+Most [role] I talk to struggle with [specific problem]. We built [product] to fix exactly that — [one-line how].
+
+15 minutes this week to show you how it works?
+
+[Name]
+
+---
+
+### Template 3: The Referral Angle
+**Subject:** [Mutual contact] suggested I reach out
+
+[First Name],
+
+[Mutual contact] mentioned you're working on [relevant initiative]. I help teams like yours [outcome] — we worked with [reference] last quarter.
+
+Open to a quick call?
+
+[Name]
+
+---
+
+### Template 4: The Insight Lead
+**Subject:** Interesting data point for [Company]
+
+[First Name],
+
+We analyzed [relevant data] across [industry] and found [specific insight that affects them].
+
+We help [ICP] act on this. Worth 15 minutes?
+
+[Name]
+
+---
+
+### Template 5: The Follow-Up (Day 4)
+**Subject:** Re: [original subject]
+
+[First Name],
+
+Just bumping this up — didn't want it to get buried.
+
+Still think [outcome] could be valuable for [Company]. Happy to send a quick loom if a call isn't the right next step.
+
+[Name]
+
+---
+
+## What to Never Do
+
+- Open with "I hope this email finds you well"
+- Pitch features before establishing relevance
+- Ask for a 30+ minute meeting on the first email
+- Send the same email to 500 people without personalization signals
+
+---
+
+## Generate Cold Email Scripts with Scriva
+
+Scriva generates cold email scripts tailored to your topic, tone, and audience — in under 10 seconds.
+    `,
+  },
+
+  "youtube-algorithm-2025": {
+    title: "YouTube Algorithm 2025: What Actually Gets Videos Recommended",
+    desc: "The signals that matter in 2025 — and how to write scripts that hit every one of them.",
+    tag: "YouTube",
+    date: "May 6, 2025",
+    readTime: "7 min read",
+    content: `
+## The Algorithm Is Not a Mystery
+
+YouTube's algorithm is a recommendation engine with one goal: keep people watching. Every signal it tracks is a proxy for that goal.
+
+---
+
+## The 4 Metrics That Drive Recommendations in 2025
+
+### 1. Click-Through Rate (CTR)
+Your thumbnail and title determine whether anyone clicks. Target CTR: 4–8% for established channels, 2–4% for new channels.
+
+**Script impact:** Your title is often your hook. If it's vague or generic, CTR suffers — and the algorithm stops recommending regardless of content quality.
+
+### 2. Average View Duration (AVD)
+How long people watch, measured in minutes. Not percentage — total minutes.
+
+**Script impact:** A tight script with no dead air keeps AVD high. Every section transition should earn the viewer's continued attention.
+
+### 3. Audience Retention (%)
+The percentage of your video that average viewers watch. YouTube specifically looks at the 30% and 50% marks.
+
+**Script impact:** A re-hook at the 30-second mark and a mid-video retention loop (tease of upcoming content) directly impacts these numbers.
+
+### 4. Satisfaction Signals
+Likes, comments, shares, and "not interested" dismissals. Comments and shares are weighted heavily.
+
+**Script impact:** Building a comment prompt into your script ("Drop a comment below — [specific question]") consistently drives engagement spikes.
+
+---
+
+## The Script Structure That Hits Every Signal
+
+\`\`\`
+HOOK (0–3s)     → Drives CTR and first-5-seconds retention
+OPEN LOOP (3–15s) → Creates curiosity that keeps people watching
+VALUE (15s–X)   → Delivers on the promise; maintains AVD
+RE-HOOK (30s)   → Prevents the 30% drop-off
+MID LOOP (50%)  → Teases what's coming; holds the 50% mark
+ENGAGEMENT CTA  → "Comment below..." drives satisfaction signals
+END CTA         → Subscribe + next video recommendation
+\`\`\`
+
+---
+
+## What Doesn't Matter (Anymore)
+
+- **Tags:** Minimal impact since 2022. Titles and descriptions carry the keyword weight.
+- **Upload time:** Matters less than it used to. Consistency matters more.
+- **Video length for its own sake:** Longer videos aren't rewarded — watched minutes are. A tight 6-minute video beats a padded 15-minute video.
+
+---
+
+## The 2025 Algorithm Shift: Topic Authority
+
+YouTube increasingly groups channels by topic and recommends them to viewers who've watched similar content. This means:
+
+- Posting in the same niche consistently builds topic authority
+- Covering the same topic from multiple angles (list, how-to, story, comparison) captures the full search surface
+- Collaborating with other channels in your niche gets you in front of their audience
+
+---
+
+## Write Scripts That Work With the Algorithm
+
+The algorithm rewards retention — and retention comes from structure. Scriva builds algorithm-optimized script structure into every output: hooks, re-hooks, retention loops, and engagement CTAs are standard.
+
+Generate your first algorithm-optimized script free.
+    `,
+  },
+
+  "script-writing-tips-beginners": {
+    title: "Script Writing Tips for Beginners: 10 Rules That Separate Good Scripts from Bad",
+    desc: "The fundamentals that professional scriptwriters follow — and that beginners skip. Master these before anything else.",
+    tag: "YouTube",
+    date: "May 3, 2025",
+    readTime: "6 min read",
+    content: `
+## Why Most First Scripts Fail
+
+First scripts fail for predictable reasons: they start too slow, explain too much, and end without direction. These 10 rules fix all of that.
+
+---
+
+## Rule 1: Start With the Payoff, Not the Setup
+
+Amateurs explain context before delivering value. Professionals lead with the result.
+
+**Bad:** "Hey guys, welcome back. Today I want to talk about something I've been thinking about for a while..."
+
+**Good:** "Your first 30 seconds determine whether anyone watches. Here's the exact formula."
+
+---
+
+## Rule 2: Write for the Ear, Not the Eye
+
+Scripts are performed, not read. Read every line aloud. If it sounds unnatural spoken, rewrite it.
+
+- Short sentences work better than long ones
+- Contractions (you're, it's, don't) sound more natural
+- One idea per sentence
+
+---
+
+## Rule 3: Every Sentence Must Earn Its Place
+
+Cut anything that doesn't advance the story or deliver value. If a sentence could be removed without the viewer noticing, remove it.
+
+---
+
+## Rule 4: Use the Rule of Three
+
+Three points are easier to remember than two or four. Structure your content in threes: three steps, three mistakes, three tips. The pattern creates expectation and satisfaction.
+
+---
+
+## Rule 5: Transitions Are Load-Bearing
+
+Weak transitions cause drop-off. Strong transitions create momentum.
+
+**Weak:** "Okay, so next..."
+**Strong:** "Here's where most people make their biggest mistake..."
+
+---
+
+## Rule 6: Open Loops Keep People Watching
+
+An open loop is a question or promise that you haven't answered yet. Viewers stay to close the loop.
+
+> "By the end of this, you'll know the one thing that separates scripts that convert from scripts that don't. But first..."
+
+---
+
+## Rule 7: Never Bury the CTA
+
+Most beginners put the call-to-action at the very end, after viewer interest has dropped. Put a micro-CTA (like, subscribe, comment) in the middle — where retention is still high.
+
+---
+
+## Rule 8: Script the Pauses
+
+Mark where you'll pause for emphasis. A well-placed pause before a key point is more powerful than any adjective.
+
+> "The biggest mistake creators make with scripting is... [pause] ...writing for themselves instead of their audience."
+
+---
+
+## Rule 9: Know Your One Thing
+
+Every script should have one central idea. If you can't summarize your script in one sentence, it's not focused enough.
+
+**Test:** "This script will teach viewers [one specific thing] so they can [specific outcome]."
+
+---
+
+## Rule 10: The Last Line Matters as Much as the First
+
+The last line is what viewers remember. End with a clear CTA, a memorable statement, or a forward tease — never trail off.
+
+**Weak ending:** "Anyway, that's all I've got. Hope that helped. See you next time."
+
+**Strong ending:** "Start with Rule 1 on your next script. You'll feel the difference in your first read-through. I'll see you in the next one."
+
+---
+
+## Practice With Structure
+
+The fastest way to improve is to write with a framework — not a blank page. Scriva gives you the framework. You fill in your expertise.
+
+Generate a structured script in 10 seconds — free.
+    `,
+  },
+
+  "how-to-make-money-youtube-scripts": {
+    title: "How Better Scripts Help You Make More Money on YouTube",
+    desc: "The direct link between script quality, retention, ad revenue, and sponsorship rates — with the data to back it up.",
+    tag: "YouTube",
+    date: "Apr 28, 2025",
+    readTime: "7 min read",
+    content: `
+## The Script → Revenue Connection
+
+Most creators think about scripts as a creative tool. The smartest creators treat them as a revenue lever.
+
+Here's the direct chain: **better scripts → higher retention → more recommendations → more views → more revenue**.
+
+---
+
+## How YouTube Pays You (And What Scripts Control)
+
+### Ad Revenue (CPM × Views)
+YouTube pays based on ad impressions. More views = more revenue. But the algorithm only recommends videos with strong retention signals — which come from script quality.
+
+**Script impact:** A re-hook at 30 seconds, mid-video retention loops, and tight pacing directly improve the metrics that trigger recommendations.
+
+### RPM (Revenue Per Mille)
+Your actual earnings per 1,000 views. Higher RPM comes from:
+- Viewers watching more of the video (more ad breaks triggered)
+- Viewers in high-CPM niches (finance, business, tech, software)
+
+**Script impact:** Longer average view duration = more ad breaks = higher RPM. A 6-minute video where viewers watch 5 minutes earns significantly more than a 10-minute video where they drop off at 3.
+
+---
+
+## The Sponsorship Multiplier
+
+Sponsors pay based on your CPM, niche, and engagement rate — not just subscriber count. A channel with 20k engaged subscribers in the finance niche can command $2,000–$5,000 per integration.
+
+**What sponsors look at:**
+- Average view duration (scripts control this)
+- Comment engagement (scripts can prompt this)
+- Audience demographics (content niche determines this)
+
+The best sponsor reads are scripted — not winging it. A scripted sponsor integration that fits naturally into the content performs 2–3× better than a bolted-on read.
+
+---
+
+## The Script Quality → Views Data
+
+Internal data from channels using structured scripts vs. unscripted content consistently shows:
+- 30–45% higher average view duration with structured scripts
+- 2× higher comment rates when a specific comment prompt is included
+- 15–25% higher CTR when the title mirrors the script's opening hook
+
+---
+
+## 5 Script Elements That Directly Increase Revenue
+
+### 1. The Hook (Drives CTR)
+A stronger hook = higher CTR = more impressions = more ad revenue.
+
+### 2. The Re-Hook at 30 Seconds (Drives Retention)
+Prevents the biggest drop-off point. Every percentage point of retention improvement compounds across your library.
+
+### 3. The Comment Prompt (Drives Engagement)
+> "Drop a comment — [specific question related to the video]."
+Higher comment rates signal quality to the algorithm.
+
+### 4. The End Screen CTA (Drives Watch Time)
+> "Watch this next — it continues exactly where this left off."
+Keeping viewers in your channel increases your session watch time, which the algorithm rewards.
+
+### 5. The Sponsor Integration (Drives Sponsor Revenue)
+A scripted, story-led sponsor read outperforms a straight product pitch. Weave the sponsor into a relevant story before the pitch.
+
+---
+
+## How to Start Writing Revenue-Optimized Scripts
+
+1. Pick a high-CPM topic in your niche
+2. Structure it with: Hook → Re-hook → Value → Engagement CTA → End CTA
+3. Keep it tight — no padding
+4. Include one sponsor slot naturally in the middle third
+
+Or generate a structured script in 10 seconds with Scriva — free.
+    `,
+  },
 };
 
 type Props = { params: Promise<{ slug: string }> };

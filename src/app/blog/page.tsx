@@ -227,6 +227,46 @@ const POSTS: Post[] = [
     date: "Jun 10, 2025",
     readTime: "6 min read",
   },
+  {
+    slug: "scriva-vs-chatgpt",
+    title: "Scriva vs ChatGPT for Script Writing: An Honest Comparison",
+    desc: "Both use GPT-4.1 under the hood — so why does Scriva produce better scripts? Here's the honest breakdown.",
+    tag: "AI Tools",
+    date: "May 10, 2025",
+    readTime: "6 min read",
+  },
+  {
+    slug: "cold-email-script-template",
+    title: "Cold Email Script Template: The 3-Sentence Formula That Gets Replies",
+    desc: "The exact cold email script structure used by top sales teams — short, specific, and built for replies, not pitches.",
+    tag: "Conversion",
+    date: "May 9, 2025",
+    readTime: "6 min read",
+  },
+  {
+    slug: "youtube-algorithm-2025",
+    title: "YouTube Algorithm 2025: What Actually Gets Videos Recommended",
+    desc: "The signals that matter in 2025 — and how to write scripts that hit every one of them.",
+    tag: "YouTube",
+    date: "May 6, 2025",
+    readTime: "7 min read",
+  },
+  {
+    slug: "script-writing-tips-beginners",
+    title: "Script Writing Tips for Beginners: 10 Rules That Separate Good Scripts from Bad",
+    desc: "The fundamentals that professional scriptwriters follow — and that beginners skip. Master these before anything else.",
+    tag: "YouTube",
+    date: "May 3, 2025",
+    readTime: "6 min read",
+  },
+  {
+    slug: "how-to-make-money-youtube-scripts",
+    title: "How Better Scripts Help You Make More Money on YouTube",
+    desc: "The direct link between script quality, retention, ad revenue, and sponsorship rates — with the data to back it up.",
+    tag: "YouTube",
+    date: "Apr 28, 2025",
+    readTime: "7 min read",
+  },
 ];
 
 const TAG_COLORS: Record<string, string> = {

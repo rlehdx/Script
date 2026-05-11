@@ -37,6 +37,7 @@ const AGENCY_FEATURES = [
   "Custom brand voice",
   "Priority generation speed",
   "Dedicated support",
+  "30-day money-back guarantee",
 ];
 
 type BillingCycle = "monthly" | "annual";
@@ -188,7 +189,7 @@ export default function PricingPage() {
               </div>
 
               <div className="mb-8">
-                <span className="text-xs font-semibold uppercase tracking-widest text-purple-400">Creator</span>
+                <span className="text-xs font-semibold uppercase tracking-widest text-purple-400">Pro</span>
                 <div className="mt-3 flex items-baseline gap-1">
                   <span className="text-5xl font-bold">
                     {billingCycle === "annual" ? "$15" : "$19"}
@@ -226,7 +227,7 @@ export default function PricingPage() {
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
                   </svg>Opening checkout...</>
                 ) : (
-                  `Upgrade to Creator — ${billingCycle === "annual" ? "$190/yr" : "$19/mo"}`
+                  `Upgrade to Pro — ${billingCycle === "annual" ? "$190/yr" : "$19/mo"}`
                 )}
               </button>
               {checkoutError && (
