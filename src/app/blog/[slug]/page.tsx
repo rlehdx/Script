@@ -2218,7 +2218,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: new Date(post.date).toISOString(),
       images: [
         {
-          url: `${APP_URL}/og-image.png`,
+          url: `${APP_URL}/og-image.png?title=${encodeURIComponent(post.title)}&tag=${encodeURIComponent(post.tag)}`,
           width: 1200,
           height: 630,
           alt: post.title,

@@ -215,7 +215,7 @@ function DashboardContent() {
                     {usage.limit - usage.scriptsUsed} script{usage.limit - usage.scriptsUsed === 1 ? "" : "s"} remaining
                   </p>
                   <p className="text-xs text-slate-400 mt-0.5">
-                    Creator plan gives you 100/mo + longer video scripts
+                    Pro plan gives you 200/mo + longer video scripts
                   </p>
                 </div>
               </div>
@@ -422,12 +422,34 @@ function DashboardContent() {
                 </Link>
               )}
             </div>
-            <ScriptHistory
-              scripts={scripts}
-              loading={loadingHistory}
-              planType={usage.planType}
-              onRegenerate={handleRegenerate}
-            />
+            {!loadingHistory && scripts.length === 0 ? (
+              <div className="bezel-card p-10 flex flex-col items-center text-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" className="text-slate-500">
+                    <path d="M4 4h14v2H4V4zm0 4h10v2H4V8zm0 4h12v2H4v-2zm0 4h8v2H4v-2z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-slate-300 mb-1">No scripts yet</p>
+                  <p className="text-xs text-slate-500 max-w-xs">
+                    Fill in your topic above and hit Generate — your first script will appear here.
+                  </p>
+                </div>
+                <button
+                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                  className="btn-primary text-xs py-2 px-4"
+                >
+                  Generate your first script →
+                </button>
+              </div>
+            ) : (
+              <ScriptHistory
+                scripts={scripts}
+                loading={loadingHistory}
+                planType={usage.planType}
+                onRegenerate={handleRegenerate}
+              />
+            )}
           </div>
         </div>
       </div>

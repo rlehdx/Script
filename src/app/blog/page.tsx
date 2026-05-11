@@ -1,6 +1,7 @@
 ﻿import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BlogList from "@/components/BlogList";
 import type { Metadata } from "next";
 
 interface Post {
@@ -289,6 +290,8 @@ const jsonLdCollection = {
   publisher: { "@type": "Organization", name: "Scriva", url: "https://scriva.online" },
 };
 
+const ALL_TAGS = ["All", "YouTube", "TikTok", "VSL", "AI Tools", "Podcast", "Paid Ads", "Conversion"];
+
 export default function BlogIndexPage() {
   return (
     <>
@@ -312,35 +315,7 @@ export default function BlogIndexPage() {
             </p>
           </header>
 
-          <div className="flex flex-col gap-px bg-white/5 rounded-sm overflow-hidden">
-            {POSTS.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="group bg-[#0A0A0F] hover:bg-white/[0.03] transition-colors p-6 flex flex-col gap-2"
-              >
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span
-                    className={`text-xs border rounded-full px-2.5 py-0.5 font-medium ${
-                      TAG_COLORS[post.tag] ?? "text-purple-300 bg-purple-500/10 border-purple-500/20"
-                    }`}
-                  >
-                    {post.tag}
-                  </span>
-                  <span className="text-xs text-slate-600">{post.readTime}</span>
-                  <span className="text-xs text-slate-600">·</span>
-                  <span className="text-xs text-slate-600">{post.date}</span>
-                </div>
-                <h2 className="text-base font-semibold text-white group-hover:text-slate-200 transition-colors leading-snug">
-                  {post.title}
-                </h2>
-                <p className="text-sm text-slate-500 leading-relaxed">{post.desc}</p>
-                <span className="text-xs text-purple-400 group-hover:text-purple-300 transition-colors mt-1">
-                  Read guide →
-                </span>
-              </Link>
-            ))}
-          </div>
+          <BlogList posts={POSTS} allTags={ALL_TAGS} tagColors={TAG_COLORS} />
 
           <div className="mt-12 text-center">
             <p className="text-sm text-slate-500 mb-4">
