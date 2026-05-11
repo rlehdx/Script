@@ -144,11 +144,11 @@ export default function GuestGenerator() {
         <p style={{ color: "rgba(192,192,200,0.25)", fontSize: "0.75rem", marginBottom: "2rem" }}>
           No credit card required.
         </p>
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", alignItems: "center" }}>
-          <Link href="/sign-up" className="btn-gold" style={{ minWidth: 240, justifyContent: "center" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", alignItems: "stretch", width: "100%", maxWidth: "320px", margin: "0 auto" }}>
+          <Link href="/sign-up" className="btn-gold" style={{ justifyContent: "center", width: "100%" }}>
             Create Free Account — 5 scripts/mo
           </Link>
-          <Link href="/pricing" className="btn-ghost" style={{ minWidth: 240, justifyContent: "center" }}>
+          <Link href="/pricing" className="btn-ghost" style={{ justifyContent: "center", width: "100%" }}>
             View Plans
           </Link>
         </div>
@@ -193,7 +193,7 @@ export default function GuestGenerator() {
       )}
 
       {/* Form grid */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "1rem", marginBottom: "1rem" }}>
         <div>
           <label htmlFor="guest-script-type" style={labelStyle}>Script type</label>
           <select id="guest-script-type" value={scriptType} onChange={(e) => setScriptType(e.target.value)} style={selectStyle}>
@@ -222,7 +222,8 @@ export default function GuestGenerator() {
               key={d}
               onClick={() => setDuration(d)}
               style={{
-                padding: "0.4rem 1rem",
+                padding: "0.6rem 1.1rem",
+                minHeight: "44px",
                 fontSize: "0.75rem",
                 fontWeight: 500,
                 fontFamily: "var(--font-body)",
@@ -248,7 +249,8 @@ export default function GuestGenerator() {
               href="/sign-up"
               title="Sign up to unlock"
               style={{
-                padding: "0.4rem 0.75rem",
+                padding: "0.6rem 0.85rem",
+                minHeight: "44px",
                 fontSize: "0.75rem",
                 fontWeight: 500,
                 fontFamily: "var(--font-body)",

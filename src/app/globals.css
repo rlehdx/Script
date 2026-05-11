@@ -617,6 +617,15 @@
     min-height: 44px;
   }
 
+  /* 입력 필드 터치 타겟 */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea,
+  select {
+    min-height: 44px;
+  }
+
   /* 모바일에서 버튼 전체 너비 */
   @media (max-width: 480px) {
     .hero-cta-group {

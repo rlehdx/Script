@@ -124,7 +124,7 @@ export default function SettingsPage() {
                   ? `${user.firstName} ${user.lastName}`
                   : user?.firstName ?? "User"}
               </p>
-              <p className="text-sm text-slate-500">{userEmail}</p>
+              <p className="text-sm text-slate-500 truncate max-w-[200px]">{userEmail}</p>
             </div>
             <div className="ml-auto">
               <span className={`text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full border ${badge.className}`}>

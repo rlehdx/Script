@@ -149,7 +149,7 @@ export default function DashboardLayout({
               animate={{ x: 0 }}
               exit={{ x: -240 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="md:hidden fixed inset-y-0 left-0 z-50 w-56 bg-bg-secondary border-r border-white/5"
+              className="md:hidden fixed inset-y-0 left-0 z-50 w-4/5 max-w-xs bg-bg-secondary border-r border-white/5"
             >
               <SidebarContent />
             </motion.aside>
@@ -163,7 +163,8 @@ export default function DashboardLayout({
         <div className="md:hidden flex items-center justify-between px-5 py-2.5 border-b border-white/5">
           <button
             onClick={() => setMobileSidebarOpen(true)}
-            className="p-2 rounded-lg hover:bg-white/5 transition-colors"
+            className="p-3 rounded-lg hover:bg-white/5 transition-colors"
+            style={{ minWidth: 44, minHeight: 44, display: "flex", alignItems: "center", justifyContent: "center" }}
           >
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
               <path d="M2 4.5H16M2 9H16M2 13.5H16" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>

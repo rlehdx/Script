@@ -185,7 +185,7 @@ function DashboardContent() {
           </motion.div>
         )}
 
-        <div className="p-6 max-w-5xl mx-auto">
+        <div className="px-4 py-5 md:p-6 max-w-5xl mx-auto">
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <div>
